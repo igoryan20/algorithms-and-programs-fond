@@ -33,9 +33,18 @@
                  Админ
               </a>
               <div class="dropdown-menu" aria-labelledby="categoriesDropdown">
-                <a class="dropdown-item" href=""></a>
-                <a class="dropdown-item" href="">First</a>
-                <a class="dropdown-item" href="">First</a>
+                <a class="dropdown-item" href="">Создать новость</a>
+                <a class="dropdown-item" href="">Создать продукт</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="">Новые продукты</a>
+                <a class="dropdown-item" href="">Все продукты</a>
+                <a class="dropdown-item" href="">Запросы статуса разработчика</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="">Категории</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="">Пользователи</a>
+                <a class="dropdown-item" href="">Группы</a>
+                <a class="dropdown-item" href="">Разрешения</a>
               </div>
             </li>
           </ul>
