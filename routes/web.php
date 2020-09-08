@@ -16,7 +16,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('pages/home');
 });
-
-Route::get('/programs', function () {
-    return view('pages/programs');
-});
