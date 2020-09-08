@@ -10,13 +10,33 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="/programs">Программы<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="/news">Новости<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown"
+                 role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 Категории
+              </a>
+              <div class="dropdown-menu" aria-labelledby="categoriesDropdown">
+                <a class="dropdown-item" href="">First</a>
+                <a class="dropdown-item" href="">First</a>
+                <a class="dropdown-item" href="">First</a>
+              </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Page 3</a>
+              <a class="nav-link" href="#">Статистика</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">page 4</a>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown"
+                 role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 Админ
+              </a>
+              <div class="dropdown-menu" aria-labelledby="categoriesDropdown">
+                <a class="dropdown-item" href=""></a>
+                <a class="dropdown-item" href="">First</a>
+                <a class="dropdown-item" href="">First</a>
+              </div>
             </li>
           </ul>
           <form class="form-inline my-2 my-lg-0">
