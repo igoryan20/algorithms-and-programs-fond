@@ -7,8 +7,3 @@
 @section('content')
     @include('components.home-content')
 @endsection
-
-@section('footer')
-    @include('components.footer')
-@endsection
-
