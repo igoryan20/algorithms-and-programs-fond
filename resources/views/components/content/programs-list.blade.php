@@ -2,11 +2,11 @@
     <ul class="list-group">
         <div class="list-group-item d-flex" style="background-color: #f9fbe7">
         <img src="{{ asset('/img/isq.png') }}" alt="картинка 1" class="mr-2" width="76px" height="76px"/>
-            <div >
+            <div>
                 <h5 class="mb-0">isq</h5>
-                <p class="mb-0">Служба мгновенного обмена сообщениями внутри сети.</p>
+                <p class="mb-1">Служба мгновенного обмена сообщениями внутри сети.</p>
                 <div>
-                    <i class="fas fa-camera"></i>
+                    <i class="fab fa-windows"></i>
                 </div>
             </div>
         </div>
