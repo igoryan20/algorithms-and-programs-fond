@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use ProgramsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('pages/home');
+
+    $data = [
+        ['id' => 1, 'name' => 'isq', 'img' => asset('img/isq.png')],
+        ['id' => 2, 'name' => 'Truehero'],
+        ['id' => 3, 'name' => 'Truecoder'],
+    ];
+
+    return view('pages/home', ['data' => $data]);
 });
