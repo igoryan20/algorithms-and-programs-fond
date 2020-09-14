@@ -37702,7 +37702,7 @@ var render = function() {
               _c("img", {
                 staticClass: "mr-2",
                 attrs: {
-                  src: item.img,
+                  src: _vm.assert(item.imgPath),
                   alt: "картинка 1",
                   width: "76px",
                   height: "76px"
@@ -37713,7 +37713,7 @@ var render = function() {
                 _c("h5", { staticClass: "mb-0" }, [_vm._v(_vm._s(item.name))]),
                 _vm._v(" "),
                 _c("p", { staticClass: "mb-1" }, [
-                  _vm._v("Служба мгновенного обмена сообщениями внутри сети.")
+                  _vm._v(_vm._s(item.description))
                 ]),
                 _vm._v(" "),
                 _vm._m(0, true)
