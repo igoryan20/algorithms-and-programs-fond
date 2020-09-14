@@ -2,11 +2,11 @@
     <input type="text" class="form-control mb-4" placeholder="Название программы"/>
 
     <div>
-        <card-with-select />
+        <card-with-checkboxes header="Категории" />
     </div>
 
     <div>
-        <card-with-checkboxes :data='@json($data)' :header='asdf' />
+        <card-with-select />
     </div>
 
 </div>

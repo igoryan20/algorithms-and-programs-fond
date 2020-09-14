@@ -2,7 +2,7 @@
 
 
     <div class="ml-5 mt-5">
-        <programs-list :data='@json($data)' />
+        <programs-list :programs-data='@json($programsData)' />
     </div>
 
     <div class="mr-5 mt-5">

@@ -1997,10 +1997,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'ProgramsList',
-  props: ['data', 'imgPath'],
-  mounted: function mounted() {
-    console.log(this.data);
-  }
+  props: ['programsData']
 });
 
 /***/ }),
@@ -37693,7 +37690,7 @@ var render = function() {
       _c(
         "ul",
         { staticClass: "list-group" },
-        _vm._l(_vm.data, function(item) {
+        _vm._l(_vm.programsData, function(item) {
           return _c(
             "div",
             {
