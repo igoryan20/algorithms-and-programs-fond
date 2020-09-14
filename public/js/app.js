@@ -1992,9 +1992,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'ProgramsList',
-  props: ['data'],
+  props: ['data', 'imgPath'],
   mounted: function mounted() {
     console.log(this.data);
   }
@@ -37702,7 +37704,7 @@ var render = function() {
               _c("img", {
                 staticClass: "mr-2",
                 attrs: {
-                  src: _vm.assert(item.imgPath),
+                  src: item.imgPath,
                   alt: "картинка 1",
                   width: "76px",
                   height: "76px"
@@ -37716,7 +37718,19 @@ var render = function() {
                   _vm._v(_vm._s(item.description))
                 ]),
                 _vm._v(" "),
-                _vm._m(0, true)
+                _c("div", [
+                  item.windows
+                    ? _c("i", { staticClass: "fab fa-windows" })
+                    : _vm._e(),
+                  _vm._v(" "),
+                  item.macOS
+                    ? _c("i", { staticClass: "fab fa-apple" })
+                    : _vm._e(),
+                  _vm._v(" "),
+                  item.linux
+                    ? _c("i", { staticClass: "fab fa-linux" })
+                    : _vm._e()
+                ])
               ])
             ]
           )
@@ -37726,14 +37740,7 @@ var render = function() {
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [_c("i", { staticClass: "fab fa-windows" })])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
