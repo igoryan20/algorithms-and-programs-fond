@@ -1994,6 +1994,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'ProgramsList',
   props: ['data', 'imgPath'],
@@ -37701,15 +37702,25 @@ var render = function() {
               staticStyle: { "background-color": "#f9fbe7" }
             },
             [
-              _c("img", {
-                staticClass: "mr-2",
-                attrs: {
-                  src: item.imgPath,
-                  alt: "картинка 1",
-                  width: "76px",
-                  height: "76px"
-                }
-              }),
+              item.imgPath != null
+                ? _c("img", {
+                    staticClass: "mr-2",
+                    attrs: {
+                      src: item.imgPath,
+                      alt: "картинка 1",
+                      width: "76px",
+                      height: "76px"
+                    }
+                  })
+                : _c("img", {
+                    staticClass: "mr-2",
+                    attrs: {
+                      src: "/img/default.png",
+                      alt: "картинка 1",
+                      width: "76px",
+                      height: "76px"
+                    }
+                  }),
               _vm._v(" "),
               _c("div", [
                 _c("h5", { staticClass: "mb-0" }, [_vm._v(_vm._s(item.name))]),

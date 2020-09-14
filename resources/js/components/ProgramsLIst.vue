@@ -2,7 +2,8 @@
     <div class="container" style="width: 70vw">
         <ul class="list-group">
             <div v-for="item in data" :key="item.id" class="list-group-item d-flex" style="background-color: #f9fbe7">
-                <img :src="item.imgPath" alt="картинка 1" class="mr-2" width="76px" height="76px"/>
+                <img v-if="item.imgPath != null" :src="item.imgPath" alt="картинка 1" class="mr-2" width="76px" height="76px"/>
+                <img v-else src="/img/default.png" alt="картинка 1" class="mr-2" width="76px" height="76px"/>
                 <div>
                     <h5 class="mb-0">{{ item.name }}</h5>
                     <p class="mb-1">{{ item.description }}</p>
