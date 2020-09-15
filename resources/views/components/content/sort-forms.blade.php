@@ -1,5 +1,6 @@
 <div class="container border">
-    <input type="text" class="form-control mb-4" placeholder="Название программы"/>
+
+    <input id="search" type="text" class="form-control mb-4" placeholder="Название программы"/>
 
     <div>
         <card-with-checkboxes header="Категории" />

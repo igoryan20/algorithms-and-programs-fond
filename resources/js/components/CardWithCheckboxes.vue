@@ -15,9 +15,6 @@
 <script>
 export default {
     name: 'CardWithCheckboxes',
-    props: ['data', 'header'],
-    mounted() {
-        console.log('Category sort created.')
-    }
+    props: ['data', 'header']
 }
 </script>

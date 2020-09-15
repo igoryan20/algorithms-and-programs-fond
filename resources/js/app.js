@@ -31,3 +31,5 @@ Vue.component('card-with-select', require('./components/CardWithSelect.vue').def
 const app = new Vue({
     el: '#app',
 });
+
+require('./custom_jquery');
