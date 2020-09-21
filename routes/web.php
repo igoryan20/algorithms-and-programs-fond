@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use ProgramsListController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,4 +12,5 @@ use ProgramsListController;
 |
 */
 
-Route::get('/', ProgramsListController::class);
+Route::get('/', 'ProgramsListController@initializate');
+

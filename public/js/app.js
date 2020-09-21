@@ -53036,13 +53036,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery_ui_ui_widgets_autocomplete_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery_ui_ui_widgets_autocomplete_js__WEBPACK_IMPORTED_MODULE_1__);
 
 window.$ = window.jQuery = jquery__WEBPACK_IMPORTED_MODULE_0___default.a;
-
-jquery__WEBPACK_IMPORTED_MODULE_0___default()(function () {
-  var langs = ["ActionScript", "AppleScript", "Asp", "BASIC", "C", "C++", "Clojure", "COBOL", "ColdFusion", "Erlang", "Fortran", "Groovy", "Haskell", "Java", "JavaScript", "Lisp", "Perl", "PHP", "Python", "Ruby", "Scala", "Scheme"];
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()("#search").autocomplete({
-    source: langs
-  });
-});
+ // $('#search').autocomplete({
+//     source:"{!!URL::route('autocomplete')!!}"
+// });
 
 /***/ }),
 
