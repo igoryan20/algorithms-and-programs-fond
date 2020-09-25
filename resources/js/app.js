@@ -18,9 +18,7 @@ window.Vue = require('vue');
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-Vue.component('programs-list', require('./components/ProgramsList.vue').default);
-Vue.component('card-with-checkboxes', require('./components/CardWithCheckboxes.vue').default);
-Vue.component('card-with-select', require('./components/CardWithSelect.vue').default);
+require('./registerVue');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -29,7 +27,7 @@ Vue.component('card-with-select', require('./components/CardWithSelect.vue').def
  */
 
 const app = new Vue({
-    el: '#app',
+    el: '#app'
 });
 
 require('./custom_jquery');

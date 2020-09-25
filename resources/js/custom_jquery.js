@@ -3,6 +3,16 @@ window.$ = window.jQuery = $;
 
 import 'jquery-ui/ui/widgets/autocomplete.js';
 
-// $('#search').autocomplete({
-//     source:"{!!URL::route('autocomplete')!!}"
-// });
+$( function() {
+    $('#search').autocomplete({
+        source: function ( request ) {
+            $.ajax({
+                url: "/?" + request.term,
+                method: "GET",
+                success: function(data) {
+                    $('#search').html(data);
+                }
+            });
+        }
+    });
+} );

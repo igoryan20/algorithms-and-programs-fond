@@ -18,18 +18,7 @@ class ProgramsListController extends Controller {
             } else {
                 $programsData = ProgramsList::all();
             }
-
-
-
-            return view('pages/home', ['programsData' => $programsData]);
-
-    }
-
-    public function update($query) {
-
-        $programsData = ProgramsList::all();
-
-        return view('pages/home', ['programsData' => $programsData]);
+            return view('/main', ['programsData' => $programsData]);
     }
 }
 ?>

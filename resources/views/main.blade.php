@@ -9,12 +9,10 @@
     <title>Фонд Алгоритмов и Программ</title>
 </head>
 <body>
-    @yield('header')
 
     <div id="app">
-        @yield('content')
+        <main-page />
     </div>
-
     <script src="{{ asset('/js/app.js') }}"></script>
 </body>
 </html>
