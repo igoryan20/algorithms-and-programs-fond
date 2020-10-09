@@ -1,6 +1,6 @@
-<div class="card">
+<div class="card mb-4">
     <div class="card-header">
-        Вид
+        {{ $title }}
     </div>
     <div class="card-body">
         <select class="custom-select">

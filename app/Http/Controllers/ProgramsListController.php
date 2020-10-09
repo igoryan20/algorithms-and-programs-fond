@@ -18,7 +18,7 @@ class ProgramsListController extends Controller {
             } else {
                 $programsData = ProgramsList::all();
             }
-            return view('/pages/main-page', ['programsData' => $programsData]);
+            return view('/pages/home-page', ['programsData' => $programsData]);
     }
 }
 ?>

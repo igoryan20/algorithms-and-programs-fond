@@ -1,6 +1,6 @@
 <div>
 
-    <div class="container" style="width: 70vw">
+    <div class="container mb-4" style="width: 70vw">
         <ul class="list-group">
             @foreach ($programsData as $item)
                 <div class="list-group-item d-flex" style="background-color: #f9fbe7">
