@@ -19,9 +19,6 @@ require('./bootstrap');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-// Использовать Компоненты Vue на будущее
-// require('./registerVue');
-
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -31,5 +28,3 @@ require('./bootstrap');
 // const app = new Vue({
 //     el: '#app'
 // });
-
-// require('./custom_jquery');

@@ -37280,8 +37280,6 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // window
  */
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-// Использовать Компоненты Vue на будущее
-// require('./registerVue');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -37291,7 +37289,6 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // window
 // const app = new Vue({
 //     el: '#app'
 // });
-// require('./custom_jquery');
 
 /***/ }),
 
