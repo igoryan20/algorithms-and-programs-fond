@@ -12,5 +12,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'ProgramsListController@initializate');
+Route::get('/', ProgramsListController::class);
 

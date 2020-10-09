@@ -1,5 +1,5 @@
-<template>
-    <div class="container" style="width: 70vw">
+<div>
+    {{-- <div class="container" style="width: 70vw">
         <ul class="list-group">
             <div v-for="item in programsData" :key="item.id" class="list-group-item d-flex" style="background-color: #f9fbe7">
                 <img v-if="item.imgPath != null" :src="item.imgPath" alt="картинка 1" class="mr-2" width="76px" height="76px"/>
@@ -15,11 +15,5 @@
                 </div>
             </div>
         </ul>
-    </div>
-</template>
-
-<script>
-    export default {
-        name: 'ProgramsList'
-    }
-</script>
+    </div> --}}
+</div>

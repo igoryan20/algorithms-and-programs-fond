@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class ProgramsListController extends Controller {
 
-    public function initializate(Request $request) {
+    public function __invoke(Request $request) {
 
 
             $search = $request->input('search');
@@ -18,7 +18,7 @@ class ProgramsListController extends Controller {
             } else {
                 $programsData = ProgramsList::all();
             }
-            return view('/main', ['programsData' => $programsData]);
+            return view('/pages/main-page', ['programsData' => $programsData]);
     }
 }
 ?>

@@ -6,13 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
     <script src="https://kit.fontawesome.com/66261627a2.js" crossorigin="anonymous"></script>
-    <title>Фонд Алгоритмов и Программ</title>
+    <title>ФАП - @yield('title')</title>
 </head>
 <body>
 
     <div id="app">
-        <main-page />
+        @yield('layout-content')
     </div>
+
     <script src="{{ asset('/js/app.js') }}"></script>
 </body>
 </html>
