@@ -6,14 +6,12 @@ use Illuminate\View\Component;
 
 class ProgramsList extends Component
 {
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct()
+
+    public $programsData;
+
+    public function __construct($data)
     {
-        //
+        $this->programsData = $data;
     }
 
     /**

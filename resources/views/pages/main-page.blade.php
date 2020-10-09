@@ -5,5 +5,6 @@
 @endsection
 
 @section('page-content')
-    <x-home-page />
+    <x-home-page :programsData="$programsData"/>
+
 @endsection
