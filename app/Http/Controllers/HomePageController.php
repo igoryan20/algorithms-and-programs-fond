@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\ProgramsList;
+use App\Models\ProgramsList;
+use App\Models\Categories;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ProgramsListController extends Controller {
+class HomePageController extends Controller {
 
     public function __invoke(Request $request) {
 
@@ -18,7 +19,10 @@ class ProgramsListController extends Controller {
             } else {
                 $programsData = ProgramsList::all();
             }
-            return view('/pages/home-page', ['programsData' => $programsData]);
+
+            $categories = Categories::all();
+
+            return view('/pages/home-page', ['programsData' => $programsData, 'categories' => $categories]);
     }
 }
 ?>

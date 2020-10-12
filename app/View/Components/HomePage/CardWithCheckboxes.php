@@ -8,10 +8,12 @@ class CardWithCheckboxes extends Component
 {
 
     public $title;
+    public $checkboxes;
 
-    public function __construct($title)
+    public function __construct($title, $checkboxes)
     {
         $this->title = $title;
+        $this->checkboxes = $checkboxes;
     }
 
     /**

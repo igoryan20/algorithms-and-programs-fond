@@ -4,10 +4,12 @@
             <div class="card-header" :v-bind="header">
                 {{ $title }}
             </div>
-            <div v-for="item in data" :key="item.id" class="card-body d-flex flex-row py-1">
-                <input type="checkbox" class="mr-2 mt-1" />
-                <p class="card-text">Первый</p>
-            </div>
+            @foreach($checkboxes as $item)
+                <div class="card-body d-flex flex-row py-1">
+                    <input type="checkbox" class="mr-2 mt-1" />
+                    <p class="card-text">{{ $item->name }}</p>
+                </div>
+            @endforeach
         </div>
     </div>
 </div>

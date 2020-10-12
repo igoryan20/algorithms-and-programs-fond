@@ -9,9 +9,9 @@ class ProgramsList extends Component
 
     public $programsData;
 
-    public function __construct($data)
+    public function __construct($programsData)
     {
-        $this->programsData = $data;
+        $this->programsData = $programsData;
     }
 
     /**

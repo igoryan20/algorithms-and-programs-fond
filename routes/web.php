@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', ProgramsListController::class);
+Route::get('/', HomePageController::class);
 
 Route::get('/create-product', CreateProductController::class);
 
