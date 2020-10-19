@@ -16,10 +16,10 @@
             <input id="search" name="search" type="text"
               class="form-control mb-4" placeholder="Название программы"/>
           </form>
-            <x-home-page.card-with-checkboxes title="Категории" :checkboxes="$categories"/>
+            <x-home-page.card-with-checkboxes title="Категории" :checkboxes="$categories" entity="category" />
             <x-home-page.card-with-select title="Вид" />
             <x-home-page.card-with-select title="Стоимость" />
-            <x-home-page.card-with-checkboxes title="Операционная система" :checkboxes="[1, 2, 3]" />
+            <x-home-page.card-with-checkboxes title="Операционная система" :checkboxes="$os" entity="os" />
         </div>
       </div>
 

@@ -10,16 +10,16 @@
                         <img src="/img/default.png" alt="картинка 1" class="mr-2" width="76px" height="76px">
                     @endif
                     <div>
-                        <h5 class="mb-0">{{ $item->name }}</h5>
+                        <h5 class="mb-0">{{ $item->programName }}</h5>
                         <p class="mb-1">{{ $item->description }}</p>
                         <div>
-                            @if ($item->windows)
+                            @if (in_array(1, $item->os))
                                 <i class="fab fa-windows"></i>
                             @endif
-                            @if ($item->macOS)
+                            @if (in_array(2, $item->os))
                                 <i class="fab fa-apple"></i>
                             @endif
-                            @if ($item->linux)
+                            @if (in_array(3, $item->os))
                                 <i class="fab fa-linux"></i>
                             @endif
                         </div>

@@ -7,7 +7,7 @@
             @foreach($checkboxes as $item)
                 <div class="card-body d-flex flex-row py-1">
                     <input type="checkbox" class="mr-2 mt-1" />
-                    <p class="card-text">{{ $item->name }}</p>
+                    <p class="card-text">{{ $item[$entity] }}</p>
                 </div>
             @endforeach
         </div>
