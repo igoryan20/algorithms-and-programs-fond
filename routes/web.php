@@ -16,5 +16,7 @@ Route::get('/', HomePageController::class);
 
 Route::get('/create-product', CreateProductController::class);
 
+Route::get('/create-news', CreateNewsController::class);
+
 Route::get('/profile', ProfileController::class);
 
