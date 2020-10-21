@@ -12,12 +12,12 @@
 
     <div class="mr-auto ml-auto w-75">
         <div class="d-flex flex-row">
-            <img src="/img/default.png" alt="" class="w-25 mr-4">
+            <img src="/img/admin.jpg" alt="" class="w-25 mr-4">
             <div>
                 <h2>admin</h2>
-                <p>Admin Admin Admin</p>
+                <p>Иванов Иван Иванович</p>
                 <button type="button" class="btn btn-dark mb-4">Изменить</button>
-                <h4>Статус: admin</h4>
+                <h4>Статус: системный разработчик</h4>
             </div>
         </div>
     </div>

@@ -15,13 +15,13 @@
           <form action="/" method="GET" >
             <input id="search" name="search" type="text"
               class="form-control mb-4" placeholder="Название программы"/>
-          </form>
             <x-home-page.card-with-checkboxes title="Категории" :checkboxes="$categories" entity="category" />
             <x-home-page.card-with-select title="Вид" />
             <x-home-page.card-with-select title="Стоимость" />
             <x-home-page.card-with-checkboxes title="Операционная система" :checkboxes="$os" entity="os" />
+            <button type='submit' class="btn btn-primary w-100 mb-4" >Применить фильтр</button>
+          </form>
         </div>
       </div>
-
     </div>
 @endsection

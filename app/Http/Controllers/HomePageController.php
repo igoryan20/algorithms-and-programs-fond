@@ -13,14 +13,42 @@ class HomePageController extends Controller {
 
     public function __invoke(Request $request) {
 
+            $programsData = ProgramsList::all();
+            $programsOS = ProgramsOs::all();
 
             $search = $request->input('search');
+            $checkbox_category = $request->input('checkbox-category');
+            $checkbox_os = $request->input('checkbox-os');
 
             if($search) {
                 $programsData = ProgramsList::where('programName', 'LIKE', '%'.$search.'%')->get();
-            } else {
-                $programsData = ProgramsList::all();
             }
+            // if($checkbox_category) {
+            //     foreach ($programsData as $program) {
+            //         foreach($checkbox_category as $cat) {
+            //             $programsCategory =
+            //         }
+            //     }
+            // }
+
+            if($checkbox_os) {
+                $newProgramsData = [];
+                $id = null;
+                foreach ($programsData as $program) {
+                    foreach($checkbox_os as $os) {
+                        foreach($programsOS as $po) {
+                            if($program->id == $po->programId && $os == $po->osId) {
+                                if ($id != $program->id) {
+                                    array_push($newProgramsData, $program);
+                                }
+                                $id = $program->id;
+                            }
+                        }
+                    }
+                }
+                $programsData = $newProgramsData;
+            }
+
 
             $programsOS = ProgramsOs::all();
             $os = OS::all();
@@ -38,7 +66,8 @@ class HomePageController extends Controller {
 
             $categories = Categories::all();
 
-            return view('/pages/home-page', ['programsData' => $programsData,'os' => $os, 'categories' => $categories]);
-    }
+            return view('/pages/home-page',
+                        ['programsData' => $programsData,'os' => $os, 'categories' => $categories]);
+        }
 }
 ?>
