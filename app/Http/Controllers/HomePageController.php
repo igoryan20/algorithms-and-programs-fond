@@ -8,66 +8,53 @@ use App\Models\OS;
 use App\Models\ProgramsOS;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomePageController extends Controller {
 
-    public function __invoke(Request $request) {
+    public function invoke(Request $request) {
 
-            $programsData = ProgramsList::all();
-            $programsOS = ProgramsOs::all();
+        $initData = DB::select('SELECT pl.*, os.os FROM programsList
+                                AS pl, os, programsOS AS po WHERE po.programId = pl.id
+                                AND po.osId = os.os_id;');
 
-            $search = $request->input('search');
-            $checkbox_category = $request->input('checkbox-category');
-            $checkbox_os = $request->input('checkbox-os');
+        $os = OS::all();
+        $categories = Categories::all();
 
-            if($search) {
-                $programsData = ProgramsList::where('programName', 'LIKE', '%'.$search.'%')->get();
-            }
-            // if($checkbox_category) {
-            //     foreach ($programsData as $program) {
-            //         foreach($checkbox_category as $cat) {
-            //             $programsCategory =
-            //         }
-            //     }
-            // }
-
-            if($checkbox_os) {
-                $newProgramsData = [];
-                $id = null;
-                foreach ($programsData as $program) {
-                    foreach($checkbox_os as $os) {
-                        foreach($programsOS as $po) {
-                            if($program->id == $po->programId && $os == $po->osId) {
-                                if ($id != $program->id) {
-                                    array_push($newProgramsData, $program);
-                                }
-                                $id = $program->id;
-                            }
-                        }
-                    }
-                }
-                $programsData = $newProgramsData;
-            }
-
-
-            $programsOS = ProgramsOs::all();
-            $os = OS::all();
-
-            $helper = [];
-            foreach ($programsData as $program) {
-                foreach($programsOS as $po) {
-                    if($program->id == $po->programId) {
-                        array_push($helper, $po->osId);
-                    }
-                    $program->os = $helper;
-                }
-                $helper = [];
-            }
-
-            $categories = Categories::all();
-
-            return view('/pages/home-page',
-                        ['programsData' => $programsData,'os' => $os, 'categories' => $categories]);
+        $search = $request->search;
+        if ($search) {
+            $initData = DB::select("SELECT pl.*, os.os FROM programsList
+                        AS pl, os, programsOS AS po WHERE po.programId = pl.id
+                        AND po.osId = os.os_id");
         }
+
+        if(!$initData) {
+            $programsData = [];
+        } else {
+            $programsData = $this->convert_init_data($initData);
+        }
+
+
+        return view('/pages/home-page',
+                    ['programsData' => $programsData,'os' => $os, 'categories' => $categories]);
+    }
+
+    private function convert_init_data($data) {
+
+        $itemRow;
+        $id = 0;
+        $repeat = false;
+        foreach ($data as $key => $item) {
+            if ($item->id == $id) {
+                array_push($itemRow->os, $item->os);
+                unset($data[$key]);
+            } else {
+                $item->os = array($item->os);
+                $itemRow = $item;
+                $id = $item->id;
+            }
+        }
+        return $data;
+    }
 }
 ?>

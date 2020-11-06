@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', HomePageController::class);
+Route::get('/', 'HomePageController@invoke');
 
 Route::get('/create-product', CreateProductController::class);
 
