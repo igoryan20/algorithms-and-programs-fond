@@ -14,7 +14,7 @@
         <div class="container">
           <form action="/" method="GET" >
             <input id="search" name="search" type="text"
-              class="form-control mb-4" placeholder="Название программы"/>
+              class="form-control mb-4" placeholder="Название программы" value="{{ $search }}"/>
             <x-home-page.card-with-checkboxes title="Категории" :checkboxes="$categories" entity="category" />
             <x-home-page.card-with-select title="Вид" />
             <x-home-page.card-with-select title="Стоимость" />
