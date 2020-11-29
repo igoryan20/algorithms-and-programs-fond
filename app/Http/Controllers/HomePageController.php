@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ProgramsList;
 use App\Models\Categories;
 use App\Models\OS;
 use App\Models\ProgramsOS;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\SearchProgramController;
 use App\Http\Controllers\CheckboxOsConroller;
+use App\Http\Controllers\CheckboxCategoryConroller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -35,19 +35,19 @@ class HomePageController extends Controller {
                 $spc = new SearchProgramController($search, $data);
                 $data = $spc->search();
             }
-            // // Проверка по категориям
-            // $checkbox_os = $request->checkbox_os;
-            // $ccoc = array();
-            // if ($checkbox_os) {
-            //     $ccoc = new CheckboxOsController($checkbox_os, $data);
-            //     $data = $ccoc->check();
-            // }
+            // Проверка по категориям
+            $checkbox_category = $request->checkbox_category;
+            $ccc = array();
+            if ($checkbox_category) {
+                $ccc = new CheckboxCategoryController($checkbox_category, $data);
+                $data = $ccc->check();
+            }
             // Проверка по операционным системам
             $checkbox_os = $request->checkbox_os;
-            $ccoc = array();
+            $coc = array();
             if ($checkbox_os) {
-                $ccoc = new CheckboxOsController($checkbox_os, $data);
-                $data = $ccoc->check();
+                $coc = new CheckboxOsController($checkbox_os, $data);
+                $data = $coc->check();
             }
             $programsData = $this->add_os($data);
         }
