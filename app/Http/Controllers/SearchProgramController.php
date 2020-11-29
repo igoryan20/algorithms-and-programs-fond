@@ -6,20 +6,18 @@ use Illuminate\Support\Facades\DB;
 class SearchProgramController extends Controller
 {
     private $searchRequest;
-    public function __construct(String $searchRequest)
+    private $data;
+    public function __construct(String $searchRequest, Array $data)
     {
         $this->searchRequest = $searchRequest;
+        $this->data = $data;
     }
 
     public function search() {
 
-        $initData = DB::select('SELECT pl.*, os.os FROM programsList
-                                AS pl, os, programsOS AS po WHERE po.programId = pl.id
-                                AND po.osId = os.os_id;');
-
         $searchData = array();
-        foreach ($initData as $program) {
-            if(strstr($program->programName, $this->searchRequest)) {
+        foreach ($this->data as $program) {
+            if(stristr($program->programName, $this->searchRequest)) {
                 array_push($searchData, $program);
             }
         }

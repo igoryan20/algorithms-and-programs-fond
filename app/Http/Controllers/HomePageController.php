@@ -8,6 +8,7 @@ use App\Models\OS;
 use App\Models\ProgramsOS;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\SearchProgramController;
+use App\Http\Controllers\CheckboxOsConroller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -20,34 +21,40 @@ class HomePageController extends Controller {
          $categories = Categories::all();
 
         // Начальные данные
-        $initData = DB::select('SELECT pl.*, os.os FROM programsList
+        $data = DB::select('SELECT pl.*, os.os, os.id AS os_id FROM programsList
                                 AS pl, os, programsOS AS po WHERE po.programId = pl.id
-                                AND po.osId = os.os_id;');
+                                AND po.osId = os.id;');
 
-        // Есть ли данные
-        if(!$initData) {
+        // Проверка данных
+        if(!$data) {
             $programsData = [];
         } else {
-            $programsData = $this->add_os($initData);
+            // Проверка по поисковой строке
+            $search = $request->search;
+            if ($search) {
+                $spc = new SearchProgramController($search, $data);
+                $data = $spc->search();
+            }
+            // // Проверка по категориям
+            // $checkbox_os = $request->checkbox_os;
+            // $ccoc = array();
+            // if ($checkbox_os) {
+            //     $ccoc = new CheckboxOsController($checkbox_os, $data);
+            //     $data = $ccoc->check();
+            // }
+            // Проверка по операционным системам
+            $checkbox_os = $request->checkbox_os;
+            $ccoc = array();
+            if ($checkbox_os) {
+                $ccoc = new CheckboxOsController($checkbox_os, $data);
+                $data = $ccoc->check();
+            }
+            $programsData = $this->add_os($data);
         }
-
-        // Данные из поисковой строки
-        $search = $request->search;
-        if ($search) {
-            $spc = new SearchProgramController($search);
-            $spc = $spc->search();
-            $programsData = $this->add_os($spc);
-        }
-
-        // По операционным системам
-        $search = $request->checkbox-os;
-
-
-
 
         return view('/pages/home-page',
                     ['programsData' => $programsData,'os' => $os, 'categories' => $categories,
-                    'search' => $search]);
+                    'search' => $search, 'request' => 0]);
     }
 
     private function add_os($data) {
