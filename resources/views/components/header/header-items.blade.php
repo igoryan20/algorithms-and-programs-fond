@@ -9,9 +9,8 @@
            Категории
         </a>
         <div class="dropdown-menu" aria-labelledby="categoriesDropdown">
-          <a class="dropdown-item" href="">First</a>
-          <a class="dropdown-item" href="">First</a>
-          <a class="dropdown-item" href="">First</a>
+            {{ var_dump($categories) }}
+            <a class="dropdown-item" href="">sdf</a>
         </div>
       </li>
       <li class="nav-item">
