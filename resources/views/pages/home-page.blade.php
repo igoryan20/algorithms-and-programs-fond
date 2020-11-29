@@ -7,7 +7,7 @@
 @section('page-content')
     <div class="d-flex flex-row justify-content-between" style="background-color: #f9fbe7">
       <div class="ml-5 mt-5">
-          {{ var_dump($request) }}
+          {{-- {{ var_dump($request) }} --}}
         <x-home-page.programs-list :programsData="$programsData" />
       </div>
 
