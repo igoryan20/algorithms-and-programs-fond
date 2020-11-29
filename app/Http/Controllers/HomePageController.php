@@ -20,10 +20,9 @@ class HomePageController extends Controller {
          $os = OS::all();
          $categories = Categories::all();
 
-        // Начальные данные
-        $data = DB::select('SELECT pl.*, os.os, os.id AS os_id FROM programsList
-                                AS pl, os, programsOS AS po WHERE po.programId = pl.id
-                                AND po.osId = os.id;');
+        $data = DB::select('select * from programsList');
+        $programsOS = DB::select('select * from programsOS');
+        $data = $this->add_os($data, $programsOS);
 
         // Проверка данных
         if(!$data) {
@@ -35,7 +34,7 @@ class HomePageController extends Controller {
                 $spc = new SearchProgramController($search, $data);
                 $data = $spc->search();
             }
-            // Проверка по категориям
+        // Проверка по категориям
             $checkbox_category = $request->checkbox_category;
             $ccc = array();
             if ($checkbox_category) {
@@ -49,29 +48,28 @@ class HomePageController extends Controller {
                 $coc = new CheckboxOsController($checkbox_os, $data);
                 $data = $coc->check();
             }
-            $programsData = $this->add_os($data);
+            $programsData = $this->add_os($data, $programsOS);
         }
 
         return view('/pages/home-page',
-                    ['programsData' => $programsData,'os' => $os, 'categories' => $categories,
-                    'search' => $search, 'request' => 0]);
+                    ['programsData' => $data,'os' => $os, 'categories' => $categories,
+                    'search' => $search]);
     }
 
-    private function add_os($data) {
+    private function add_os($data, $programsOS) {
 
-        $itemRow;
-        $id = 0;
-        $repeat = false;
-        foreach ($data as $key => $item) {
-            if ($item->id == $id) {
-                array_push($itemRow->os, $item->os);
-                unset($data[$key]);
-            } else {
-                $item->os = array($item->os);
-                $itemRow = $item;
-                $id = $item->id;
-            }
+        $osArray = [];
+        foreach ($programsOS as $po) {
+            $osArray[$po->programId] = [];
         }
+        foreach ($programsOS as $po) {
+            array_push($osArray[$po->programId], $po->osId);
+        }
+
+        foreach ($data as $item) {
+            $item->os = $osArray[$item->id];
+        }
+
         return $data;
     }
 }

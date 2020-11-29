@@ -13,13 +13,13 @@
                         <h5 class="mb-0">{{ $item->programName }}</h5>
                         <p class="mb-1">{{ $item->description }}</p>
                         <div>
-                            @if (in_array('Windows', $item->os))
+                            @if (in_array(1, $item->os))
                                 <i class="fab fa-windows"></i>
                             @endif
-                            @if (in_array('macOS', $item->os))
+                            @if (in_array(2, $item->os))
                                 <i class="fab fa-apple"></i>
                             @endif
-                            @if (in_array('Linux', $item->os))
+                            @if (in_array(3, $item->os))
                                 <i class="fab fa-linux"></i>
                             @endif
                         </div>
