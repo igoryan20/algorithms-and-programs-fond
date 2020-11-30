@@ -6,9 +6,18 @@
             </div>
             @foreach($checkboxes as $item)
                 <div class="card-body d-flex flex-row py-1">
-                <input type="checkbox" class="mr-2 mt-1" id="checkbox" name="checkbox_{{ $entity }}[]" value='{{ $item->id }}' />
+                @if (!is_null($checked))
+                    @if (in_array($item->id, $checked))
+                        <input type="checkbox" class="mr-2 mt-1" id="checkbox" name="checkbox_{{ $entity }}[]" value='{{ $item->id }}' checked />
+                    @else
+                        <input type="checkbox" class="mr-2 mt-1" id="checkbox" name="checkbox_{{ $entity }}[]" value='{{ $item->id }}' />
+                    @endif
+                @else
+                    <input type="checkbox" class="mr-2 mt-1" id="checkbox" name="checkbox_{{ $entity }}[]" value='{{ $item->id }}' />
+                @endif
+
                     <p class="card-text" for="checkbox">{{ $item[$entity] }}</p>
-                </div>
+            </div>
             @endforeach
         </div>
     </fieldset>

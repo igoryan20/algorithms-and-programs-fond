@@ -53,7 +53,8 @@ class HomePageController extends Controller {
 
         return view('/pages/home-page',
                     ['programsData' => $data,'os' => $os, 'categories' => $categories,
-                    'search' => $search]);
+                    'search' => $search, 'checkbox_category' => $checkbox_category,
+                    'checkbox_os' => $checkbox_os ]);
     }
 
     private function add_os($data, $programsOS) {
