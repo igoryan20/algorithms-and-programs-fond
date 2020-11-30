@@ -9,8 +9,9 @@
            Категории
         </a>
         <div class="dropdown-menu" aria-labelledby="categoriesDropdown">
-            {{ var_dump($categories) }}
-            <a class="dropdown-item" href="">sdf</a>
+            @foreach ($categories as $category)
+                <a class="dropdown-item" href="">{{ $category->category }}</a>
+            @endforeach
         </div>
       </li>
       <li class="nav-item">

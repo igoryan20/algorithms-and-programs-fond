@@ -24,6 +24,6 @@ class Header extends ServiceProvider
     public function boot()
     {
         // Blade::component('components.header', Header::class);
-        Blade::component('components.header.header-brand', HeaderBrand::class);
+        // Blade::component('components.header.header-brand', HeaderBrand::class);
     }
 }
