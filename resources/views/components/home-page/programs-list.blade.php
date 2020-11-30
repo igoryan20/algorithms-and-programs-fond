@@ -1,5 +1,4 @@
 <div>
-
     <div class="container mb-4" style="width: 70vw">
         <ul class="list-group">
             @foreach ($programsData as $item)
