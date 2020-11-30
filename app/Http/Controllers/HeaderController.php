@@ -7,10 +7,7 @@ use App\Models\Categories;
 
 class HeaderController extends Controller
 {
-    public function __invoke() {
-
-        $categories = Categories::all();
-
-        return view('components/header', ['categories' => $categories]);
+    static function getCategories() {
+        return Categories::all();
     }
 }
