@@ -20,3 +20,5 @@ Route::get('/create-news', CreateNewsController::class);
 
 Route::get('/profile', ProfileController::class);
 
+Route::get('/news', NewsController::class);
+

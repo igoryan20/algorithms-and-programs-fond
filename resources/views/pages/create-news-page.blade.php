@@ -1,7 +1,7 @@
 @extends('layouts.main-layout')
 
 @section('title')
-    Создание продукта
+    Создание новости
 @endsection
 
 @section('page-content')
