@@ -13,7 +13,7 @@
     <div class="mr-auto ml-auto w-75">
         <div class="d-flex flex-row">
             <img src="/img/admin.jpg" alt="" class="w-25 mr-4" style="height: 200px">
-            <div class="d-flex flex-column">
+            <div class="d-flex flex-column`">
                 <h2>admin</h2>
                 <p>Иванов Иван Иванович</p>
                 <button type="button" class="btn btn-dark mb-4">Изменить</button>

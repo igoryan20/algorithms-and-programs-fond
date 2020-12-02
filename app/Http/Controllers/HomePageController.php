@@ -16,9 +16,9 @@ class HomePageController extends Controller {
 
     public function invoke(Request $request) {
 
-         // Операционные системы и категории
-         $os = OS::all();
-         $categories = Categories::all();
+        // Операционные системы и категории
+        $os = OS::all();
+        $categories = Categories::all();
 
         $data = DB::select('select * from programsList');
         $programsOS = DB::select('select * from programsOS');

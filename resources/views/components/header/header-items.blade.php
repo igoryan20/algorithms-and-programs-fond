@@ -31,7 +31,7 @@
           <a class="dropdown-item" href="">Все продукты</a>
           <a class="dropdown-item" href="">Запросы статуса разработчика</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="">Категории</a>
+          <a class="dropdown-item" href="/categories">Категории</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="">Пользователи</a>
           <a class="dropdown-item" href="">Группы</a>
