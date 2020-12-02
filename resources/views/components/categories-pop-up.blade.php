@@ -13,20 +13,20 @@
                 <div class="modal-body">
                         <div class="form-group">
                             <label for="title" class="col-form-label">Заголовок</label>
-                            <input type="text" class="form-control" id="title" name="title">
+                            <input type="text" class="form-control" id="title" name="title" required oninvalid="this.setCustomValidity('Введите значение')" oninput="setCustomValidity('')" autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label for="description" class="col-form-label">Описание</label>
-                            <textarea class="form-control" id="description" name="description"></textarea>
+                            <textarea class="form-control" id="description" name="description" autocomplete="off"></textarea>
                         </div>
                         <div class="d-flex flex-row justify-content-between">
                             <div class="form-group">
                                 <label for="url" class="col-form-label">URL</label>
-                                <input type="text" class="form-control" id="url" name="url">
+                                <input type="text" class="form-control" id="url" name="url" required oninvalid="this.setCustomValidity('Введите значение')" oninput="setCustomValidity('')" autocomplete="off">
                             </div>
                             <div class="form-group">
                                 <label for="weight" class="col-form-label">Вес</label>
-                                <input type="text" class="form-control" id="weight" name="weight">
+                                <input type="number" class="form-control" id="weight" name="weight" required oninvalid="this.setCustomValidity('Введите значение')" oninput="setCustomValidity('')" autocomplete="off" />
                             </div>
                         </div>
                 </div>
