@@ -22,7 +22,9 @@ Route::get('/profile', ProfileController::class);
 
 Route::get('/news', NewsController::class);
 
-Route::get('/categories', CategoriesController::class);
+Route::get('/categories', 'CategoriesController@getCategories');
+
+Route::post('/categories', 'CategoriesController@postCategories');
 
 Route::post('/create-news', 'CreateNewsController@insertNews');
 
