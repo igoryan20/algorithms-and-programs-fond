@@ -24,19 +24,31 @@
                     @foreach ($categories as $category)
                         <tr>
                             <th scope="row">{{ $category->id }}</th>
-                            <td>{{ $category->category }}</td>
+                            <td>
+                                <p class="mb-0">{{ $category->category }}</p>
+                                <small>{{ $category->description }}</small>
+                            </td>
                             <td>{{ $category->url }}</td>
                             <td>{{ $category->weight }}</td>
                             <th scope="col">
-                                <button type="button" class="btn material-icons mr-2">edit</button>
+                                <button type="button" id="btn-edit-category" class="btn material-icons mr-2" data-toggle="modal"
+                                        data-target="#edit-category"
+                                        data-modal_title="Редактирование категории"
+                                        data-title="{{ $category->category }}"
+                                        data-description="{{ $category->description }}"
+                                        data-url="{{ $category->url }}"
+                                        data-weight="{{ $category->weight }}"
+                                        >edit</button>
                                 <button type="button" class="btn material-icons mr-2">clear</button>
                             </th>
                         </tr>
                     @endforeach
                   </tbody>
             </table>
-            <button type="button" class="btn btn-primary mb-4" data-toggle="modal" data-target="#create-category">Добавить</button>
-            <x-categories-pop-up />
+            <button type="button" class="btn btn-primary mb-4" data-toggle="modal"
+                    data-target="#create-category" data-modal_title="Создание категории">Добавить</button>
+            <x-categories-pop-up id="create-category" />
+            <x-categories-pop-up id="edit-category" />
         </div>
     </div>
 @endsection

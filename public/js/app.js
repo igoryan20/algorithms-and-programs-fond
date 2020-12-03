@@ -37269,26 +37269,9 @@ module.exports = function(module) {
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // window.Vue = require('vue');
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-// const app = new Vue({
-//     el: '#app'
-// });
+__webpack_require__(/*! ./pop-up */ "./resources/js/pop-up.js");
 
 /***/ }),
 
@@ -37334,6 +37317,32 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/pop-up.js":
+/*!********************************!*\
+  !*** ./resources/js/pop-up.js ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$('#edit-category').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget); // Button that triggered the modal
+
+  var modal_title = button.data('modal_title');
+  var title = button.data('title'); // Extract info from data-* attributes
+
+  var description = button.data('description');
+  var url = button.data('url');
+  var weight = button.data('weight');
+  var modal = $(this);
+  modal.find('#category-label').text(modal_title);
+  modal.find('#edit-title').val(title);
+  modal.find('#edit-description').val(description);
+  modal.find('#edit-url').val(url);
+  modal.find('#edit-weight').val(weight);
+});
 
 /***/ }),
 
