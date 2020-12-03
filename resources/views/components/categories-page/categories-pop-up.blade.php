@@ -35,6 +35,7 @@
                                         oninvalid="this.setCustomValidity('Введите значение')"
                                         oninput="setCustomValidity('')" autocomplete="off" />
                             </div>
+                            <input type="hidden" id="edit-id" name = "id" />
                         </div>
                 </div>
                 <div class="modal-footer">

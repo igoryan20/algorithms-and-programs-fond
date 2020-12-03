@@ -31,24 +31,30 @@
                             <td>{{ $category->url }}</td>
                             <td>{{ $category->weight }}</td>
                             <th scope="col">
-                                <button type="button" id="btn-edit-category" class="btn material-icons mr-2" data-toggle="modal"
+                                <button type="button" id="btn-edit-category" class="btn material-icons mr-2"
+                                            data-toggle="modal"
                                         data-target="#edit-category"
+                                        data-id="{{ $category->id }}"
                                         data-modal_title="Редактирование категории"
                                         data-title="{{ $category->category }}"
                                         data-description="{{ $category->description }}"
                                         data-url="{{ $category->url }}"
                                         data-weight="{{ $category->weight }}"
                                         >edit</button>
-                                <button type="button" class="btn material-icons mr-2">clear</button>
+                                <button type="button" class="btn material-icons mr-2" data-toggle="modal"
+                                        data-target="#delete-category"
+                                        data-name="{{ $category->category }}"
+                                        data-id="{{ $category->id }}">clear</button>
                             </th>
                         </tr>
                     @endforeach
                   </tbody>
             </table>
             <button type="button" class="btn btn-primary mb-4" data-toggle="modal"
-                    data-target="#create-category" data-modal_title="Создание категории">Добавить</button>
-            <x-categories-pop-up id="create-category" />
-            <x-categories-pop-up id="edit-category" />
+                    data-target="#create-category">Добавить</button>
+            <x-categories-page.categories-pop-up id="create-category" />
+            <x-categories-page.categories-pop-up id="edit-category" />
+            <x-categories-page.delete-category />
         </div>
     </div>
 @endsection

@@ -24,7 +24,7 @@ Route::get('/news', NewsController::class);
 
 Route::get('/categories', 'CategoriesController@getCategories');
 
-Route::post('/categories', 'CategoriesController@postCategories');
+Route::post('/categories', 'CategoriesController@postCategory');
 
 Route::post('/create-news', 'CreateNewsController@insertNews');
 

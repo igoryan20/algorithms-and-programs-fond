@@ -14,16 +14,24 @@ class CategoriesController extends Controller
         return view('pages/categories', ['categories' => $categories]);
     }
 
-    public function postCategories(Request $request) {
+    public function postCategory(Request $request) {
 
-        $categoriesModel = new Categories;
+        if ($request->id) {
+            $categoriesModel = Categories::find($request->id);
+            if ($request->type == 'delete') {
+                $categoriesModel->delete();
+            }
+        } else {
+            $categoriesModel = new Categories;
+        }
 
-        $categoriesModel->category = $request->title;
-        $categoriesModel->description = $request->description;
-        $categoriesModel->url = $request->url;
-        $categoriesModel->weight = $request->weight;
-
-        $categoriesModel->save();
+        if ($request->type != 'delete') {
+            $categoriesModel->category = $request->title;
+            $categoriesModel->description = $request->description;
+            $categoriesModel->url = $request->url;
+            $categoriesModel->weight = $request->weight;
+            $categoriesModel->save();
+        }
 
         $categories = Categories::all();
         return view('pages/categories', ['categories' => $categories]);
