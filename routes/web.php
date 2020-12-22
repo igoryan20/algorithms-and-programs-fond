@@ -22,6 +22,8 @@ Route::get('/profile', ProfileController::class);
 
 Route::get('/news', NewsController::class);
 
+Route::get('/product/{id}', 'ProductController@getProduct');
+
 Route::get('/categories', 'CategoriesController@getCategories');
 
 Route::post('/categories', 'CategoriesController@postCategory');

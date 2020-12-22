@@ -1,8 +1,19 @@
 <div>
+    <style>
+        .list-item-bc {
+            background-color: #f9fbe7;
+            color: black;
+        }
+        .list-item-bc:hover {
+            background-color: #ffef78;
+            text-decoration: none;
+            color: black;
+        }
+    </style>
     <div class="container mb-4" style="width: 70vw">
         <ul class="list-group">
             @foreach ($programsData as $item)
-                <div class="list-group-item d-flex" style="background-color: #f9fbe7">
+                <a href="/product/{{ $item->id }}" class="list-group-item d-flex list-item list-item-bc">
                     @if ($item->imgPath != null)
                         <img src="{{ $item->imgPath }}" alt="картинка 1" class="mr-2" width="76px" height="76px">
                     @else
@@ -23,7 +34,7 @@
                             @endif
                         </div>
                     </div>
-                </div>
+                </a>
             @endforeach
         </ul>
     </div>
