@@ -1,17 +1,21 @@
 @extends('layouts.main-layout')
 
 @section('title')
-    Продукт
+    {{ $program->programName }}
 @endsection
 
 @section('page-content')
     <div style="background-color: #f9fbe7">
         <div class="mx-auto w-75 py-4">
             <div class="d-flex">
-                <img src="https://st.depositphotos.com/2000885/1902/i/600/depositphotos_19021343-stock-photo-red-heart.jpg" alt="" width="110px" height="110px">
+                @if ($program->imgPath != null)
+                    <img src="{{ $program->imgPath }}" alt="картинка 1" class="mr-2" width="76px" height="76px">
+                @else
+                    <img src="/img/default.png" alt="картинка 1" class="mr-2" width="76px" height="76px">
+                @endif
                 <div class="d-flex flex-column ml-4">
-                    <h1>Название продукта</h1>
-                    <p>Описание продукта</p>
+                    <h1>{{ $program->programName }}</h1>
+                    <p>{{ $program->description }}</p>
                 </div>
             </div>
             <div class="d-flex mt-4">
