@@ -28,6 +28,8 @@ Route::get('/categories', 'CategoriesController@getCategories');
 
 Route::post('/categories', 'CategoriesController@postCategory');
 
+Route::get('/users-list', 'UsersListController@getUsers');
+
 Route::post('/create-news', 'CreateNewsController@insertNews');
 
 
