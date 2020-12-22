@@ -10,7 +10,7 @@
             <div class="d-flex">
                 <img src="https://st.depositphotos.com/2000885/1902/i/600/depositphotos_19021343-stock-photo-red-heart.jpg" alt="" width="110px" height="110px">
                 <div class="d-flex flex-column ml-4">
-                    <h1>НАзвание продукта</h1>
+                    <h1>Название продукта</h1>
                     <p>Описание продукта</p>
                 </div>
             </div>
