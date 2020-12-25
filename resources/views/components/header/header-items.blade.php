@@ -15,7 +15,7 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Статистика</a>
+        <a class="nav-link" href="/statistics">Статистика</a>
       </li>
 
       <li class="nav-item dropdown">

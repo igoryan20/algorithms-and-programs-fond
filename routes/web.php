@@ -39,3 +39,5 @@ Route::post('/create-news', 'CreateNewsController@insertNews');
 Route::get('/my-developments', 'MyDevelopmentsController@getPrograms');
 
 Route::get('/products-library', 'ProductsLibraryController@getProducts');
+
+Route::get('/statistics', 'StatisticController@getStatistic');
