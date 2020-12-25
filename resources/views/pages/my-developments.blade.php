@@ -1,7 +1,7 @@
 @extends('layouts.main-layout')
 
 @section('title')
-    Профиль
+    Мои разработки
 @endsection
 
 @section('page-content')

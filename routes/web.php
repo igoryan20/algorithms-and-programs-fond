@@ -37,3 +37,5 @@ Route::post('/users-list/edit-user/{id}', 'EditUserController@updateUserInfo');
 Route::post('/create-news', 'CreateNewsController@insertNews');
 
 Route::get('/my-developments', 'MyDevelopmentsController@getPrograms');
+
+Route::get('/products-library', 'ProductsLibraryController@getProducts');

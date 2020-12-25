@@ -28,18 +28,11 @@
                        Дополнительно
                     </a>
                     <div class="dropdown-menu" aria-labelledby="categoriesDropdown">
-                      <a class="dropdown-item" href="/create-news">Создать новость</a>
-                      <a class="dropdown-item" href="/create-product">Создать продукт</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="">Новые продукты</a>
-                      <a class="dropdown-item" href="">Все продукты</a>
-                      <a class="dropdown-item" href="">Запросы статуса разработчика</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="/categories">Категории</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="/users-list">Пользователи</a>
-                      <a class="dropdown-item" href="">Группы</a>
-                      <a class="dropdown-item" href="">Разрешения</a>
+                      <a class="dropdown-item" href="">Создать релиз</a>
+                      <a class="dropdown-item" href="">Контакты</a>
+                      <a class="dropdown-item" href="">Журнал</a>
+                      <a class="dropdown-item" href="">Пользователи</a>
+                      <a class="dropdown-item" href="">Ключи</a>
                     </div>
                 </div>
                 <button class="btn btn-secondary mr-2">Желаемое</button>
