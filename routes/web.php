@@ -30,6 +30,10 @@ Route::post('/categories', 'CategoriesController@postCategory');
 
 Route::get('/users-list', 'UsersListController@getUsers');
 
+Route::get('/users-list/edit-user/{id}', 'EditUserController@getUserInfo');
+
+Route::post('/users-list/edit-user/{id}', 'EditUserController@updateUserInfo');
+
 Route::post('/create-news', 'CreateNewsController@insertNews');
 
 

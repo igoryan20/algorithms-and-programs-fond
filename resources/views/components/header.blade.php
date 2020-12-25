@@ -4,7 +4,7 @@
             <x-header.header-brand />
             <x-header.header-items :categories="$categories" />
             <x-header.header-search-form />
-            <x-header.header-user-dropdown />
+            <x-header.header-user-dropdown :username="$username" />
         </nav>
     </header>
 </div>

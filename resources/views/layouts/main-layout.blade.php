@@ -4,8 +4,9 @@
     <?php
         use App\Http\Controllers\HeaderController;
         $categories = HeaderController::getCategories();
+        $username = HeaderController::getUsername();
     ?>
-    <x-header :categories="$categories" />
+    <x-header :username="$username" :categories="$categories" />
     @yield('page-content')
     {{-- @include('footer') --}}
 @endsection

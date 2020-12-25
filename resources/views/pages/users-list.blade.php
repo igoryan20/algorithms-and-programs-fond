@@ -32,10 +32,7 @@
                             <td>{{ $user->patronymic }}</td>
                             <td>{{ $user->last_login }}</td>
                             <th scope="col">
-                                <button type="button" id="btn-edit-category" class="btn material-icons mr-2"
-                                        data-toggle="modal"
-                                        data-target="#edit-category"
-                                >edit</button>
+                                <a href="/users-list/edit-user/{{ $user->id }}" type="button" id="btn-edit-category" class="btn material-icons mr-2">edit</a>
                             </th>
                         </tr>
                     @endforeach

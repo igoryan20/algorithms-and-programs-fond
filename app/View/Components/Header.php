@@ -9,10 +9,12 @@ class Header extends Component
 
 
     public $categories;
+    public $username;
 
-    public function __construct($categories)
+    public function __construct($categories, $username)
     {
         $this->categories = $categories;
+        $this->username = $username;
     }
 
     /**
