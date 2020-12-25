@@ -13,6 +13,6 @@ class HeaderController extends Controller
     }
 
     static function getUsername() {
-        return User::where('id', 10)->first()->username;
+        return User::where('id', 6)->first()->username;
     }
 }

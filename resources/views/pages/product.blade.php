@@ -22,7 +22,26 @@
                 <button class="btn btn-secondary mr-2">Изменить</button>
                 <button class="btn btn-secondary mr-2">Удалить</button>
                 <button class="btn btn-secondary mr-2" disabled>Опубликовать</button>
-                <button class="btn btn-secondary mr-2">Дополнительно</button>
+                <div class="dropdown mr-2">
+                    <a class="nav-link dropdown-toggle btn btn-secondary" href="#" id="categoriesDropdown"
+                       role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       Дополнительно
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="categoriesDropdown">
+                      <a class="dropdown-item" href="/create-news">Создать новость</a>
+                      <a class="dropdown-item" href="/create-product">Создать продукт</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="">Новые продукты</a>
+                      <a class="dropdown-item" href="">Все продукты</a>
+                      <a class="dropdown-item" href="">Запросы статуса разработчика</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="/categories">Категории</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="/users-list">Пользователи</a>
+                      <a class="dropdown-item" href="">Группы</a>
+                      <a class="dropdown-item" href="">Разрешения</a>
+                    </div>
+                </div>
                 <button class="btn btn-secondary mr-2">Желаемое</button>
             </div>
             <hr>

@@ -10,7 +10,7 @@
             color: black;
         }
     </style>
-    <div class="container mb-4" style="width: 70vw">
+    <div class="container px-0 mb-4">
         <ul class="list-group">
             @foreach ($programsData as $item)
                 <a href="/product/{{ $item->id }}" class="list-group-item d-flex list-item list-item-bc">

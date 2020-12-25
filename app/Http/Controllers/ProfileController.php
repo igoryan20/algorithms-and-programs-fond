@@ -10,7 +10,7 @@ class ProfileController extends Controller
 {
     public function __invoke() {
 
-        $current_user = User::where('id', 10)->first();
+        $current_user = User::where('id', 6)->first();
 
         return view('pages/profile', ["user" => $current_user]);
     }

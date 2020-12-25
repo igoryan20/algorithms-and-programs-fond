@@ -13,7 +13,7 @@
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="categoriesDropdown">
                 <a class="dropdown-item" href="/profile">Профиль</a>
                 <a class="dropdown-item" href="">Библиотека</a>
-                <a class="dropdown-item" href="">Мои разработки</a>
+                <a class="dropdown-item" href="/my-developments">Мои разработки</a>
                 <a class="dropdown-item" href="">Желаемое</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="">Выход</a>
