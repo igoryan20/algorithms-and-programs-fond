@@ -6,5 +6,7 @@
 
 require('./bootstrap');
 
-require('./pop-up')
+require('./pop-up');
+
+
 
