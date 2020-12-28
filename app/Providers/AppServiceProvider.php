@@ -26,7 +26,8 @@ class AppServiceProvider extends ServiceProvider
     {
         $charts->register([
             \App\Charts\OSChart::class,
-            \App\Charts\NewProducts::class
+            \App\Charts\NewProducts::class,
+            \App\Charts\NewRelizes::class
         ]);
     }
 }

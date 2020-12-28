@@ -8,7 +8,8 @@
             <div id="os_pie" style="height: 300px;"></div>
             <script src="{{ asset('/js/chart.js') }}"></script>
             <script>
-                const os_pie = new Chartisan({
+                console.log("@chart('os_chart')")
+                new Chartisan({
                     el: '#os_pie',
                     url: "@chart('os_chart')",
                     hooks: new ChartisanHooks()
