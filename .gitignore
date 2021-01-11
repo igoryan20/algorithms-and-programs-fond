@@ -13,3 +13,4 @@ yarn-error.log
 /nbproject/private/
 .idea/*
 .vscode/*
+/db_dump

@@ -17,6 +17,8 @@
         <x-statistics.card-with-pie />
         <x-statistics.card-with-vertical-bar chart="new_products_chart" />
         <x-statistics.card-with-vertical-bar chart="new_relizes_chart" />
+        <x-statistics.card-with-horizontal-bar />
+
     </div>
 
 </div>

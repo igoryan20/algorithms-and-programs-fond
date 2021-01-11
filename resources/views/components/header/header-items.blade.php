@@ -12,6 +12,8 @@
             @foreach ($categories as $category)
                 <a class="dropdown-item" href="">{{ $category->category }}</a>
             @endforeach
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/categories">Посмотреть все категории</a>
         </div>
       </li>
       <li class="nav-item">

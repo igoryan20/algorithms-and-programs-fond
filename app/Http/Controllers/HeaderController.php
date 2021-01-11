@@ -9,7 +9,7 @@ use App\Models\User;
 class HeaderController extends Controller
 {
     static function getCategories() {
-        return Categories::all();
+        return Categories::take(5)->get();
     }
 
     static function getUsername() {
