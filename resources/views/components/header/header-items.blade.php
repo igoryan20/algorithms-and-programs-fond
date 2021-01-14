@@ -31,7 +31,7 @@
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="">Новые продукты</a>
           <a class="dropdown-item" href="">Все продукты</a>
-          <a class="dropdown-item" href="">Запросы статуса разработчика</a>
+          <a class="dropdown-item" href="/developers-requests">Запросы статуса разработчика</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="/categories">Категории</a>
           <div class="dropdown-divider"></div>

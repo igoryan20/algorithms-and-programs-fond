@@ -10,11 +10,9 @@
     <script src="https://kit.fontawesome.com/66261627a2.js" crossorigin="anonymous"></script>
     <title>ФАП - @yield('title')</title>
 </head>
-<body>
+<body style="background-color: #f9fbe7">
 
-    <div>
-        @yield('layout-content')
-    </div>
+    @yield('layout-content')
 
 
     <script src="{{ asset('/js/app.js') }}"></script>

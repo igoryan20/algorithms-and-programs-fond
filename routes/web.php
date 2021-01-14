@@ -41,3 +41,5 @@ Route::get('/my-developments', 'MyDevelopmentsController@getPrograms');
 Route::get('/products-library', 'ProductsLibraryController@getProducts');
 
 Route::get('/statistics', 'StatisticController@getStatistic');
+
+Route::get('/developers-requests', 'DevelopersRequestsController@getRequests');

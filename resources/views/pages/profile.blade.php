@@ -5,11 +5,8 @@
 @endsection
 
 @section('page-content')
-
-<div style="background-color: #f9fbe7">
     <h1 class="pt-4 mr-auto ml-auto w-75">Мой профиль</h1>
     <hr class="ml-auto w-75">
-
     <div class="mr-auto ml-auto w-75">
         <div class="d-flex flex-row">
             <img src="/img/admin.jpg" alt="" class="w-25 mr-4" style="height: 200px">
@@ -38,5 +35,4 @@
             </div>
         </div>
     </div>
-</div>
 @endsection
