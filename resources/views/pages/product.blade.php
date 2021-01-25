@@ -27,12 +27,14 @@
                     Дополнительно
                 </a>
                 <div class="dropdown-menu" aria-labelledby="categoriesDropdown">
-                    <a class="dropdown-item" href="">Создать релиз</a>
+                    <a class="dropdown-item" href="" data-toggle="modal"
+                    data-target="#create-release">Создать релиз</a>
                     <a class="dropdown-item" href="">Контакты</a>
                     <a class="dropdown-item" href="">Журнал</a>
                     <a class="dropdown-item" href="">Пользователи</a>
                     <a class="dropdown-item" href="">Ключи</a>
                 </div>
+                <x-create-release />
             </div>
             <button class="btn btn-secondary mr-2">Желаемое</button>
         </div>

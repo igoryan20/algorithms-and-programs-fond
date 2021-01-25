@@ -7,14 +7,7 @@
 @section('page-content')
     <h1 class="pt-4 mr-auto ml-auto w-75">Редактирование пользователя "{{ $user->username }}"</h1>
     <hr class="ml-auto w-75">
-
-    <div class="mr-auto ml-auto w-75">
-        <div class="toast d-flex align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-body">
-                Hello, world! This is a toast message.
-            </div>
-            <button type="button" class="btn-close ms-auto me-2" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
+    <div class="mx-auto w-75">
         <h2>Общая информация</h2>
         <form action="/users-list/edit-user/{{ $user->id }}" method="POST">
             {{ csrf_field() }}
