@@ -8,12 +8,12 @@
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="/categories" method="POST">
+            <form action="/upload-release" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="url" class="col-form-label">Название релиза</label>
-                        <input type="text" class="form-control" id="edit-url" name="url"
+                        <input type="text" class="form-control" id="edit-url" name="name"
                                 required oninvalid="this.setCustomValidity('Введите значение')"
                                 oninput="setCustomValidity('')" autocomplete="off">
                     </div>
@@ -25,7 +25,7 @@
                     <div class="form-group">
                         <div class="btn-group" role="group">
                             <label class="btn btn-outline-primary mr-2" for="btncheck1">
-                                <input type="checkbox" class="btn-check mr-2" id="btncheck1" autocomplete="off">
+                                <input type="checkbox" class="btn-check mr-2" id="btncheck1" autocomplete="off" name="Windows">
                                 Windows</label>
                             <label class="btn btn-outline-primary mr-2" for="btncheck2">
                                 <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
@@ -36,10 +36,8 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="form-group">
-                            <label for="upload">Выберите загружаемый файл</label>
-                            <input type="file" class="form-control-file" id="upload" accept=".exe, .iso, .rar, .zip">
-                        </div>
+                        <label for="upload">Выберите загружаемый файл</label>
+                        <input type="file" class="form-control-file" id="upload" accept=".exe, .iso, .rar, .zip" name='release'>
                     </div>
                     <input type="hidden" id="edit-id" name = "id" />
                 </div>

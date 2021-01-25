@@ -45,3 +45,5 @@ Route::get('/statistics', 'StatisticController@getStatistic');
 Route::get('/developers-requests', 'DevelopersRequestsController@getRequests');
 
 Route::get('/groups-list', "GroupsListController@getGroups");
+
+Route::post('/upload-release', "ReleaseFileController@upload");
