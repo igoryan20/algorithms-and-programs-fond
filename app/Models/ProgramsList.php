@@ -12,5 +12,9 @@ class ProgramsList extends Model
         return ProgramsList::all()->count();
     }
 
+    public function releases() {
+        return $this->hasMany(Release::class, 'fk_programs', 'program_id');
+    }
+
 
 }

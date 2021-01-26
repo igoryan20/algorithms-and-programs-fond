@@ -28,11 +28,12 @@
                                 <input type="checkbox" class="btn-check mr-2" id="btncheck1" autocomplete="off" name="Windows">
                                 Windows</label>
                             <label class="btn btn-outline-primary mr-2" for="btncheck2">
-                                <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
+                                <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off" name="Linux">
                                 Linux</label>
                             <label class="btn btn-outline-primary" for="btncheck3">
-                                <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off">
+                                <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off" name="MacOS">
                                 MacOS</label>
+                            <input type="hidden" value="{{ $id }}" name="id">
                         </div>
                     </div>
                     <div class="form-group">

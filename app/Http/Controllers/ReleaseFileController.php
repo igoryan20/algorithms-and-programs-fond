@@ -16,10 +16,11 @@ class ReleaseFileController extends Controller
         $release = new Release;
         $release->name = $request->name;
         $release->description = $request->description;
+        $release->program_id = $request->id;
         if(is_null($last)) {
             $release->id = 1;
         } else {
-            $release->id = $last->id;
+            $release->id = $last->id + 1;
         }
 
         if($request->hasFile('release')) {

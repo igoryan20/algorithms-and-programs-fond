@@ -34,7 +34,7 @@
                     <a class="dropdown-item" href="">Пользователи</a>
                     <a class="dropdown-item" href="">Ключи</a>
                 </div>
-                <x-create-release />
+                <x-create-release :id="$program->id" />
             </div>
             <button class="btn btn-secondary mr-2">Желаемое</button>
         </div>
