@@ -11,7 +11,7 @@
                 </tr>
                 <tr>
                     <td>Релизов</td>
-                    <td>0</td>
+                    <td>{{ $releasesCount }}</td>
                 </tr>
                 <tr>
                     <td>Пользователей</td>

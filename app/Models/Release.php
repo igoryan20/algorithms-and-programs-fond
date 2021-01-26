@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Release extends Model
 {
-
+    public function getReleasesCount() {
+        return $this->all()->count();
+    }
 }
