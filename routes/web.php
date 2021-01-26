@@ -47,3 +47,7 @@ Route::get('/developers-requests', 'DevelopersRequestsController@getRequests');
 Route::get('/groups-list', "GroupsListController@getGroups");
 
 Route::post('/upload-release', "ReleaseFileController@upload");
+
+Route::get('/journal/{id}', 'JournalController@getRelises');
+
+Route::get('/download-release/{id}', "ReleaseFileController@download");

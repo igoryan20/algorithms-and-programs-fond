@@ -30,7 +30,7 @@
                     <a class="dropdown-item" href="" data-toggle="modal"
                     data-target="#create-release">Создать релиз</a>
                     <a class="dropdown-item" href="">Контакты</a>
-                    <a class="dropdown-item" href="">Журнал</a>
+                    <a class="dropdown-item" href="/journal/{{ $program->id }}">Журнал</a>
                     <a class="dropdown-item" href="">Пользователи</a>
                     <a class="dropdown-item" href="">Ключи</a>
                 </div>

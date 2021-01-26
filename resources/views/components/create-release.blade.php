@@ -24,18 +24,19 @@
                     </div>
                     <div class="form-group">
                         <div class="btn-group" role="group">
-                            <label class="btn btn-outline-primary mr-2" for="btncheck1">
-                                <input type="checkbox" class="btn-check mr-2" id="btncheck1" autocomplete="off" name="Windows">
-                                Windows</label>
-                            <label class="btn btn-outline-primary mr-2" for="btncheck2">
-                                <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off" name="Linux">
-                                Linux</label>
-                            <label class="btn btn-outline-primary" for="btncheck3">
-                                <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off" name="MacOS">
-                                MacOS</label>
-                            <input type="hidden" value="{{ $id }}" name="id">
-                        </div>
+                            <label class="btn btn-outline-primary" for="btnradio1">Windows
+                                <input type="radio" class="btn-check" id="btnradio1" autocomplete="off" name="Windows">
+                            </label>
+
+                            <label class="btn btn-outline-primary" for="btnradio2">MacOS
+                                <input type="radio" class="btn-check" id="btnradio2" autocomplete="off" name="MacOS">
+                            </label>
+                            <label class="btn btn-outline-primary" for="btnradio3">Linux
+                                <input type="radio" class="btn-check" id="btnradio3" autocomplete="off" name="Linux">
+                            </label>
+                          </div>
                     </div>
+                    <input type="hidden" value="{{ $id }}" name="id">
                     <div class="form-group">
                         <label for="upload">Выберите загружаемый файл</label>
                         <input type="file" class="form-control-file" id="upload" accept=".exe, .iso, .rar, .zip" name='release'>
