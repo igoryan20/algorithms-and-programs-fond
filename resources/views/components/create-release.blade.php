@@ -39,7 +39,6 @@
                         <label for="upload">Выберите загружаемый файл</label>
                         <input type="file" class="form-control-file" id="upload" accept=".exe, .iso, .rar, .zip" name='release'>
                     </div>
-                    <input type="hidden" id="edit-id" name = "id" />
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
