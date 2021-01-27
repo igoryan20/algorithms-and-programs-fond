@@ -16,5 +16,9 @@ class ProgramsList extends Model
         return $this->hasMany(Release::class, 'fk_programs', 'program_id');
     }
 
+    public function productsPhotosPaths() {
+        return $this->hasMany(ProductPhotoPath::class, 'fk_programs', 'program_id');
+    }
+
 
 }

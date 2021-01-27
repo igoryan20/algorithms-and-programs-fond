@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\ProgramsList;
 use App\Models\ProgramsCategory;
 use App\Models\Categories;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -21,6 +22,16 @@ class ProductController extends Controller
             array_push($categories, $category->category);
         }
 
-        return view('/pages/product', ['program' => $program, 'categories' => $categories]);
+        $photo_paths = $program->productsPhotosPaths;
+
+        if ($photo_paths->isEmpty()) {
+            $photo_paths->push('product-photos/default.jpg');
+        }
+        // foreach ($photo_paths as $photo_path) {
+        //     var_dump($photo_path);
+        // }
+
+        return view('/pages/product', ['program' => $program, 'categories' => $categories,
+                     'photo_paths' => $photo_paths]);
     }
 }
