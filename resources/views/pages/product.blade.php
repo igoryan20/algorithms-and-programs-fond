@@ -6,9 +6,6 @@
 
 @section('page-content')
     <div class="mx-auto w-75 py-4">
-        <div>
-
-        </div>
         <div class="d-flex">
             @if ($program->imgPath != null)
                 <img src="{{ $program->imgPath }}" alt="картинка 1" class="mr-2" width="76px" height="76px">
@@ -44,7 +41,7 @@
         <hr>
         <div class="d-flex justify-content-between">
             <div>
-                <div id="carouselExampleIndicators" class="carousel slide w-100" data-ride="carousel">
+                <div id="carouselExampleIndicators" class="carousel slide w-100" data-ride="carousel" style="max-width:60em;">
                     <ol class="carousel-indicators">
                         @foreach ($photo_paths as $photo_path)
                             @if ($photo_paths->search($photo_path) == 0)
@@ -58,11 +55,11 @@
                         @foreach ($photo_paths as $photo_path)
                             @if ($photo_paths->search($photo_path) == 0)
                                 <div class="carousel-item active">
-                                    <img class="d-block" src="/storage/default.jpg" style="width: 60em" alt="">
+                                    <img class="d-block" src="{{ $photo_path }}" style="width: 60em; height: 30em" alt="">
                                 </div>
                             @else
                                 <div class="carousel-item">
-                                    <img class="d-block" src="{{ $photo_path }}" alt="Second slide">
+                                    <img class="d-block" src="{{ $photo_path }}" style="width: 60em; height: 30em" alt="">
                                 </div>
                             @endif
                         @endforeach
@@ -74,19 +71,11 @@
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     </a>
                 </div>
-                <form action="" method="POST" class="mt-4">
-                    <button for="upload-photo" class="btn btn-success">Добавить изображение</button>
+                <form action="/upload-product-photo" method="POST" enctype="multipart/form-data" id="upload-photo-form" class="mt-4">
+                    {{ csrf_field() }}
+                    <button id="upload-photo-button" for="upload-photo" class="btn btn-success">Добавить изображение</button>
                     <input type="file" name="photo" id="upload-photo" />
-                    <style>
-                        label {
-                            cursor: pointer;
-                        }
-                        #upload-photo {
-                            opacity: 0;
-                            position: absolute;
-                            z-index: -1;
-                        }
-                    </style>
+                    <input type="hidden" name="id" value="{{ $program->id }}" />
                 </form>
             </div>
             <div>
@@ -104,4 +93,15 @@
             </div>
         </div>
     </div>
+    <style>
+        label {
+            cursor: pointer;
+        }
+        #upload-photo {
+            opacity: 0;
+            position: absolute;
+            z-index: -1;
+        }
+    </style>
+    <script src="{{asset('js/upload-photo.js')}}"></script>
 @endsection

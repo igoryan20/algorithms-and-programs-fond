@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\ProgramsList;
 use App\Models\ProgramsCategory;
 use App\Models\Categories;
+use App\Models\ProductPhotoPath;
 use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
@@ -22,16 +23,36 @@ class ProductController extends Controller
             array_push($categories, $category->category);
         }
 
-        $photo_paths = $program->productsPhotosPaths;
+        $photo_paths_table = $program->productsPhotosPaths;
 
-        if ($photo_paths->isEmpty()) {
-            $photo_paths->push('product-photos/default.jpg');
+        if ($photo_paths_table->isEmpty()) {
+            $photo_paths_table->push('/storage/default.jpg');
+            $paths = $photo_paths_table;
+        } else {
+            $paths = collect(null);
+            foreach ($photo_paths_table as $photo_path_row) {
+                $path = $photo_path_row->path;
+                $path = substr($path, 7);
+                $path = '/storage/'.$path;
+                $paths->push($path);
+            }
         }
-        // foreach ($photo_paths as $photo_path) {
-        //     var_dump($photo_path);
-        // }
 
         return view('/pages/product', ['program' => $program, 'categories' => $categories,
-                     'photo_paths' => $photo_paths]);
+                     'photo_paths' => $paths]);
+    }
+
+    public function uploadPhoto(Request $request) {
+
+        if($request->hasFile('photo')) {
+            $path = $request->file('photo')->store('public');
+            $productPhotoPath = new ProductPhotoPath;
+            $productPhotoPath->id = null;
+            $productPhotoPath->path = $path;
+            $productPhotoPath->product_id = $request->id;
+            $productPhotoPath->save();
+        }
+
+        return $this->getProduct($request->id);
     }
 }

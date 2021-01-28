@@ -51,3 +51,7 @@ Route::post('/upload-release', "ReleaseFileController@upload");
 Route::get('/journal/{id}', 'JournalController@getRelises');
 
 Route::get('/download-release/{id}', "ReleaseFileController@download");
+
+// Route::post('/upload-product-photo, "ProductController@uploadPhoto"');
+
+Route::post('/upload-product-photo', "ProductController@uploadPhoto");
