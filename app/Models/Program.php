@@ -4,10 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ProgramsList extends Model
+class Program extends Model
 {
-    protected $table = 'programsList';
-
     public function getProgramsCount() {
         return ProgramsList::all()->count();
     }
@@ -19,6 +17,4 @@ class ProgramsList extends Model
     public function productsPhotosPaths() {
         return $this->hasMany(ProductPhotoPath::class, 'product_id');
     }
-
-
 }

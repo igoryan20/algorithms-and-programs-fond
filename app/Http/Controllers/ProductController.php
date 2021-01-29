@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\{
-    ProgramsList,
+    Program,
     ProgramsCategory,
-    Categories,
+    Category,
     ProductPhotoPath
 };
 
@@ -15,13 +15,13 @@ class ProductController extends Controller
 {
     public function getProduct($id) {
 
-        $program = ProgramsList::where('id', $id)->first();
+        $program = Program::where('id', $id)->first();
 
         $programsCategories = ProgramsCategory::where('program_id', $id)->get()->all();
 
         $categories = [];
         foreach ($programsCategories as $programsCategory) {
-            $category = Categories::where('id', $programsCategory->category_id)->first();
+            $category = Category::where('id', $programsCategory->category_id)->first();
             array_push($categories, $category->category);
         }
 

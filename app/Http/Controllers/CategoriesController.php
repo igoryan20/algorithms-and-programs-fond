@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Categories;
+use App\Models\Category;
 
-class CategoriesController extends Controller {
-
+class CategoriesController extends Controller
+{
     public function getCategories(Request $request) {
 
-        $categories = Categories::all();
+        $categories = Category::all();
 
         return view('pages/categories', ['categories' => $categories]);
     }
@@ -17,7 +17,7 @@ class CategoriesController extends Controller {
     public function postCategory(Request $request) {
 
         if ($request->id) {
-            $categoriesModel = Categories::find($request->id);
+            $categoriesModel = Category::find($request->id);
             if ($request->type == 'delete') {
                 $categoriesModel->delete();
             }
@@ -32,7 +32,7 @@ class CategoriesController extends Controller {
             $categoriesModel->weight = $request->weight;
             $categoriesModel->save();
         }
-        $categories = Categories::all();
+        $categories = Category::all();
 
         return view('pages/categories', ['categories' => $categories]);
     }

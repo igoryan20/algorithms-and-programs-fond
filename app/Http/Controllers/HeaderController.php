@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\{
-    Categories,
+    Category,
     User
 };
 
 class HeaderController extends Controller
 {
     static function getCategories() {
-        return Categories::take(5)->get();
+        return Category::take(5)->get();
     }
 
     static function getUsername() {

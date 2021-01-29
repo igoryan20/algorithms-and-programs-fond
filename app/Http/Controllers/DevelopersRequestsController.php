@@ -10,7 +10,10 @@ class DevelopersRequestsController extends Controller
 {
     public function getRequests() {
 
-        return view('pages/developers-requests', ['requests' => (new RequestForDeveloperStatus)->getInfo()]);
+        $requests = new RequestForDeveloperStatus;
+        $requestsInfo = $requests->getInfo();
+
+        return view('pages/developers-requests', ['requests' => $requestsInfo]);
     }
 
 }

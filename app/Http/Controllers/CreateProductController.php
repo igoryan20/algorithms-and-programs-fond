@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class CreateProductController extends Controller
 {
-    public function __invoke() {
+    public function getCreateProductPage() {
         return view('pages/сreate-product-page');
     }
 }

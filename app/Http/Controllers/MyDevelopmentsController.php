@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Collection;
 use App\Models\{
-    ProgramsList,
+    Program,
     ProgramsOS
 };
 
@@ -14,15 +14,12 @@ class MyDevelopmentsController extends Controller
 
     public function getPrograms(Request $request) {
 
-        $data = ProgramsList::where('developed_by', 6)->get();
+        $data = Program::where('developed_by', 6)->get();
 
         $programsOS = new Collection([]);
         foreach ($data as $program)
         {
             $po = ProgramsOS::where('programId', $program->id)->get();
-            foreach ($po as $pp) {
-                // var_dump($pp);
-            }
             $programsOS->push(ProgramsOS::where('programId', $program->id)->get());
         }
         $programsOS = $programsOS->flatten();

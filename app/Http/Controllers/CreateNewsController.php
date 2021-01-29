@@ -11,7 +11,7 @@ class CreateNewsController extends Controller
         return view('pages/create-news-page');
     }
 
-    public function insertNews(Request $request) {
+    public function createNews(Request $request) {
 
         $new = new News;
         $new->title = $request->title;

@@ -10,6 +10,7 @@ class GroupsListController extends Controller
     public function getGroups() {
 
         $groups = Group::all();
+
         return view('pages/groups-list', ['groups' => $groups]);
     }
 }

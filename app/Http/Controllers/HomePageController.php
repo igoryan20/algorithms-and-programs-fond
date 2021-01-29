@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\{
-    Categories,
+    Program,
+    Category,
     OS,
     ProgramsOS,
 };
@@ -22,9 +23,9 @@ class HomePageController extends Controller {
 
         // Операционные системы и категории
         $os = OS::all();
-        $categories = Categories::all();
+        $categories = Category::all();
 
-        $data = DB::select('select * from programsList');
+        $data = Program::all();
         $programsOS = DB::select('select * from programsOS');
         $data = $this->add_os($data, $programsOS);
 

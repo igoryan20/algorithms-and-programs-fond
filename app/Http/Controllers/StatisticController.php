@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\{
-    ProgramsList,
+    Program,
     User,
     Release
 };
@@ -13,7 +13,7 @@ class StatisticController extends Controller
 {
     public function getStatistic()
     {
-        $programsCount = (new ProgramsList)->getProgramsCount();
+        $programsCount = (new Program)->getProgramsCount();
         $usersCount = (new User)->getUsersCount();
         $releasesCount = (new Release)->getReleasesCount();
 

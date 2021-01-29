@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 
 //GET ROUTES
 Route::get('/', 'HomePageController@invoke');
-Route::get('/create-product', CreateProductController::class);
+Route::get('/create-product', 'CreateProductController@getCreateProductPage');
 Route::get('/create-news', 'CreateNewsController@getCreateNewsPage');
-Route::get('/profile', ProfileController::class);
-Route::get('/news', NewsController::class);
+Route::get('/profile', 'ProfileController@getProfilePage');
+Route::get('/news', 'NewsController@getNewsPage');
 Route::get('/product/{id}', 'ProductController@getProduct');
 Route::get('/categories', 'CategoriesController@getCategories');
 Route::get('/users-list', 'UsersListController@getUsers');
@@ -33,6 +33,6 @@ Route::get('/download-release/{id}', "ReleaseFileController@download");
 //POST ROUTES
 Route::post('/categories', 'CategoriesController@postCategory');
 Route::post('/users-list/edit-user/{id}', 'EditUserController@updateUserInfo');
-Route::post('/create-news', 'CreateNewsController@insertNews');
+Route::post('/create-news', 'CreateNewsController@createNews');
 Route::post('/upload-release', "ReleaseFileController@upload");
 Route::post('/upload-product-photo', "ProductController@uploadPhoto");

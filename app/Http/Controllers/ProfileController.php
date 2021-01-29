@@ -7,7 +7,7 @@ use App\Models\User;
 
 class ProfileController extends Controller
 {
-    public function __invoke() {
+    public function getProfilePage() {
 
         $current_user = User::where('id', 6)->first();
 
