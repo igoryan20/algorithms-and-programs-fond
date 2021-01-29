@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\DB;
 
 class CheckboxOsController extends Controller
@@ -24,6 +25,7 @@ class CheckboxOsController extends Controller
                 }
             }
         }
+
         return $checkData;
     }
 }

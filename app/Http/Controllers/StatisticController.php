@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\ProgramsList;
-use App\Models\User;
-use App\Models\Release;
+use App\Models\{
+    ProgramsList,
+    User,
+    Release
+};
 
 class StatisticController extends Controller
 {

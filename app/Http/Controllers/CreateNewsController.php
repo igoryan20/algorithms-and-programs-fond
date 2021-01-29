@@ -3,16 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Models\News;
 
 class CreateNewsController extends Controller
 {
-    public function invoke(Request $request) {
+    public function getCreateNewsPage(Request $request) {
         return view('pages/create-news-page');
     }
 
     public function insertNews(Request $request) {
-        DB::insert('insert into news values (null, ?, ?)', [$request->title,  $request->content ]);
+
+        $new = new News;
+        $new->title = $request->title;
+        $new->content = $request->content;
+        $new->save();
+
         return view('pages/create-news-page');
     }
 }

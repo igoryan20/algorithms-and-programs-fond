@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Categories;
-use App\Models\User;
+use App\Models\{
+    Categories,
+    User
+};
 
 class HeaderController extends Controller
 {

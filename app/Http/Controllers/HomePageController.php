@@ -2,15 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Categories;
-use App\Models\OS;
-use App\Models\ProgramsOS;
-use App\Http\Controllers\Controller;
-use App\Http\Controllers\SearchProgramController;
-use App\Http\Controllers\CheckboxOsConroller;
-use App\Http\Controllers\CheckboxCategoryConroller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\{
+    Categories,
+    OS,
+    ProgramsOS,
+};
+use App\Http\Controllers\{
+    Controller,
+    SearchProgramController,
+    CheckboxOsConroller,
+    CheckboxCategoryConroller
+};
 
 class HomePageController extends Controller {
 

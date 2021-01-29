@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\ProgramsList;
-use App\Models\ProgramsOS;
 use Illuminate\Database\Eloquent\Collection;
+use App\Models\{
+    ProgramsList,
+    ProgramsOS
+};
 
 class MyDevelopmentsController extends Controller
 {

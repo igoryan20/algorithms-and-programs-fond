@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\ProgramsList;
-use App\Models\ProgramsCategory;
-use App\Models\Categories;
-use App\Models\ProductPhotoPath;
 use Illuminate\Support\Facades\Storage;
+use App\Models\{
+    ProgramsList,
+    ProgramsCategory,
+    Categories,
+    ProductPhotoPath
+};
 
 class ProductController extends Controller
 {

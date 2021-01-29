@@ -12,46 +12,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//GET ROUTES
 Route::get('/', 'HomePageController@invoke');
-
 Route::get('/create-product', CreateProductController::class);
-
-Route::get('/create-news', 'CreateNewsController@invoke');
-
+Route::get('/create-news', 'CreateNewsController@getCreateNewsPage');
 Route::get('/profile', ProfileController::class);
-
 Route::get('/news', NewsController::class);
-
 Route::get('/product/{id}', 'ProductController@getProduct');
-
 Route::get('/categories', 'CategoriesController@getCategories');
-
-Route::post('/categories', 'CategoriesController@postCategory');
-
 Route::get('/users-list', 'UsersListController@getUsers');
-
 Route::get('/users-list/edit-user/{id}', 'EditUserController@getUserInfo');
-
-Route::post('/users-list/edit-user/{id}', 'EditUserController@updateUserInfo');
-
-Route::post('/create-news', 'CreateNewsController@insertNews');
-
 Route::get('/my-developments', 'MyDevelopmentsController@getPrograms');
-
 Route::get('/products-library', 'ProductsLibraryController@getProducts');
-
 Route::get('/statistics', 'StatisticController@getStatistic');
-
 Route::get('/developers-requests', 'DevelopersRequestsController@getRequests');
-
 Route::get('/groups-list', "GroupsListController@getGroups");
-
-Route::post('/upload-release', "ReleaseFileController@upload");
-
 Route::get('/journal/{id}', 'JournalController@getRelises');
-
 Route::get('/download-release/{id}', "ReleaseFileController@download");
 
-// Route::post('/upload-product-photo, "ProductController@uploadPhoto"');
-
+//POST ROUTES
+Route::post('/categories', 'CategoriesController@postCategory');
+Route::post('/users-list/edit-user/{id}', 'EditUserController@updateUserInfo');
+Route::post('/create-news', 'CreateNewsController@insertNews');
+Route::post('/upload-release', "ReleaseFileController@upload");
 Route::post('/upload-product-photo', "ProductController@uploadPhoto");

@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\DB;
+use App\Models\ProgramsCategory;
 
 class CheckboxCategoryController extends Controller
 {
@@ -16,9 +18,9 @@ class CheckboxCategoryController extends Controller
 
     public function check() {
 
-        $programsCategory = DB::select('SELECT * FROM programsCategory');
-
+        $programsCategory = ProgramsCategory::all();
         $programsCategoriesId = array();
+
         foreach ($this->checkboxCategoryRequest as $checkboxId) {
             foreach ($programsCategory as $progCategoryId) {
                 if ($progCategoryId->category_id == $checkboxId) {
