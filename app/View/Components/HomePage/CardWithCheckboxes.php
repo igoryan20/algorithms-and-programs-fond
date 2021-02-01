@@ -3,6 +3,7 @@
 namespace App\View\Components\HomePage;
 
 use Illuminate\View\Component;
+use Illuminate\Support\Collection;
 
 class CardWithCheckboxes extends Component
 {
@@ -10,12 +11,14 @@ class CardWithCheckboxes extends Component
     public $title;
     public $checkboxes;
     public $entity;
+    public $checked;
 
-    public function __construct($title, $checkboxes, $entity)
+    public function __construct($title, $checkboxes, $entity,Collection $checked)
     {
         $this->title = $title;
         $this->checkboxes = $checkboxes;
         $this->entity = $entity;
+        $this->checked = $checked;
     }
 
     /**

@@ -21,4 +21,8 @@ class Product extends Model
     public function operationSystems() {
         return $this->belongsToMany(OperationSystem::class, 'product_operation_system');
     }
+
+    public function categories() {
+        return $this->belongsToMany(Category::class, 'product_category');
+    }
 }

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Collection;
 use App\Models\{
     Product,
-    ProgramCategory,
+    ProductCategory,
     Category,
     ProductPhotoPath
 };
@@ -18,7 +18,7 @@ class ProductController extends Controller
 
         $product = Product::where('id', $id)->first();
 
-        $programsCategories = ProgramCategory::where('program_id', $id)->get()->all();
+        $programsCategories = ProductCategory::where('product_id', $id)->get()->all();
 
         $categories = new Collection;
         foreach ($programsCategories as $programsCategory) {
