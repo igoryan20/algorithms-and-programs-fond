@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\{
     Program,
-    ProgramsCategory,
+    ProgramCategory,
     Category,
     ProductPhotoPath
 };
@@ -17,7 +17,7 @@ class ProductController extends Controller
 
         $program = Program::where('id', $id)->first();
 
-        $programsCategories = ProgramsCategory::where('program_id', $id)->get()->all();
+        $programsCategories = ProgramCategory::where('program_id', $id)->get()->all();
 
         $categories = [];
         foreach ($programsCategories as $programsCategory) {

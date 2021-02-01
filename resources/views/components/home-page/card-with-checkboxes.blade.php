@@ -15,7 +15,6 @@
                 @else
                     <input type="checkbox" class="mr-2 mt-1" id="checkbox" name="checkbox_{{ $entity }}[]" value='{{ $item->id }}' />
                 @endif
-
                     <p class="card-text" for="checkbox">{{ $item[$entity] }}</p>
             </div>
             @endforeach

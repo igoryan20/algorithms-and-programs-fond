@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProgramsListsTable extends Migration
+class CreateProgramOperationSystemTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateProgramsListsTable extends Migration
      */
     public function up()
     {
-        Schema::create('programs_lists', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('program_operation_system', function (Blueprint $table) {
+            $table->integer('programId');
+            $table->integer('osId');
         });
     }
 
@@ -26,6 +26,6 @@ class CreateProgramsListsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('programs_lists');
+        Schema::dropIfExists('program_operation_system');
     }
 }

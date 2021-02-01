@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\DB;
 use App\Models\{
     Program,
     Category,
-    OS,
-    ProgramsOS,
+    OperationSystem,
+    ProgramOperationSystem,
 };
 use App\Http\Controllers\{
     Controller,
@@ -22,11 +22,11 @@ class HomePageController extends Controller {
     public function invoke(Request $request) {
 
         // Операционные системы и категории
-        $os = OS::all();
+        $os = OperationSystem::all();
         $categories = Category::all();
 
         $data = Program::all();
-        $programsOS = DB::select('select * from programsOS');
+        $programsOS = ProgramOperationSystem::all();
         $data = $this->add_os($data, $programsOS);
 
         // Проверка данных

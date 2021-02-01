@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ProgramsCategory extends Model
+class ProgramCategory extends Model
 {
-    protected $table = 'programsCategory';
+    protected $table = 'program_category';
     public $timestamps = false;
 }

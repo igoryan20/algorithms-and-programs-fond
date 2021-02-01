@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ProgramsOS extends Model
+class ProgramOperationSystem extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'programsOS';
+    protected $table = 'program_operation_system';
 
     /**
      * Indicates if the model should be timestamped.

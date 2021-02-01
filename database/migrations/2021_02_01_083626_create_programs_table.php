@@ -14,8 +14,11 @@ class CreateProgramsTable extends Migration
     public function up()
     {
         Schema::create('programs', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->integer('id', true);
+            $table->string('programName', 100);
+            $table->mediumText('description');
+            $table->mediumText('imgPath')->nullable();
+            $table->integer('developed_by')->nullable();
         });
     }
 
