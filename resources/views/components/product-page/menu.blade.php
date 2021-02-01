@@ -27,7 +27,7 @@
                 <a class="dropdown-item" href="">Пользователи</a>
                 <a class="dropdown-item" href="">Ключи</a>
             </div>
-            <x-product-page.create-release :id="$program->id" />
+            <x-product-page.create-release :program="$program" />
         </div>
         <button class="btn btn-secondary mr-2">Желаемое</button>
     </div>

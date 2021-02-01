@@ -14,13 +14,13 @@
         <ul class="list-group">
             @foreach ($programsData as $item)
                 <a href="/product/{{ $item->id }}" class="list-group-item d-flex list-item list-item-bc">
-                    @if ($item->imgPath != null)
-                        <img src="{{ $item->imgPath }}" alt="картинка 1" class="mr-2" width="76px" height="76px">
+                    @if ($item->img_path != null)
+                        <img src="{{ $item->img_path }}" alt="картинка 1" class="mr-2" width="76px" height="76px">
                     @else
                         <img src="/img/default.png" alt="картинка 1" class="mr-2" width="76px" height="76px">
                     @endif
                     <div>
-                        <h5 class="mb-0">{{ $item->programName }}</h5>
+                        <h5 class="mb-0">{{ $item->name }}</h5>
                         <p class="mb-1">{{ $item->description }}</p>
                         <div>
                             @if (in_array(1, $item->os))

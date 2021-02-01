@@ -3,6 +3,8 @@
 namespace App\View\Components\ProductPage;
 
 use Illuminate\View\Component;
+use Illuminate\Support\Collection;
+use App\Models\Program;
 
 class CarouselImages extends Component
 {
@@ -11,12 +13,12 @@ class CarouselImages extends Component
      *
      * @return void
      */
-    private $categories;
-    private $program;
+    public $photoPaths;
+    public $program;
 
-    public function __construct($categories, $program)
+    public function __construct(Collection $photoPaths, $program)
     {
-        $this->categories = $categories;
+        $this->photoPaths = $photoPaths;
         $this->program = $program;
     }
 

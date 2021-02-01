@@ -3,6 +3,8 @@
 namespace App\View\Components\ProductPage;
 
 use Illuminate\View\Component;
+use Illuminate\Support\Collection;
+
 
 class About extends Component
 {
@@ -11,9 +13,11 @@ class About extends Component
      *
      * @return void
      */
-    public function __construct()
+    public $categories;
+
+    public function __construct(Collection $categories)
     {
-        //
+        $this->categories = $categories;
     }
 
     /**

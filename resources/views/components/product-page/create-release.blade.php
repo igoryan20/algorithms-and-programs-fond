@@ -23,20 +23,19 @@
                                     name="description" autocomplete="off"></textarea>
                     </div>
                     <div class="form-group">
-                        <div class="btn-group" role="group">
-                            <label class="btn btn-outline-primary" for="btnradio1">Windows
-                                <input type="radio" class="btn-check" id="btnradio1" autocomplete="off" name="Windows">
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-outline-primary">
+                              <input type="radio" name="Windows" id="option1"> Windows
                             </label>
-
-                            <label class="btn btn-outline-primary" for="btnradio2">MacOS
-                                <input type="radio" class="btn-check" id="btnradio2" autocomplete="off" name="MacOS">
+                            <label class="btn btn-outline-primary">
+                              <input type="radio" name="MacOS" id="option2"> MacOS
                             </label>
-                            <label class="btn btn-outline-primary" for="btnradio3">Linux
-                                <input type="radio" class="btn-check" id="btnradio3" autocomplete="off" name="Linux">
+                            <label class="btn btn-outline-primary">
+                              <input type="radio" name="Linux" id="option3"> Linux
                             </label>
-                          </div>
+                        </div>
                     </div>
-                    <input type="hidden" value="{{ $id }}" name="id">
+                    <input type="hidden" value="{{ $program->id }}" name="id">
                     <div class="form-group">
                         <label for="upload">Выберите загружаемый файл</label>
                         <input type="file" class="form-control-file" id="upload" accept=".exe, .iso, .rar, .zip" name='release'>

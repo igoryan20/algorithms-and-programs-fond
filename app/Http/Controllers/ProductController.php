@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Collection;
 use App\Models\{
     Program,
     ProgramCategory,
@@ -19,10 +20,10 @@ class ProductController extends Controller
 
         $programsCategories = ProgramCategory::where('program_id', $id)->get()->all();
 
-        $categories = [];
+        $categories = new Collection;
         foreach ($programsCategories as $programsCategory) {
             $category = Category::where('id', $programsCategory->category_id)->first();
-            array_push($categories, $category->category);
+            $categories->push($category->name);
         }
 
         $photo_paths_table = $program->productsPhotosPaths;

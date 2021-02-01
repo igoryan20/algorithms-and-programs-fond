@@ -8,7 +8,7 @@
     <x-product-page.menu :program="$program" />
     <hr>
     <div class="d-flex justify-content-between">
-        <x-product-page.carousel-images :photo-paths="$photo_paths" />
+        <x-product-page.carousel-images :photo-paths="$photo_paths" :program="$program" />
         <x-product-page.about :categories="$categories" :program="$program" />
     </div>
 
