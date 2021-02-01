@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 //GET ROUTES
-Route::get('/', 'HomePageController@invoke');
+Route::get('/', 'HomePageController@getAllProducts');
+Route::get('filtered-products', 'HomePageController@getFilteredProducts');
 Route::get('/create-product', 'CreateProductController@getCreateProductPage');
 Route::get('/create-news', 'CreateNewsController@getCreateNewsPage');
 Route::get('/profile', 'ProfileController@getProfilePage');

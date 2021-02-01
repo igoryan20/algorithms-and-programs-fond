@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOperationSystemsTable extends Migration
+class CreateProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateOperationSystemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('operation_systems', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->integer('id', true);
-            $table->string('os', 50)->nullable();
+            $table->string('name', 100);
+            $table->mediumText('description');
+            $table->mediumText('img_path')->nullable();
+            $table->integer('developed_by')->nullable();
         });
     }
 
@@ -26,6 +29,6 @@ class CreateOperationSystemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('operation_systems');
+        Schema::dropIfExists('products');
     }
 }

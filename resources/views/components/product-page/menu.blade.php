@@ -1,13 +1,13 @@
 <div class="mx-auto w-75 py-4">
     <div class="d-flex">
-        @if ($program->img_path != null)
-            <img src="{{ $program->img_path }}" alt="картинка 1" class="mr-2" width="76px" height="76px">
+        @if ($product->img_path != null)
+            <img src="{{ $product->img_path }}" alt="картинка 1" class="mr-2" width="76px" height="76px">
         @else
             <img src="/img/default.png" alt="картинка 1" class="mr-2" width="76px" height="76px">
         @endif
         <div class="d-flex flex-column ml-4">
-            <h1>{{ $program->name }}</h1>
-            <p>{{ $program->description }}</p>
+            <h1>{{ $product->name }}</h1>
+            <p>{{ $product->description }}</p>
         </div>
     </div>
     <div class="d-flex mt-4">
@@ -23,11 +23,11 @@
                 <a class="dropdown-item" href="" data-toggle="modal"
                 data-target="#create-release">Создать релиз</a>
                 <a class="dropdown-item" href="">Контакты</a>
-                <a class="dropdown-item" href="/journal/{{ $program->id }}">Журнал</a>
+                <a class="dropdown-item" href="/journal/{{ $product->id }}">Журнал</a>
                 <a class="dropdown-item" href="">Пользователи</a>
                 <a class="dropdown-item" href="">Ключи</a>
             </div>
-            <x-product-page.create-release :program="$program" />
+            <x-product-page.create-release :product="$product" />
         </div>
         <button class="btn btn-secondary mr-2">Желаемое</button>
     </div>

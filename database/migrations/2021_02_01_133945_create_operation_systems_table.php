@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProgramsTable extends Migration
+class CreateOperationSystemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateProgramsTable extends Migration
      */
     public function up()
     {
-        Schema::create('programs', function (Blueprint $table) {
+        Schema::create('operation_systems', function (Blueprint $table) {
             $table->integer('id', true);
-            $table->string('programName', 100);
-            $table->mediumText('description');
-            $table->mediumText('imgPath')->nullable();
-            $table->integer('developed_by')->nullable();
+            $table->string('name', 50);
         });
     }
 
@@ -29,6 +26,6 @@ class CreateProgramsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('programs');
+        Schema::dropIfExists('operation_systems');
     }
 }

@@ -14,7 +14,7 @@ class AddForeignKeysToProductsPhotosPathsTable extends Migration
     public function up()
     {
         Schema::table('products_photos_paths', function (Blueprint $table) {
-            $table->foreign('product_id', 'fk_product_id')->references('id')->on('programs')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('product_id', 'fk_product_id')->references('id')->on('products')->onUpdate('RESTRICT')->onDelete('RESTRICT');
         });
     }
 

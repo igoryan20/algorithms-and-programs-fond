@@ -1,15 +1,15 @@
 @extends('layouts.main-layout')
 
 @section('title')
-    {{ $program->name }}
+    {{ $product->name }}
 @endsection
 
 @section('page-content')
-    <x-product-page.menu :program="$program" />
+    <x-product-page.menu :product="$product" />
     <hr>
     <div class="d-flex justify-content-between">
-        <x-product-page.carousel-images :photo-paths="$photo_paths" :program="$program" />
-        <x-product-page.about :categories="$categories" :program="$program" />
+        <x-product-page.carousel-images :photo-paths="$photo_paths" :product="$product" />
+        <x-product-page.about :categories="$categories" />
     </div>
 
     <style>

@@ -12,10 +12,10 @@
             <h5 class="mb-2">У данного продукта ещё нет релизов</h5>
             <a class="btn btn-success mb-4" href="" data-toggle="modal"
                 data-target="#create-release">Создать релиз</a>
-            <x-product-page.create-release :program="$program" />
+            <x-product-page.create-release :product="$product" />
             <div>
                 <a href="/" class="btn btn-info" style="color: white">Перейти на страницу с продуктами</a>
-                <a href="/product/{{ $program->id }}" class="btn btn-info" style="color: white">Перейти на страницу с данным продуктом</a>
+                <a href="/product/{{ $product->id }}" class="btn btn-info" style="color: white">Перейти на страницу с данным продуктом</a>
             </div>
         @else
             <table class="table">

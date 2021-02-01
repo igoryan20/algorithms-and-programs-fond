@@ -7,11 +7,11 @@ use Illuminate\View\Component;
 class ProgramsList extends Component
 {
 
-    public $programsData;
+    public $products;
 
-    public function __construct($programsData)
+    public function __construct($products)
     {
-        $this->programsData = $programsData;
+        $this->products = $products;
     }
 
     /**

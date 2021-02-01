@@ -5,10 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\{
-    Program,
+    Product,
     Category,
-    OperationSystem,
-    ProgramOperationSystem,
+    OperationSystem
 };
 use App\Http\Controllers\{
     Controller,
@@ -17,66 +16,21 @@ use App\Http\Controllers\{
     CheckboxCategoryConroller
 };
 
-class HomePageController extends Controller {
+class HomePageController extends Controller
+{
+    public function getAllProducts(Request $request) {
 
-    public function invoke(Request $request) {
-
-        // Операционные системы и категории
-        $os = OperationSystem::all();
+        $operationSystems = OperationSystem::all();
         $categories = Category::all();
+        $products = Product::all();
 
-        $data = Program::all();
-        $programsOS = ProgramOperationSystem::all();
-        $data = $this->add_os($data, $programsOS);
 
-        // Проверка данных
-        if(!$data) {
-            $programsData = [];
-        } else {
-            // Проверка по поисковой строке
-            $search = $request->search;
-            if ($search) {
-                $spc = new SearchProgramController($search, $data);
-                $data = $spc->search();
-            }
-        // Проверка по категориям
-            $checkbox_category = $request->checkbox_category;
-            $ccc = array();
-            if ($checkbox_category) {
-                $ccc = new CheckboxCategoryController($checkbox_category, $data);
-                $data = $ccc->check();
-            }
-            // Проверка по операционным системам
-            $checkbox_os = $request->checkbox_os;
-            $coc = array();
-            if ($checkbox_os) {
-                $coc = new CheckboxOsController($checkbox_os, $data);
-                $data = $coc->check();
-            }
-            $programsData = $this->add_os($data, $programsOS);
-        }
-
-        return view('/pages/home-page',
-                    ['programsData' => $data,'os' => $os, 'categories' => $categories,
-                    'search' => $search, 'checkbox_category' => $checkbox_category,
-                    'checkbox_os' => $checkbox_os ]);
+        return view('/pages/home-page', ['products' => $products, 'categories' => $categories,
+                                         'operationSystems' => $operationSystems] );
     }
 
-    private function add_os($data, $programsOS) {
+    public function getFilteredProducts(Request $request) {
 
-        $osArray = [];
-        foreach ($programsOS as $po) {
-            $osArray[$po->programId] = [];
-        }
-        foreach ($programsOS as $po) {
-            array_push($osArray[$po->programId], $po->osId);
-        }
-
-        foreach ($data as $item) {
-            $item->os = $osArray[$item->id];
-        }
-
-        return $data;
     }
 }
 ?>

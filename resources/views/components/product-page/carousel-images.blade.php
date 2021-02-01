@@ -33,7 +33,7 @@
         {{ csrf_field() }}
         <button id="upload-photo-button" for="upload-photo" class="btn btn-success">Добавить изображение</button>
         <input type="file" name="photo" id="upload-photo" />
-        <input type="hidden" name="id" value="{{ $program->id }}" />
+        <input type="hidden" name="id" value="{{ $product->id }}" />
     </form>
 </div>
 

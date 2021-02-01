@@ -3,7 +3,7 @@
 namespace App\View\Components\ProductPage;
 
 use Illuminate\View\Component;
-use App\Models\Program;
+use App\Models\Product;
 
 class CreateRelease extends Component
 {
@@ -13,7 +13,7 @@ class CreateRelease extends Component
      * @return void
      */
     public $program;
-    public function __construct(Program $program)
+    public function __construct(Product $program)
     {
         $this->program = $program;
     }

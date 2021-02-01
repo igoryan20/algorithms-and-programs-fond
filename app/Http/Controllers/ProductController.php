@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Collection;
 use App\Models\{
-    Program,
+    Product,
     ProgramCategory,
     Category,
     ProductPhotoPath
@@ -16,7 +16,7 @@ class ProductController extends Controller
 {
     public function getProduct($id) {
 
-        $program = Program::where('id', $id)->first();
+        $product = Product::where('id', $id)->first();
 
         $programsCategories = ProgramCategory::where('program_id', $id)->get()->all();
 
@@ -26,7 +26,7 @@ class ProductController extends Controller
             $categories->push($category->name);
         }
 
-        $photo_paths_table = $program->productsPhotosPaths;
+        $photo_paths_table = $product->productsPhotosPaths;
 
         if ($photo_paths_table->isEmpty()) {
             $photo_paths_table->push('/storage/default.jpg');
@@ -41,7 +41,7 @@ class ProductController extends Controller
             }
         }
 
-        return view('/pages/product', ['program' => $program, 'categories' => $categories,
+        return view('/pages/product', ['product' => $product, 'categories' => $categories,
                      'photo_paths' => $paths]);
     }
 

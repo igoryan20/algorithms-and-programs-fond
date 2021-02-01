@@ -10,14 +10,12 @@ class CardWithCheckboxes extends Component
     public $title;
     public $checkboxes;
     public $entity;
-    public $checked;
 
-    public function __construct($title, $checkboxes, $entity, $checked)
+    public function __construct($title, $checkboxes, $entity)
     {
         $this->title = $title;
         $this->checkboxes = $checkboxes;
         $this->entity = $entity;
-        $this->checked = $checked;
     }
 
     /**

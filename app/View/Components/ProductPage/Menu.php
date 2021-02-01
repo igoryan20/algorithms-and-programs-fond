@@ -3,7 +3,7 @@
 namespace App\View\Components\ProductPage;
 
 use Illuminate\View\Component;
-use App\Models\Program;
+use App\Models\Product;
 
 class Menu extends Component
 {
@@ -13,11 +13,11 @@ class Menu extends Component
      * @return void
      */
 
-    public $program;
+    public $product;
 
-    public function __construct(Program $program)
+    public function __construct(Product $product)
     {
-        $this->program = $program;
+        $this->product = $product;
     }
 
     /**
