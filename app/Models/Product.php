@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    public function getProgramsCount() {
+    public function getProductsCount() {
         return $this->all()->count();
     }
 

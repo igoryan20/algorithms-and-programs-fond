@@ -8,7 +8,7 @@ use Chartisan\PHP\Chartisan;
 use ConsoleTVs\Charts\BaseChart;
 use Illuminate\Http\Request;
 use App\Models\{
-    ProgramOperationSystem,
+    ProductOperationSystem,
     OperationSystem
 };
 
@@ -29,7 +29,8 @@ class OSChart extends BaseChart
         $operationSystemCount = [];
         $operationSystemNames = [];
         foreach ($operationSystems as $operationSystem) {
-            array_push($operationSystemCount, ProgramOperationSystem::where('osId', $operationSystem->id)->get()->count());
+            array_push($operationSystemCount, ProductOperationSystem::where('operation_system_id', $operationSystem->id)
+                                                ->get()->count());
             array_push($operationSystemNames, $operationSystem->name);
         }
 

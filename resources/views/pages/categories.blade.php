@@ -23,7 +23,7 @@
                     <tr>
                         <th scope="row">{{ $category->id }}</th>
                         <td>
-                            <p class="mb-0">{{ $category->category }}</p>
+                            <p class="mb-0">{{ $category->name }}</p>
                             <small>{{ $category->description }}</small>
                         </td>
                         <td>{{ $category->url }}</td>
@@ -34,7 +34,7 @@
                                     data-target="#edit-category"
                                     data-id="{{ $category->id }}"
                                     data-modal_title="Редактирование категории"
-                                    data-title="{{ $category->category }}"
+                                    data-title="{{ $category->name }}"
                                     data-description="{{ $category->description }}"
                                     data-url="{{ $category->url }}"
                                     data-weight="{{ $category->weight }}"

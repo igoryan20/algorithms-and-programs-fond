@@ -8,5 +8,4 @@
     ?>
     <x-header :username="$username" :categories="$categories" />
     @yield('page-content')
-    {{-- @include('footer') --}}
 @endsection
