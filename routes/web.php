@@ -31,6 +31,7 @@ use Illuminate\Support\Facades\Route;
     Route::get('/groups-list', "GroupsListController@getGroups");
     Route::get('/journal/{id}', 'JournalController@getRelises');
     Route::get('/download-release/{id}', "ReleaseFileController@download");
+    Route::get('/permissions', 'PermissionsPageController@getPermissions');
 
     Route::post('/categories', 'CategoriesController@postCategory');
     Route::post('/users-list/edit-user/{id}', 'EditUserController@updateUserInfo');

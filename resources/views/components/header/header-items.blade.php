@@ -37,7 +37,7 @@
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="/users-list">Пользователи</a>
           <a class="dropdown-item" href="/groups-list">Группы</a>
-          <a class="dropdown-item" href="">Разрешения</a>
+          <a class="dropdown-item" href="/permissions">Разрешения</a>
         </div>
       </li>
     </ul>
