@@ -14,6 +14,7 @@ const mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/chart.js', 'public/js')
     .js('resources/js/upload-photo.js', 'public/js')
+    .js('resources/js/selectpicker.js', 'public/js')
     .autoload({
         jquery: ['$', 'window.jQuery', 'jQuery']
     })
