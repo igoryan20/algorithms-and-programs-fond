@@ -6,14 +6,14 @@ use Illuminate\View\Component;
 
 class Header extends Component
 {
-
-
     public $categories;
+    public $users;
     public $username;
 
-    public function __construct($categories, $username)
+    public function __construct($categories, $users, $username)
     {
         $this->categories = $categories;
+        $this->users = $users;
         $this->username = $username;
     }
 

@@ -14,7 +14,7 @@
                 <a class="dropdown-item" href="/profile">Профиль</a>
                 <a class="dropdown-item" href="/products-library">Библиотека</a>
                 <a class="dropdown-item" href="/my-developments">Мои разработки</a>
-                <a class="dropdown-item" href="">Желаемое</a>
+                <a class="dropdown-item" href="/desired-products">Желаемое</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="">Выход</a>
             </div>

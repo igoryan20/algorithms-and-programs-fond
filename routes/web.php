@@ -32,12 +32,14 @@ use Illuminate\Support\Facades\Route;
     Route::get('/journal/{id}', 'JournalController@getRelises');
     Route::get('/download-release/{id}', "ReleaseFileController@download");
     Route::get('/permissions', 'PermissionsPageController@getPermissions');
+    Route::get('/desired-products', 'DesiredProductsController@getDesiredProducts');
 
     Route::post('/categories', 'CategoriesController@postCategory');
     Route::post('/users-list/edit-user/{id}', 'EditUserController@updateUserInfo');
     Route::post('/create-news', 'CreateNewsController@createNews');
     Route::post('/upload-release', "ReleaseFileController@upload");
     Route::post('/upload-product-photo', "ProductController@uploadPhoto");
+    Route::post('/product/{id}', 'ProductController@updateDesireProductTable');
 // });
 
 Route::get('/login', 'LoginController@getLoginPage')->name('login');

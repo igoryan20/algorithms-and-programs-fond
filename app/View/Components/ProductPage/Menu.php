@@ -14,10 +14,12 @@ class Menu extends Component
      */
 
     public $product;
+    public $isDesired;
 
-    public function __construct(Product $product)
+    public function __construct(Product $product, $isDesired)
     {
         $this->product = $product;
+        $this->isDesired = $isDesired;
     }
 
     /**

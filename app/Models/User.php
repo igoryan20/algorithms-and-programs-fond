@@ -14,4 +14,8 @@ class User extends \Illuminate\Foundation\Auth\User
     public function group() {
         return $this->hasOne(Group::class, 'users_ibfk_1');
     }
+
+    public function products() {
+        return $this->belongsToMany(Product::class, 'desired_products_users');
+    }
 }

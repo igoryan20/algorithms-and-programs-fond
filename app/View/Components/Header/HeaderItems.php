@@ -11,9 +11,12 @@ class HeaderItems extends Component
      *
      * @return void
      */
-    public function __construct()
+    public $categories;
+    public $users;
+    public function __construct($categories, $users)
     {
-        //
+        $this->categories = $categories;
+        $this->users = $users;
     }
 
     /**

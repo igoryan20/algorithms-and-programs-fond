@@ -4,8 +4,10 @@
     <?php
         use App\Http\Controllers\HeaderController;
         $categories = HeaderController::getCategories();
-        $username = HeaderController::getUsername();
+        $users = HeaderController::getUsers();
+        $username = HeaderController::getUsername(6);
+        session(['user_id' => '6']);
     ?>
-    <x-header :username="$username" :categories="$categories" />
+    <x-header :categories="$categories" :users="$users" :username="$username" />
     @yield('page-content')
 @endsection

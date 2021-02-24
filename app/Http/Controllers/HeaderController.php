@@ -14,7 +14,11 @@ class HeaderController extends Controller
         return Category::take(5)->get();
     }
 
-    static function getUsername() {
-        return User::where('id', 6)->first()->username;
+    static function getUsers() {
+        return User::all();
+    }
+
+    static function getUsername($id) {
+        return User::where('id', $id)->first()->username;
     }
 }

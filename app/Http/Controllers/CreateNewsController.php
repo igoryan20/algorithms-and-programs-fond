@@ -18,6 +18,6 @@ class CreateNewsController extends Controller
         $new->content = $request->content;
         $new->save();
 
-        return view('pages/create-news-page');
+        return $this->getCreateNewsPage($request);
     }
 }

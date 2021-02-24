@@ -11,7 +11,7 @@ class HeaderUserDropdown extends Component
      *
      * @return void
      */
-    public $username = 45;
+    public $username;
 
     public function __construct($username)
     {

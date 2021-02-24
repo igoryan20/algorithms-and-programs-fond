@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cec87129-b196-40d2-b09a-8c8d5c0fa166" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/categories-page/categories-pop-up.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/categories-page/categories-pop-up.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/header/header-search-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/header/header-search-form.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

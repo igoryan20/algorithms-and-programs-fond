@@ -29,5 +29,18 @@
             </div>
             <x-product-page.create-release :product="$product" />
         </div>
-        <button class="btn btn-secondary mr-2">Желаемое</button>
+        @if ($isDesired)
+            <form action="/product/{{ $product->id }}" method="POST">
+                {{ csrf_field() }}
+                <input type="hidden" name="product_id" value={{ $product->id }}>
+                <button type="submit" class="btn btn-success mr-2" name="btn" value="del">Желаемое</button>
+            </form>
+        @else
+        <form action="/product/{{ $product->id }}" method="POST">
+            {{ csrf_field() }}
+            <input type="hidden" name="product-id" value={{ $product->id }}>
+            <button type="submit" class="btn btn-info mr-2" name="btn" value="add">Желаемое</button>
+        </form>
+        @endif
+
     </div>

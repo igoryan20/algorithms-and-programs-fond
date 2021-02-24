@@ -40,5 +40,16 @@
           <a class="dropdown-item" href="/permissions">Разрешения</a>
         </div>
       </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown"
+           role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           Войти как
+        </a>
+        <div class="dropdown-menu" aria-labelledby="categoriesDropdown">
+            @foreach ($users as $user)
+                <a class="dropdown-item" href="">{{ $user->username }}</a>
+            @endforeach
+        </div>
+      </li>
     </ul>
   </div>
