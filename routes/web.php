@@ -40,6 +40,7 @@ use Illuminate\Support\Facades\Route;
     Route::post('/upload-release', "ReleaseFileController@upload");
     Route::post('/upload-product-photo', "ProductController@uploadPhoto");
     Route::post('/product/{id}', 'ProductController@updateDesireProductTable');
+    Route::post('/', 'HomePageController@changeUser');
 // });
 
 Route::get('/login', 'LoginController@getLoginPage')->name('login');

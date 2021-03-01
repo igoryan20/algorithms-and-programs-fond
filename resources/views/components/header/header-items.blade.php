@@ -47,7 +47,10 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="categoriesDropdown">
             @foreach ($users as $user)
-                <a class="dropdown-item" href="">{{ $user->username }}</a>
+                <form action="/" method="POST">
+                    {{ csrf_field() }}
+                    <button class="dropdown-item" name="user_id" value="{{ $user->id }}">{{ $user->username }}</button>
+                </form>
             @endforeach
         </div>
       </li>
