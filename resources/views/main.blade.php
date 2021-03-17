@@ -10,7 +10,7 @@
     <script src="https://kit.fontawesome.com/66261627a2.js" crossorigin="anonymous"></script>
     <title>ФАП - @yield('title')</title>
 </head>
-<body style="background-color: #f9fbe7">
+<body style="background-color: #f3efd3">
 
     @yield('layout-content')
 

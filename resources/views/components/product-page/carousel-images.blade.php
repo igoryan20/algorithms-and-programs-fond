@@ -15,7 +15,7 @@
                     <div class="carousel-item active">
                         <img class="d-block" src="{{ $photoPath }}" style="width: 60em; height: 30em" alt="">
                     </div>
-                @elses
+                @else
                     <div class="carousel-item">
                         <img class="d-block" src="{{ $photoPath }}" style="width: 60em; height: 30em" alt="">
                     </div>

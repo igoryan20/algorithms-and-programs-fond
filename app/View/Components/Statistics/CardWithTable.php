@@ -11,10 +11,18 @@ class CardWithTable extends Component
      *
      * @return void
      */
-    public function __construct()
+    public $productsCount;
+    public $usersCount;
+    public $releasesCount;
+
+    public function __construct($productsCount, $usersCount, $releasesCount)
     {
-        //
+        $this->productsCount = $productsCount;
+        $this->usersCount = $usersCount;
+        $this->releasesCount = $releasesCount;
     }
+
+
 
     /**
      * Get the view / contents that represent the component.

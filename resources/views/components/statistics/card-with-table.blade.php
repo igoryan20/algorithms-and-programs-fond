@@ -7,7 +7,7 @@
             <tbody>
                 <tr>
                     <td>Продуктов</td>
-                    <td>{{ $programsCount }}</td>
+                    <td>{{ $productsCount }}</td>
                 </tr>
                 <tr>
                     <td>Релизов</td>

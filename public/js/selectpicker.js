@@ -968,7 +968,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
   // part of this is duplicated in i18n/defaults-en_US.js. Make sure to update both.
   Selectpicker.DEFAULTS = {
-    noneSelectedText: 'Ничего не выбрано',
+    noneSelectedText: 'Nothing selected',
     noneResultsText: 'No results matched {0}',
     countSelectedText: function (numSelected, numTotal) {
       return (numSelected == 1) ? '{0} item selected' : '{0} items selected';
@@ -3335,7 +3335,6 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 }));
 //# sourceMappingURL=bootstrap-select.js.map
-
 
 /***/ }),
 
@@ -14246,7 +14245,7 @@ $.fn.selectpicker.Constructor.BootstrapVersion = '4'; // $(document).ready(funct
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/vagrant/code/fond/resources/js/selectpicker.js */"./resources/js/selectpicker.js");
+module.exports = __webpack_require__(/*! /root/LaravelProject/algorithms-and-programs-fond/resources/js/selectpicker.js */"./resources/js/selectpicker.js");
 
 
 /***/ })

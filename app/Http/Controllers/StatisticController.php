@@ -13,12 +13,12 @@ class StatisticController extends Controller
 {
     public function getStatistic()
     {
-        $programsCount = (new Product)->getProductsCount();
+        $productsCount = (new Product)->getProductsCount();
         $usersCount = (new User)->getUsersCount();
         $releasesCount = (new Release)->getReleasesCount();
 
         return view('/pages/statistics',
-                    ['programsCount' => $programsCount, 'usersCount' => $usersCount,
+                    ['productsCount' => $productsCount, 'usersCount' => $usersCount,
                      'releasesCount' => $releasesCount]);
     }
 }

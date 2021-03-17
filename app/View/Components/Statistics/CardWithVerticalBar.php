@@ -11,9 +11,11 @@ class CardWithVerticalBar extends Component
      *
      * @return void
      */
-    public function __construct()
+    public $chart;
+
+    public function __construct($chart)
     {
-        //
+        $this->chart = $chart;
     }
 
     /**

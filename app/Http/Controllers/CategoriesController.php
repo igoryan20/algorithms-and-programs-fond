@@ -22,11 +22,11 @@ class CategoriesController extends Controller
                 $categoriesModel->delete();
             }
         } else {
-            $categoriesModel = new Categories;
+            $categoriesModel = new Category;
         }
 
         if ($request->type != 'delete') {
-            $categoriesModel->category = $request->title;
+            $categoriesModel->name = $request->title;
             $categoriesModel->description = $request->description;
             $categoriesModel->url = $request->url;
             $categoriesModel->weight = $request->weight;

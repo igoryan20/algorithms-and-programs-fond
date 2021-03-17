@@ -10997,7 +10997,7 @@ return jQuery;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/vagrant/code/fond/resources/js/upload-photo.js */"./resources/js/upload-photo.js");
+module.exports = __webpack_require__(/*! /root/LaravelProject/algorithms-and-programs-fond/resources/js/upload-photo.js */"./resources/js/upload-photo.js");
 
 
 /***/ })
