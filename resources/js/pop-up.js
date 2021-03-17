@@ -27,3 +27,9 @@ $('#delete-category').on('show.bs.modal', function (event) {
     modal.find('#delete-text').text('Вы действительно хотите удалить категорию "' + name + '"' + '?')
     modal.find('#delete-id').val(id)
 })
+
+$('change-name').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget);
+
+    
+})
