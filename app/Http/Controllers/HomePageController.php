@@ -80,5 +80,11 @@ class HomePageController extends Controller
                                         'operationSystems' => $allOperationSystems, 'checkedCategories' => $categories,
                                         'checkedOperationSystems' => $operationSystems]);
     }
+
+    public function changeUser(Request $request) {
+        session(['user_id' => $request->user_id]);
+        var_dump(session('user_id'));
+        return $this->getAllProducts($request);
+    }
 }
 ?>
