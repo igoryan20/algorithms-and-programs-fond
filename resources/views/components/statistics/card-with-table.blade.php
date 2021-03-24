@@ -19,7 +19,7 @@
                 </tr>
                 <tr>
                     <td>Разработчиков</td>
-                    <td>0</td>
+                    <td>{{ $developersCount }}</td>
                 </tr>
             </tbody>
         </table>

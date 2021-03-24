@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Collection;
 use App\Models\{
     Product,
@@ -18,69 +19,64 @@ class ProductController extends Controller
 {
     public function getProduct(Request $request, $id) {
 
+        // Получаю продукт с переданным id
         $product = Product::where('id', $id)->first();
 
-        $programsCategories = ProductCategory::where('product_id', $id)->get()->all();
+        // Получаю категории и фото с других таблиц
+        $categories = $product->categories;
+        $photosPaths = $product->photosName;
 
-        $categories = new Collection;
-        foreach ($programsCategories as $programsCategory) {
-            $category = Category::where('id', $programsCategory->category_id)->first();
-            $categories->push($category->name);
+        // Если фото нет, создаю фото по умолчанию
+        if($photosPaths->isEmpty()) {
+            $photosPaths = collect([(object) ['name' =>  '/product-photos/default.jpg']]);
         }
 
-        $photoPathsTable = $product->productsPhotosPaths;
-
-        if ($photoPathsTable->isEmpty()) {
-            $photoPathsTable->push('/storage/default.jpg');
-            $paths = $photoPathsTable;
-        } else {
-            $paths = collect(null);
-            foreach ($photoPathsTable as $photoPathRow) {
-                $path = $photoPathRow->path;
-                $path = substr($path, 7);
-                $path = '/storage/'.$path;
-                $paths->push($path);
-            }
-        }
-
+        // Просматриваю желаемый продукт или нет
         $desireProducts = $product->users;
-        $isDesired = false;
-        foreach ($desireProducts as $desireProduct) {
-            if($desireProduct->id == session('user_id')) {
-                $isDesired = true;
-            }
-        }
+        $isDesired = $desireProducts->contains(function ($item, $key) {
+            return $item->id == Auth::user()->id;
+        });
 
         return view('/pages/product', ['product' => $product, 'categories' => $categories,
-                     'photo_paths' => $paths, 'isDesired' => $isDesired]);
+                     'photo_paths' => $photosPaths, 'isDesired' => $isDesired]);
     }
 
     public function uploadPhoto(Request $request) {
 
         if($request->hasFile('photo')) {
-            $path = $request->file('photo')->store('public');
+            $path = $request->file('photo')->store('product-photos');
             $productPhotoPath = new ProductPhotoPath;
             $productPhotoPath->id = null;
-            $productPhotoPath->path = $path;
+            $productPhotoPath->name = $path;
             $productPhotoPath->product_id = $request->id;
             $productPhotoPath->save();
         }
 
-        return $this->getProduct($request->id);
+        return $this->getProduct($request, $request->id);
     }
 
     public function updateDesireProductTable(Request $request, $id) {
 
         if ($request->btn == 'add') {
             $desireProductUser = new DesiredProductUser;
-            $desireProductUser->user_id = session('user_id');
+            $desireProductUser->user_id = Auth::user()->id;
             $desireProductUser->product_id = $id;
             $desireProductUser->save();
         }
         if ($request->btn == 'del') {
-            DesiredProductUser::where('user_id', session('user_id'))->where('product_id', $id)->delete();
+            DesiredProductUser::where('user_id', Auth::user()->id)->where('product_id', $id)->delete();
         }
 
         return $this->getProduct($request, $id);
     }
+
+    public function publish(Request $request, $id) {
+
+        $product = Product::find($id);
+        $product->is_published = true;
+        $product->save();
+
+        return view('/pages/success', ['title' => 'Успешно опубликовано', 'info' => 'Продукт успешно опубликован', 'id' => $id]);
+    }
+
 }

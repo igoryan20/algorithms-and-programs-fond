@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\News;
+use Illuminate\Support\Facades\Auth;
+use App\Models\{
+    News,
+    NewsCreator
+};
 
 class CreateNewsController extends Controller
 {
@@ -18,6 +22,11 @@ class CreateNewsController extends Controller
         $new->content = $request->content;
         $new->save();
 
-        return $this->getCreateNewsPage($request);
+        $newsCreator = new NewsCreator;
+        $newsCreator->new_id = $new->id;
+        $newsCreator->creator_id = Auth::user()->id;
+        $newsCreator->save();
+
+        return (new NewsController)->getNewsPage();
     }
 }

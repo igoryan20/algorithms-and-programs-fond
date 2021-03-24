@@ -18,18 +18,18 @@ class LoginController extends Controller
     }
 
     public function authenticate(Request $request) {
-        $credentials = $request->only('username', 'password');
 
-        if (Auth::attempt($credentials)) {
-            var_dump('O yes');
-            $request->session()->regenerate();
-            return redirect()->route('/');
+        if(User::where('id', $request->user_id)->first()) {
+            $currentUser = User::where('id', $request->user_id)->first();
+            if($currentUser) {
+                $request->session()->regenerate();
+                Auth::login($currentUser, $remember = true);
+            }       
+            return redirect()->route('home');
         } else {
-            var_dump('O no');
-        }
-
-        return back()->withErrors([
-            'username' => 'The provided credentials do not match our records.'
-        ]);
+            return back()->withErrors([
+                    'username' => 'The provided credentials do not match our records.'
+                ]);
+        } 
     }
 }

@@ -5,9 +5,9 @@
     <div class="card-body">
         <select class="custom-select">
             <option selected>---</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <option value="1">Бесплатный</option>
+            <option value="2">Условно-бесплатный</option>
+            <option value="3">Платный</option>
         </select>
     </div>
 </div>

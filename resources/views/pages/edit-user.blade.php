@@ -27,21 +27,10 @@
             </div>
 
             <div class="mb-4">
-                <h4>Электронная почта</h4>
-                <input type="email" name="email" class="w-50" value="{{ $user->email }}" />
-            </div>
-
-            <div class="mb-4">
                 <h4>Имя пользователя</h4>
                 <input type="text" name="username" class="w-50" value="{{ $user->username }}" />
             </div>
-
-            <div class="mb-4">
-                <h4>Пароль</h4>
-                <input type="password" name="password" class="w-50" value="{{ $user->password }}" />
-            </div>
-
-
+            
             <div class="d-flex flex-row mb-4">
                 <button type="submit" class="btn btn-primary mr-2">Сохранить</button>
                 <a href="/users-list" class="btn btn-secondary">Отмена</a>

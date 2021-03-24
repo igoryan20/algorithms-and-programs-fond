@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Auth;
 use App\Models\{
     Product,
     Category,
@@ -24,7 +25,6 @@ class HomePageController extends Controller
         $operationSystems = OperationSystem::all();
         $categories = Category::all();
         $products = Product::all();
-
 
         return view('/pages/home-page', ['products' => $products, 'categories' => $categories,
                                          'operationSystems' => $operationSystems, 'checkedCategories' => new Collection,

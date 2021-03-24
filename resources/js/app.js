@@ -6,7 +6,10 @@
 
 require('./bootstrap');
 
+require('jquery/dist/jquery');
+
 require('./pop-up');
 
+require('@fortawesome/fontawesome-free/js/all');
 
 

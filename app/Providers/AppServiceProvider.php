@@ -23,7 +23,11 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot(Charts $charts)
-    {
+    {   
+        $this->registerCharts($charts);
+    }
+
+    private function registerCharts(Charts $charts) {
         $charts->register([
             \App\Charts\OSChart::class,
             \App\Charts\NewProducts::class,

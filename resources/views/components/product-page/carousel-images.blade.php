@@ -13,11 +13,11 @@
             @foreach ($photoPaths as $photoPath)
                 @if ($photoPaths->search($photoPath) == 0)
                     <div class="carousel-item active">
-                        <img class="d-block" src="{{ $photoPath }}" style="width: 60em; height: 30em" alt="">
+                        <img class="d-block" src="{{ $photoPath->name }}" style="width: 60em; height: 30em" alt="">
                     </div>
                 @else
                     <div class="carousel-item">
-                        <img class="d-block" src="{{ $photoPath }}" style="width: 60em; height: 30em" alt="">
+                        <img class="d-block" src="{{ $photoPath->name }}" style="width: 60em; height: 30em" alt="">
                     </div>
                 @endif
             @endforeach
@@ -29,11 +29,13 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
         </a>
     </div>
-    <form action="/upload-product-photo" method="POST" enctype="multipart/form-data" id="upload-photo-form" class="mt-4">
-        {{ csrf_field() }}
-        <button id="upload-photo-button" for="upload-photo" class="btn btn-success">Добавить изображение</button>
-        <input type="file" name="photo" id="upload-photo" />
-        <input type="hidden" name="id" value="{{ $product->id }}" />
-    </form>
+    @if(Auth::user()->id == $product->developed_by or Auth::user()->group->id == 3)
+        <form action="/upload-product-photo" method="POST" enctype="multipart/form-data" id="upload-photo-form" class="mt-4">
+            {{ csrf_field() }}
+            <button id="upload-photo-button" for="upload-photo" class="btn btn-success">Добавить изображение</button>
+            <input type="file" name="photo" id="upload-photo" />
+            <input type="hidden" name="id" value="{{ $product->id }}" />
+        </form>
+    @endif
 </div>
 

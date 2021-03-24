@@ -12,9 +12,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::middleware('auth')->group(function() {
-
-    Route::get('/', 'HomePageController@getAllProducts');
+Route::middleware('auth')->group(function() {
+    Route::get('/', 'HomePageController@getAllProducts')->name('home');
     Route::get('filtered-products', 'HomePageController@getFilteredProducts');
     Route::get('/create-product', 'CreateProductController@getCreateProductPage');
     Route::get('/create-news', 'CreateNewsController@getCreateNewsPage');
@@ -33,14 +32,22 @@ use Illuminate\Support\Facades\Route;
     Route::get('/download-release/{id}', "ReleaseFileController@download");
     Route::get('/permissions', 'PermissionsPageController@getPermissions');
     Route::get('/desired-products', 'DesiredProductsController@getDesiredProducts');
+    Route::get('/new-products', 'NewProductsController@getNewProducts');
+    Route::get('/publish/{id}', 'ProductController@publish');
 
     Route::post('/categories', 'CategoriesController@postCategory');
+    Route::post('/create-contacts', 'ProfileController@createContacts');
+    Route::post('/update-contacts', 'ProfileController@updateContacts');
+    Route::post('/update-fullname', 'ProfileController@updateUserFullName');
     Route::post('/users-list/edit-user/{id}', 'EditUserController@updateUserInfo');
+    Route::post('/update-user-avatar', 'ProfileController@updateUserAvatar');
     Route::post('/create-news', 'CreateNewsController@createNews');
     Route::post('/upload-release', "ReleaseFileController@upload");
     Route::post('/upload-product-photo', "ProductController@uploadPhoto");
     Route::post('/product/{id}', 'ProductController@updateDesireProductTable');
-// });
+    Route::post('/create-product', 'CreateProductController@postNewProduct');
+});
 
 Route::get('/login', 'LoginController@getLoginPage')->name('login');
-Route::post('/login-attempt', 'LoginController@authenticate')->name('login');
+Route::post('/login-attempt', 'LoginController@authenticate')->name('loginAuth');
+Route::get('/logout', 'LogoutController@logout');

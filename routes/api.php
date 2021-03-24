@@ -15,5 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
+    var_dump($request->user());
     return $request->user();
 });
+
+Route::middleware('change-user:api', ChangeUser::class);

@@ -14,12 +14,14 @@ class CardWithTable extends Component
     public $productsCount;
     public $usersCount;
     public $releasesCount;
+    public $developersCount;
 
-    public function __construct($productsCount, $usersCount, $releasesCount)
+    public function __construct($productsCount, $usersCount, $releasesCount, $developersCount)
     {
         $this->productsCount = $productsCount;
         $this->usersCount = $usersCount;
         $this->releasesCount = $releasesCount;
+        $this->developersCount = $developersCount;
     }
 
 

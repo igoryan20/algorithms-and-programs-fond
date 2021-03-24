@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Product extends Model
 {
@@ -14,7 +15,7 @@ class Product extends Model
         return $this->hasMany(Release::class, 'fk_programs', 'product_id');
     }
 
-    public function productsPhotosPaths() {
+    public function photosName() {
         return $this->hasMany(ProductPhotoPath::class, 'product_id');
     }
 

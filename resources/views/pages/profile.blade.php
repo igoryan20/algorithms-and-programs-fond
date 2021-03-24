@@ -9,30 +9,98 @@
     <hr class="ml-auto w-75">
     <div class="mr-auto ml-auto w-75">
         <div class="d-flex flex-row">
-            <img src="/img/admin.jpg" alt="" class="w-25 mr-4" style="height: 200px">
+
+            <!-- Форма для изменения автара пользователя -->
+            <form id="form-avatar" action="/update-user-avatar" method="POST" enctype="multipart/form-data" class="d-flex flex-column mr-4">
+                @csrf
+                @if($user->avatar_path)
+                    <img src="{{ $user->avatar_path }}" alt="" style="height: 200px">
+                @else
+                    <img src="/img/admin.jpg" alt="" style="height: 200px">
+                @endif
+                <input type="file" id="input-avatar" name="avatar" >
+                <button type="submit" id="update-avatar" class="btn btn-outline-secondary mt-2">Изменить фото</button>
+            </form>
+            
+            
             <div class="d-flex flex-column">
+                <!-- Вывод ФИО и кнопки для вызова модального окна их изменения -->
                 <h2>{{ $user->username }}</h2>
                 <p>{{ $user->surname }} {{ $user->name }} {{ $user->patronymic }}</p>
-                <button type="button" class="btn btn-dark mb-4">Изменить</button>
-                <h4>Статус: системный разработчик</h4>
+                <button type="submit" id="btn-change-name" class="btn btn-outline-secondary mb-4" data-toggle="modal"
+                                    data-target="#change-name"
+                                    data-id="{{ $user->id }}"
+                                    data-username="{{ $user->username }}"
+                                    data-name="{{ $user->name }}"
+                                    data-surname="{{ $user->surname }}"
+                                    data-patronymic="{{ $user->patronymic }}"                                    
+                                    >
+                 Изменить</button>
+                <h4 class="mb-4">Группа: {{ $user->group->name }}</h4>
+                <!-- Вывод контактов и кнопки для вызова модального окна их изменения -->
                 <h4>Контакты</h4>
-                <div class="d-flex flex-row mb-2">
-                    <button type="button" class="btn btn-dark material-icons mr-2">edit</button>
-                    <button type="button" class="btn btn-dark material-icons mr-2">clear</button>
-                    <p class="mb-0 mt-2">45-77 (раб.)</p>
-                </div>
-                <button type="button" class="btn btn-dark mb-4">Добавить</button>
-                <h4>Адрес</h4>
-                <p>РФ, Москва, Студенческая 33</p>
-                <div class="d-flex flex-row mb-4">
-                    <button type="button" class="btn btn-dark mr-2">Изменить</button>
-                    <button type="button" class="btn btn-dark mr-2">Удалить</button>
-                    <button type="button" class="btn btn-dark">Подробнее</button>
-                </div>
-                <h4>Персональные данные</h4>
-                <i class="mb-2">Не указаны</i>
-                <button type="button" class="btn btn-dark mb-4">Добавить</button>
+                @if($user->contacts)
+                    <div class="d-flex flex-column mb-2">
+                        @if($user->contacts->phone)
+                            <p class="mb-0 mt-2">Телефон: {{ $user->contacts->phone }}</p>
+                        @endif
+                        @if($user->contacts->email)
+                            <p class="mb-0 mt-2">Почта: {{ $user->contacts->email }}</p>
+                        @endif
+                        @if($user->contacts)
+                            <p class="mb-0 mt-2">Адрес: {{ $user->contacts->address }}</p>
+                        @endif
+                        @if($user->contacts->other)
+                            <p class="mb-0 mt-2">Дополнительно: {{ $user->contacts->other }}</p>
+                        @endif
+                        
+                        <button type="button" class="btn btn-outline-secondary mt-2 mb-4" data-toggle="modal"
+                                    data-target="#update-contacts"
+                                    data-id="{{ $user->id }}"
+                                    data-phone="{{ $user->contacts->phone }}"
+                                    data-email="{{ $user->contacts->email }}"
+                                    data-address="{{ $user->contacts->address }}"
+                                    data-other="{{ $user->contacts->other }}"
+                                    >
+                        Изменить</button>
+                    </div>
+                @else
+                    <div class="mb-2">
+                        <i>Не указаны</i>
+                    </div>
+                    <button type="button" class="btn btn-primary mb-4" data-toggle="modal"
+                                    data-target="#create-contacts"
+                                    data-id="{{ $user->id }}"
+                    >Добавить</button>
+                @endif              
+                    
             </div>
         </div>
     </div>
+
+    <!-- Компоненты профиля -->
+    <x-profile.change-name />
+    <x-profile.post-contacts action="create" />
+    <x-profile.post-contacts action="update" />
+
+    <!-- Убрал инпут автаар из поля видимости -->
+    <style>
+        #input-avatar {
+            position: absolute;
+            left: -10000px;
+            top: -10000px;
+        }
+    </style>
+
+    <!-- Скрипт для изменения аватара  -->
+    <script>
+        $('#update-avatar').click( (event) => {
+            event.preventDefault()
+            $('#input-avatar').click()
+        })
+        $('#input-avatar').change( (event) => {
+            $('#form-avatar').submit()
+        })
+    </script>
+
 @endsection

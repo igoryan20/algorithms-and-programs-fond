@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\{
     User
 };
@@ -11,7 +12,7 @@ class DesiredProductsController extends Controller
 {
     function getDesiredProducts() {
 
-        $user = User::where('id', session('user_id'))->first();
+        $user = Auth::user();
 
         $desiredProducts = $user->products;
 

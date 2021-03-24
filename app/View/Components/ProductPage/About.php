@@ -14,9 +14,11 @@ class About extends Component
      * @return void
      */
     public $categories;
+    public $product;
 
-    public function __construct(Collection $categories)
+    public function __construct($product, Collection $categories)
     {
+        $this->product = $product;
         $this->categories = $categories;
     }
 

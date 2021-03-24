@@ -65,6 +65,16 @@ return [
             'endpoint' => env('AWS_ENDPOINT'),
         ],
 
+        'product-photos' => [
+            'driver' => 'local',
+            'root' => storage_path('app/product-photos'),
+        ],
+
+        'product-avatars' => [
+            'driver' => 'local',
+            'root' => storage_path('app/product-avatars'),
+        ]
+
     ],
 
     /*
@@ -80,6 +90,8 @@ return [
 
     'links' => [
         public_path('storage') => storage_path('app/public'),
+        public_path('product-photos') => storage_path('app/product-photos'),
+        public_path('product-avatars') => storage_path('app/product-avatars'),
     ],
 
 ];

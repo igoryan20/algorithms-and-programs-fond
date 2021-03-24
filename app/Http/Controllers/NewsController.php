@@ -10,8 +10,8 @@ class NewsController extends Controller
 {
     public function getNewsPage() {
 
-        $news = News::all();
-
+        $news = News::orderByDesc('created_at')->get();
+        
         return view('pages/show-news-page', ['news' => $news]);
     }
 }
