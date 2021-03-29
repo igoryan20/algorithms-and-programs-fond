@@ -34,6 +34,7 @@ Route::middleware('auth')->group(function() {
     Route::get('/desired-products', 'DesiredProductsController@getDesiredProducts');
     Route::get('/new-products', 'NewProductsController@getNewProducts');
     Route::get('/publish/{id}', 'ProductController@publish');
+    Route::get('/desired-product-users/{product_id}', 'DesiredProductUserController@getUsers');
 
     Route::post('/categories', 'CategoriesController@postCategory');
     Route::post('/create-contacts', 'ProfileController@createContacts');
@@ -46,6 +47,7 @@ Route::middleware('auth')->group(function() {
     Route::post('/upload-product-photo', "ProductController@uploadPhoto");
     Route::post('/product/{id}', 'ProductController@updateDesireProductTable');
     Route::post('/create-product', 'CreateProductController@postNewProduct');
+    Route::post('/update-product-description/{id}', 'ProductController@updateProductDescription');
 });
 
 Route::get('/login', 'LoginController@getLoginPage')->name('login');

@@ -64,5 +64,23 @@ $(document).ready(function () {
         modal.find('#update-other').val(other)
     })
 
+    $('#edit-description').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        
+
+        var button = $(event.relatedTarget);
+    
+        var name = button.data('name')
+        var description = button.data('description')
+        var full_description = button.data('full_description')
+    
+        var modal = $(this)
+
+        modal.find('#edit-name').val(name)
+        modal.find('#edit-description').val(description)
+        modal.find('#edit-full_description').val(full_description)
+    })
+
+
 });
 

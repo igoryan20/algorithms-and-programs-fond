@@ -79,4 +79,15 @@ class ProductController extends Controller
         return view('/pages/success', ['title' => 'Успешно опубликовано', 'info' => 'Продукт успешно опубликован', 'id' => $id]);
     }
 
+    public function updateProductDescription(Request $request, $id) {
+
+        $product = Product::find($id);
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->full_description = $request->full_description;
+        $product->save();
+
+        return $this->getProduct($request, $id);
+    }
+
 }

@@ -14,8 +14,18 @@
     <div class="d-flex mt-4">
         @if(Auth::user()->group_id != 1)
             @if(Auth::user()->id == $product->developed_by or Auth::user()->group->id == 3)    
-                <button class="btn btn-outline-secondary mr-2">Изменить описание</button>
-                <button class="btn btn-outline-danger mr-2">Удалить</button>
+                <button class="btn btn-outline-secondary mr-2" data-toggle="modal"
+                    data-target="#edit-description"
+                    data-id="{{$product->id}}"
+                    data-name="{{$product->name}}"
+                    data-description="{{$product->description}}"
+                    data-full_description="{{$product->full_description}}">
+                Изменить описание</button>
+                <x-product-page.edit-description :product="$product" />
+                <button class="btn btn-outline-danger mr-2" data-toggle="modal"
+                    data-target="#delete-product">
+                Удалить</button>
+                <x-product-page.delete-product />
                 <div class="dropdown mr-2">
                     <a class="nav-link dropdown-toggle btn btn-outline-secondary" href="#" id="categoriesDropdown"
                         role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -25,7 +35,7 @@
                         <a class="dropdown-item" href="" data-toggle="modal"
                         data-target="#create-release">Создать релиз</a>
                         <a class="dropdown-item" href="/journal/{{ $product->id }}">Журнал</a>
-                        <a class="dropdown-item" href="">Пользователи</a>
+                        <a class="dropdown-item" href="/desired-product-users/{{ $product->id }}">Пользователи</a>
                     </div>
                     <x-product-page.create-release :product="$product" />
                 </div>
