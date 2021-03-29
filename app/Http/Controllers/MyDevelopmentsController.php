@@ -15,7 +15,7 @@ class MyDevelopmentsController extends Controller
 
     public function getDeveloperProducts(Request $request) {
 
-        $developerProducts = Product::where('developed_by', Auth::user()->id)->get();
+        $developerProducts = Product::where('developed_by', Auth::user()->id)->paginate(10);
 
         return view('/pages/my-developments', ['developerProducts' => $developerProducts]);
     }

@@ -24,5 +24,9 @@ class OperationSystem extends Model
         return $this->hasMany(Release::class, 'fk_os', 'os_id');
     }
 
+    public function products() {
+        return $this->belongsToMany(Product::class, 'product_operation_system');
+    }
+
 
 }

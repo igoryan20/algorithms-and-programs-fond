@@ -11,8 +11,7 @@ use App\Models\{
 class JournalController extends Controller
 {
     public function getRelises($id, Request $request) {
-
-        $releases = Release::all()->where('product_id', $id);
+        $releases = Release::where('product_id', $id)->get();
         $product = Product::where('id', $id)->first();
 
         return view('/pages/journal', ['releases' => $releases, 'product' => $product]);

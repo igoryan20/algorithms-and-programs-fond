@@ -10,7 +10,7 @@ class NewProductsController extends Controller
 {
     public function getNewProducts(Request $request) {
 
-        $newProducts = Product::where('updated_at', '<' , Carbon::now()->subDays(7))->get();
+        $newProducts = Product::where('updated_at', '<' , Carbon::now()->subDays(7))->latest()->paginate(10);
 
         return view('/pages/new-products', ['newProducts' => $newProducts]);
     }

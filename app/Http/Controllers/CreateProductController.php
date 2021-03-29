@@ -24,13 +24,12 @@ class CreateProductController extends Controller
         $product = new Product;
         $product->name = $request->name;
         $product->description = $request->description;
-        $product->full_description = $request->fullDescription;
+        $product->full_description = $request->full_description;
         $product->developed_by = Auth::user()->id;
         $product->is_published = false;
 
         if($request->hasFile('avatar')) {
             $path = Storage::putFile('product-avatars', $request->file('avatar'));
-            var_dump($path);
             $product->img_path = '/'.$path;
         } else {
             $product->img_path = null;

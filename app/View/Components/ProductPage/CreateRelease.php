@@ -12,10 +12,10 @@ class CreateRelease extends Component
      *
      * @return void
      */
-    public $program;
-    public function __construct(Product $program)
+    public $product;
+    public function __construct(Product $product)
     {
-        $this->program = $program;
+        $this->product = $product;
     }
 
     /**

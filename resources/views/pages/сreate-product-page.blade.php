@@ -10,7 +10,7 @@
     <hr class="ml-auto w-75">
     <div class="mr-auto ml-auto w-75">
         <form action="/create-product" method="POST" enctype=multipart/form-data>
-            {{ csrf_field() }}
+            @csrf
             <div class="mb-4 d-flex flex-column text">
                 <div class="text">
                     <h4>Название</h4>

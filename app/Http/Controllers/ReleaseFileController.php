@@ -9,37 +9,15 @@ use App\Models\Release;
 class ReleaseFileController extends Controller
 {
 
-    // Upload the release of product
+    // Загружаю релиз продукта
     public function upload(Request $request) {
 
-        $last = Release::all()->last();
-        $release = new Release;
-        $release->name = $request->name;
-        $release->description = $request->description;
-        $release->program_id = $request->id;
-        if(is_null($last)) {
-            $release->id = 1;
-        } else {
-            $release->id = $last->id + 1;
-        }
+        var_dump($request->id);
 
         if($request->hasFile('release')) {
             $path = $request->file('release')->store('releases');
-        }
-
-        $release->path = $path;
-
-        if($request->Windows) {
-            $release->os_id = 1;
-        }
-        if($request->MacOS) {
-            $release->os_id = 2;
-        }
-        if($request->Linux) {
-            $release->os_id = 3;
-        }
-
-        $release->save();
+            (new Release)->create($request, $path);
+        }       
 
         return view('pages/release-done');
     }

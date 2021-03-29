@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Pagination\LengthAwarePaginator;
 use App\Models\{
     Product,
     Category,
@@ -24,7 +25,7 @@ class HomePageController extends Controller
 
         $operationSystems = OperationSystem::all();
         $categories = Category::all();
-        $products = Product::all();
+        $products = Product::latest()->paginate(10);
 
         return view('/pages/home-page', ['products' => $products, 'categories' => $categories,
                                          'operationSystems' => $operationSystems, 'checkedCategories' => new Collection,
@@ -33,47 +34,44 @@ class HomePageController extends Controller
 
     public function getFilteredProducts(Request $request) {
 
-        $allProducts = Product::all();
-
+        // Определяю критерии поиска
         $search = $request->search;
-        $categories = $request->checkbox_category;
+        $categoriesId = $request->checkbox_category;
         $operationSystems = $request->checkbox_os;
 
-        if ($search) {
-            $filteredProducts = Product::where('name', 'like', '%'.$search.'%')
-                                        ->orWhere('description', 'like', '%'.$search.'%')->get();
+        // Ищу совпадения в поисковой строке
+        if($search) {
+            $searchedProducts = $this->getSearchedProducts($search);
         } else {
-            $filteredProducts = $allProducts;
+            $searchedProducts = Product::all();
         }
-        if ($categories) {
-            $categoriesProducts = new Collection;
-            foreach ($allProducts as $product) {
-                foreach ($product->categories as $productCategory) {
-                    if(in_array($productCategory->id, $categories)) {
-                        $categoriesProducts->push($product);
-                        break;
-                    }
-                }
-            }
-            $filteredProducts = $filteredProducts->intersect($categoriesProducts);
+
+        // Ищу совпадения по категориям
+        if($categoriesId) {
+            $categorisatedProducts = $this->getCategorisatedProducts($categoriesId);
+        } else {
+            $categorisatedProducts = Product::all();
+        }        
+        
+        // Ищу совпадения по операционным системам
+        if($operationSystems) {
+            $productsWithOS = $this->getProductsWithOS($operationSystems);
+        } else {
+            $productsWithOS = Product::all();
         }
-        if ($operationSystems) {
-            $operationSystemsProducts = new Collection;
-            foreach ($allProducts as $product) {
-                foreach ($product->operationSystems as $productOperationSystem) {
-                    if(in_array($productOperationSystem->id, $operationSystems)) {
-                        $operationSystemsProducts->push($product);
-                        break;
-                    }
-                }
-            }
-            $filteredProducts = $filteredProducts->intersect($operationSystemsProducts);
-        }
+        
+        // Исплользую пересечения найденых продуктов
+        $firstFilterProducts = $searchedProducts->intersect($categorisatedProducts);
+        $lastFilterProducts = $firstFilterProducts->intersect($productsWithOS);
+        
+        $filteredProducts = new LengthAwarePaginator($lastFilterProducts, count($lastFilterProducts), 10);
+
+
 
         $allOperationSystems = OperationSystem::all();
         $allCategories = Category::all();
 
-        $categories = collect($categories);
+        $categories = collect($categoriesId);
         $operationSystems = collect($operationSystems);
 
         return view('/pages/home-page', ['products' => $filteredProducts, 'categories' => $allCategories,
@@ -81,9 +79,39 @@ class HomePageController extends Controller
                                         'checkedOperationSystems' => $operationSystems]);
     }
 
+    private function getSearchedProducts ($search) {
+        return Product::where('name', 'like', '%'.$search.'%')
+                        ->orWhere('description', 'like', '%'.$search.'%')->latest()->paginate(10);
+       
+    }
+
+    private function getCategorisatedProducts ($categoriesId) {
+        $categories = Category::whereIn('id', $categoriesId)->get();
+        $products = [];
+        foreach($categories as $category) {
+            foreach($category->products as $product) {
+                array_push($products, $product);
+            }
+        }
+        
+        return collect($products)->sortByDesc('id');
+    }
+
+    private function getProductsWithOS ($osId) {
+        $operationSystems = OperationSystem::whereIn('id', $osId)->get();
+        $products = [];
+        foreach($operationSystems as $operationSystem) {
+            foreach($operationSystem->products as $product) {
+                array_push($products, $product);
+            }
+        }
+        
+        return collect($products)->sortByDesc();
+    }
+
     public function changeUser(Request $request) {
         session(['user_id' => $request->user_id]);
-        var_dump(session('user_id'));
+    
         return $this->getAllProducts($request);
     }
 }

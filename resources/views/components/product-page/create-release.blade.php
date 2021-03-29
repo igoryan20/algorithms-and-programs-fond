@@ -35,7 +35,7 @@
                             </label>
                         </div>
                     </div>
-                    <input type="hidden" value="{{ $program->id }}" name="id">
+                    <input type="hidden" value="{{ $product->id }}" name="id">
                     <div class="form-group">
                         <label for="upload">Выберите загружаемый файл</label>
                         <input type="file" class="form-control-file" id="upload" accept=".exe, .iso, .rar, .zip" name='release'>

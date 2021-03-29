@@ -37,6 +37,7 @@
         "echarts": "^5.0.0",
         "electron-to-chromium": "^1.3.632",
         "knockout": "^3.5.1",
-        "material-design-icons": "^3.0.1"
+        "material-design-icons": "^3.0.1",
+        "tailwindcss": "^2.0.4"
     }
 }

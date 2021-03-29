@@ -1,9 +1,9 @@
 <div class="mx-auto w-75 py-4">
     <div class="d-flex">
         @if ($product->img_path != null)
-            <img src="{{ $product->img_path }}" alt="картинка 1" class="mr-2" width="76px" height="76px">
+            <img src="{{ $product->img_path }}" alt="картинка 1" class="mr-2" width="100px" height="100px">
         @else
-            <img src="/img/default.png" alt="картинка 1" class="mr-2" width="76px" height="76px">
+            <img src="/img/default.png" alt="картинка 1" class="mr-2" width="100px" height="100px">
         @endif
         <div class="d-flex flex-column ml-4">
             <h1>{{ $product->name }}</h1>
@@ -24,10 +24,8 @@
                     <div class="dropdown-menu" aria-labelledby="categoriesDropdown">
                         <a class="dropdown-item" href="" data-toggle="modal"
                         data-target="#create-release">Создать релиз</a>
-                        <a class="dropdown-item" href="">Контакты</a>
                         <a class="dropdown-item" href="/journal/{{ $product->id }}">Журнал</a>
                         <a class="dropdown-item" href="">Пользователи</a>
-                        <a class="dropdown-item" href="">Ключи</a>
                     </div>
                     <x-product-page.create-release :product="$product" />
                 </div>

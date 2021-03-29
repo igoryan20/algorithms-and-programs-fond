@@ -47,7 +47,7 @@ class ProductController extends Controller
             $path = $request->file('photo')->store('product-photos');
             $productPhotoPath = new ProductPhotoPath;
             $productPhotoPath->id = null;
-            $productPhotoPath->name = $path;
+            $productPhotoPath->name = '/'.$path;
             $productPhotoPath->product_id = $request->id;
             $productPhotoPath->save();
         }
