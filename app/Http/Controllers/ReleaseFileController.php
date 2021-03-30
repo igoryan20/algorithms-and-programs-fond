@@ -9,10 +9,8 @@ use App\Models\Release;
 class ReleaseFileController extends Controller
 {
 
-    // Загружаю релиз продукта
+    // Загружаю релиз продукта на сервер
     public function upload(Request $request) {
-
-        var_dump($request->id);
 
         if($request->hasFile('release')) {
             $path = $request->file('release')->store('releases');
@@ -28,5 +26,14 @@ class ReleaseFileController extends Controller
             'Content-Type: multipart/formdata'
         );
         return Storage::download($release->path, $release->name.'.exe', $headers);
+    }
+
+    public function publish($productId, $releaseId) {
+    
+        $release = Release::find($releaseId);
+        $release->is_published = true;
+        $release->save();
+
+        return redirect()->route('journal', ['id' => $productId]);
     }
 }

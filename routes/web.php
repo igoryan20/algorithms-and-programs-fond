@@ -28,7 +28,7 @@ Route::middleware('auth')->group(function() {
     Route::get('/statistics', 'StatisticController@getStatistic');
     Route::get('/developers-requests', 'DevelopersRequestsController@getRequests');
     Route::get('/groups-list', "GroupsListController@getGroups");
-    Route::get('/journal/{id}', 'JournalController@getRelises');
+    Route::get('/journal/{id}', 'JournalController@getRelises')->name('journal');
     Route::get('/download-release/{id}', "ReleaseFileController@download");
     Route::get('/permissions', 'PermissionsPageController@getPermissions');
     Route::get('/desired-products', 'DesiredProductsController@getDesiredProducts');
@@ -49,6 +49,7 @@ Route::middleware('auth')->group(function() {
     Route::post('/create-product', 'CreateProductController@postNewProduct');
     Route::post('/update-product-description/{id}', 'ProductController@updateProductDescription');
     Route::post('/delete-product/{id}', 'ProductController@deleteProduct');
+    Route::post('/publish-release/{product_id}/{release_id}', 'ReleaseFileController@publish');
 });
 
 Route::get('/login', 'LoginController@getLoginPage')->name('login');

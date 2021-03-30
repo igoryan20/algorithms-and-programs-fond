@@ -24,7 +24,7 @@
                         <th scope="col">Название</th>
                         <th scope="col">Описание</th>
                         <th scope="col">Операционная система</th>
-                        <th scope="col"></th>
+                        <th scope="col">Ссылка на скачивание</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,18 +46,9 @@
                                 </div>
                             </td>
                             <td>
-                            <form action="/publish-release/{{ $product->id }}/{{ $release->id }}" method="POST">
-                                @csrf
-                                @if(!$release->is_published)
-                                    <button type="submit" class='btn btn-outline-secondary'>Опубликовать релиз</a>
-                                @else
-                                        <p class="py-4 px-4 rounded mb-0 w-50" style="background-color: #ffe14d">Релиз опубликован</p>   
-                                @endif  
-                            </form>
-                                
-                                <!-- <div class="mx-auto w-50">
+                                <div class="mx-auto w-50">
                                     <a href="/download-release/{{ $release->id }}"><i class="fas fa-download fa-2x"></i></a>
-                                </div> -->
+                                </div>
                             </td>
                         </tr>
                     @endforeach
