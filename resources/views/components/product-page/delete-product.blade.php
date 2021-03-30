@@ -11,7 +11,8 @@
         <div class="modal-body" id="delete-text">
           Вы действительно хотите удалить продукт ?
         </div>
-        <form action="/delete-product" method="POST">
+        <form action="/delete-product/{{ $product->id }}" method="POST">
+            @csrf
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
                 <button type="submit" class="btn btn-danger">Удалить</button>

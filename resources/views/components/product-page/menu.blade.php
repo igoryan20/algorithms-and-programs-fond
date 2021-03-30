@@ -25,7 +25,7 @@
                 <button class="btn btn-outline-danger mr-2" data-toggle="modal"
                     data-target="#delete-product">
                 Удалить</button>
-                <x-product-page.delete-product />
+                <x-product-page.delete-product :product="$product" />
                 <div class="dropdown mr-2">
                     <a class="nav-link dropdown-toggle btn btn-outline-secondary" href="#" id="categoriesDropdown"
                         role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -9,6 +9,7 @@ use Illuminate\Support\Collection;
 use App\Models\{
     Product,
     ProductCategory,
+    ProductOperationSystem,
     Category,
     ProductPhotoPath,
     User,
@@ -20,7 +21,7 @@ class ProductController extends Controller
     public function getProduct(Request $request, $id) {
 
         // Получаю продукт с переданным id
-        $product = Product::where('id', $id)->first();
+        $product = Product::find($id);
 
         // Получаю категории и фото с других таблиц
         $categories = $product->categories;
@@ -41,6 +42,7 @@ class ProductController extends Controller
                      'photo_paths' => $photosPaths, 'isDesired' => $isDesired]);
     }
 
+    // Загружаю фото на сервер
     public function uploadPhoto(Request $request) {
 
         if($request->hasFile('photo')) {
@@ -55,6 +57,7 @@ class ProductController extends Controller
         return $this->getProduct($request, $request->id);
     }
 
+    // Обновляю таблицу желаемого
     public function updateDesireProductTable(Request $request, $id) {
 
         if ($request->btn == 'add') {
@@ -70,6 +73,7 @@ class ProductController extends Controller
         return $this->getProduct($request, $id);
     }
 
+    // Публикую продукт
     public function publish(Request $request, $id) {
 
         $product = Product::find($id);
@@ -79,6 +83,7 @@ class ProductController extends Controller
         return view('/pages/success', ['title' => 'Успешно опубликовано', 'info' => 'Продукт успешно опубликован', 'id' => $id]);
     }
 
+    // Обновляю описание продукта
     public function updateProductDescription(Request $request, $id) {
 
         $product = Product::find($id);
@@ -90,4 +95,21 @@ class ProductController extends Controller
         return $this->getProduct($request, $id);
     }
 
+    public function deleteProduct(Request $request, $id) {
+        $product = Product::find($id);
+        $avatarPath = $product->img_path;
+        ProductCategory::where('product_id', $id)->delete();
+        ProductOperationSystem::where('product_id', $id)->delete();
+        $photosPaths = ProductPhotoPath::where('product_id', $id)->get();
+
+        Storage::delete($avatarPath);
+        foreach($photosPaths as $path) {
+            Storage::delete($path->name);
+        }
+
+        ProductPhotoPath::where('product_id', $id)->delete();
+        $product->delete();
+
+        return view('pages/success', ['title' => 'Успешно удалено', 'id' => null, 'info' => 'Продукт успешно удален']);
+    }
 }

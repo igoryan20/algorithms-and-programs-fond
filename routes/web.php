@@ -48,6 +48,7 @@ Route::middleware('auth')->group(function() {
     Route::post('/product/{id}', 'ProductController@updateDesireProductTable');
     Route::post('/create-product', 'CreateProductController@postNewProduct');
     Route::post('/update-product-description/{id}', 'ProductController@updateProductDescription');
+    Route::post('/delete-product/{id}', 'ProductController@deleteProduct');
 });
 
 Route::get('/login', 'LoginController@getLoginPage')->name('login');
