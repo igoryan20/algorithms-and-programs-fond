@@ -6,6 +6,8 @@
 
 require('./bootstrap');
 
+require('./broadcasting');
+
 require('jquery/dist/jquery');
 
 require('./pop-up');

@@ -48,11 +48,11 @@
                             <td>
                             <form action="/publish-release/{{ $product->id }}/{{ $release->id }}" method="POST">
                                 @csrf
-                                @if(!$release->is_published)
+                                
                                     <button type="submit" class='btn btn-outline-secondary'>Опубликовать релиз</a>
-                                @else
-                                        <p class="py-4 px-4 rounded mb-0 w-50" style="background-color: #ffe14d">Релиз опубликован</p>   
-                                @endif  
+                                
+                                        <!-- <p class="py-4 px-4 rounded mb-0 w-50" style="background-color: #ffe14d">Релиз опубликован</p>   
+                                 -->
                             </form>
                                 
                                 <!-- <div class="mx-auto w-50">
@@ -66,4 +66,11 @@
                 </tbody>
         </table>
     </div>
+
+    <script>
+        Echo.private('releases.${this.releases.id}')
+            .listen('ReleasePublished', (e) => {
+            console.log(e.release.name);
+        });
+    </script>
 @endsection

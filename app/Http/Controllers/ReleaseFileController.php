@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Release;
+use App\Models\Product;
+use App\Events\ReleasePublished;
 
 class ReleaseFileController extends Controller
 {
@@ -33,7 +35,14 @@ class ReleaseFileController extends Controller
         $release = Release::find($releaseId);
         $release->is_published = true;
         $release->save();
+        $release->refresh();
 
-        return redirect()->route('journal', ['id' => $productId]);
+        ReleasePublished::dispatch(Product::find($productId));
+
+        // return redirect()->route('journal', ['id' => $productId]);
+
+        // $product = Product::find($productId);
+        // var_dump($product->users);
+
     }
 }

@@ -10,18 +10,27 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class ReleasePublished
+use App\Models\Product;
+
+class ReleasePublished implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /**
+     * The release instance.
+     * 
+     * @var \App\Models\Release
+     */
+    public $product;
+    /**
      * Create a new event instance.
-     *
+     * 
+     * @param \App\Models\Release
      * @return void
      */
-    public function __construct()
+    public function __construct(Product $product)
     {
-        //
+        $this->product = $product;
     }
 
     /**
@@ -30,7 +39,7 @@ class ReleasePublished
      * @return \Illuminate\Broadcasting\Channel|array
      */
     public function broadcastOn()
-    {
-        return new PrivateChannel('channel-name');
+    {   
+        return new PrivateChannel('releases.'.$this->product->id);
     }
 }

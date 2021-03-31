@@ -9,7 +9,7 @@
                 </button>
             </div>
             <form action="/upload-release" method="POST" enctype="multipart/form-data">
-                {{ csrf_field() }}
+                @csrf
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="url" class="col-form-label">Название релиза</label>

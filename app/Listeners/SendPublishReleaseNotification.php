@@ -6,7 +6,7 @@ use App\Events\ReleasePublished;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class SendPublishReleaseNotification
+class SendPublishReleaseNotification implements ShouldQueue
 {
     /**
      * Create the event listener.
@@ -26,6 +26,6 @@ class SendPublishReleaseNotification
      */
     public function handle(ReleasePublished $event)
     {
-        //
+        var_dump($event->release);
     }
 }

@@ -18,9 +18,9 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        ReleasePublished::class => [
-            SendPublishReleaseNotification::class,
-        ],
+        // ReleasePublished::class => [
+        //     SendPublishReleaseNotification::class,
+        // ],
     ];
 
     /**
