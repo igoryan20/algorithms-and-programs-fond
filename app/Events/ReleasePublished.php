@@ -41,7 +41,7 @@ class ReleasePublished implements ShouldBroadcast
      */
     public function broadcastOn()
     {   
-        return new Channel('releases');
+        return new PrivateChannel('release');
         // return new PrivateChannel('release');
     }
 }
