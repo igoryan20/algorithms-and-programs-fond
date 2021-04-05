@@ -1,7 +1,6 @@
 console.log('heeere')
 
-Echo.private('release.${productId}')
-    .listen('ReleasePublished', (e) => {
-        console.log('there');
-        console.log(e.release);
-    });
+Echo.private('App.Models.User.2')
+    .notification((notification) => {
+        console.log(notification.type);
+});

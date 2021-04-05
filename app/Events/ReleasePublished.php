@@ -11,6 +11,7 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
 use App\Models\Product;
+use App\Models\Release;
 
 class ReleasePublished implements ShouldBroadcast
 {
@@ -21,16 +22,16 @@ class ReleasePublished implements ShouldBroadcast
      * 
      * @var \App\Models\Release
      */
-    public $product;
+    public $release;
     /**
      * Create a new event instance.
      * 
      * @param \App\Models\Release
      * @return void
      */
-    public function __construct(Product $product)
+    public function __construct(Release $release)
     {
-        $this->product = $product;
+        $this->release = $release;
     }
 
     /**
@@ -40,6 +41,7 @@ class ReleasePublished implements ShouldBroadcast
      */
     public function broadcastOn()
     {   
-        return new PrivateChannel('releases.'.$this->product->id);
+        return new Channel('releases');
+        // return new PrivateChannel('release');
     }
 }

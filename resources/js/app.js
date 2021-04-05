@@ -6,7 +6,7 @@
 
 require('./bootstrap');
 
-require('./broadcasting');
+// require('./broadcasting');
 
 require('jquery/dist/jquery');
 

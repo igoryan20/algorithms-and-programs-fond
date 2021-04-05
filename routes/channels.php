@@ -15,9 +15,5 @@ use App\Models\Product;
 */
 
 // Broadcast::channel('App.User.{id}', function ($user, $id) {
-//     return (int) $user->id === (int) $id;
+//     return $user->id === $id;
 // });
-
-Broadcast::channel('releases.{productId}', function ($user, $productId) {
-    return true;
-});

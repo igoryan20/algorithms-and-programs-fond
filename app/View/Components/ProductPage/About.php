@@ -4,6 +4,7 @@ namespace App\View\Components\ProductPage;
 
 use Illuminate\View\Component;
 use Illuminate\Support\Collection;
+use App\Models\User;
 
 
 class About extends Component
@@ -15,11 +16,13 @@ class About extends Component
      */
     public $categories;
     public $product;
+    public $developer;
 
-    public function __construct($product, Collection $categories)
+    public function __construct($product, Collection $categories, User $developer)
     {
         $this->product = $product;
         $this->categories = $categories;
+        $this->developer = $developer;
     }
 
     /**

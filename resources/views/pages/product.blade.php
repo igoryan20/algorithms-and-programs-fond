@@ -9,7 +9,7 @@
     <hr>
     <div class="d-flex justify-content-between">
         <x-product-page.carousel-images :photo-paths="$photo_paths" :product="$product" />
-        <x-product-page.about :product="$product" :categories="$categories" />
+        <x-product-page.about :product="$product" :categories="$categories" :developer="$developer" />
     </div>
 
     <style>

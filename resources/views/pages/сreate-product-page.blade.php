@@ -36,12 +36,29 @@
             <div class="mb-4 d-flex flex-column text">
                 <div class="text">
                     <h4 id="label">Категории</h4>
-                    <select id="categories" class="selectpicker w-50 text" multiple name="categories">
+                    <select id="categories" class="selectpicker w-50 text" multiple name="categories[]">
                         @foreach ($categories as $category)
                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach
                     </select>
                     <small id="categories_err"></small>
+                </div>
+            </div>
+            <div class="mb-4 w-25 text">
+                <div class="d-flex flex-column">
+                    <h4>Операционная система</h4>
+                    <fieldset class="btn-group btn-group-toggle" data-toggle="buttons" id="os" name="os">
+                        <label class="btn btn-outline-primary">
+                            <input type="checkbox" value="1" name="os[]"> Windows
+                        </label>
+                        <label class="btn btn-outline-primary">
+                            <input type="checkbox" value="2" name="os[]"> MacOS
+                        </label>
+                        <label class="btn btn-outline-primary">
+                            <input type="checkbox" value="3" name="os[]"> Linux
+                        </label>
+                    </fieldset>
+                    <small id="os_err"></small>
                 </div>
             </div>
             <div class="mb-4 media">
@@ -51,24 +68,6 @@
                     <input type="file" id="input-avatar" class="position-absolute" name="avatar" accept="image/*" />
                     <button type="button" class="btn btn-outline-secondary material-icons" onclick="$('#input-avatar').click()">Изменить</button>
                 </div>
-            </div>
-            <div class="mb-4 w-25 text">
-                <div class="d-flex flex-column">
-                    <h4>Операционная система</h4>
-                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                        <label class="btn btn-outline-primary">
-                            <input type="checkbox" name="Windows" id="option1"> Windows
-                        </label>
-                        <label class="btn btn-outline-primary">
-                            <input type="checkbox" name="MacOS" id="option2"> MacOS
-                        </label>
-                        <label class="btn btn-outline-primary">
-                            <input type="checkbox" name="Linux" id="option3"> Linux
-                        </label>
-                    </div>
-                    <small id="os_err"></small>
-                </div>
-                
             </div>
             <div class="d-flex flex-row mb-4">
                 <button id="next" class="btn btn-primary mr-2 text">Далее</button>
@@ -91,7 +90,7 @@
     <script>
         $('document').ready(function () {
             $('h4').on('click', function() {
-                console.log($('categories').val())
+                console.log($('#categories').val())
             })
         })
         

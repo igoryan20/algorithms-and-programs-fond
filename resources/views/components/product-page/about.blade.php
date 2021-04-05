@@ -9,7 +9,7 @@
         @endforeach
     </div>
     <div>
-        <h1>Контакты</h1>
-        <i>Не указаны</i>
+        <h1>Разработчик</h1>
+        <p>{{ $developer->surname }} {{ $developer->name }} {{ $developer->patronymic }}</p>
     </div>
 </div>

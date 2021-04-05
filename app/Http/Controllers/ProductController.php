@@ -23,9 +23,10 @@ class ProductController extends Controller
         // Получаю продукт с переданным id
         $product = Product::find($id);
 
-        // Получаю категории и фото с других таблиц
+        // Получаю категорииб, фото и данные о разработчике с других таблиц
         $categories = $product->categories;
         $photosPaths = $product->photosName;
+        $developer = User::find($product->developed_by);
 
         // Если фото нет, создаю фото по умолчанию
         if($photosPaths->isEmpty()) {
@@ -39,7 +40,7 @@ class ProductController extends Controller
         });
 
         return view('/pages/product', ['product' => $product, 'categories' => $categories,
-                     'photo_paths' => $photosPaths, 'isDesired' => $isDesired]);
+                     'photo_paths' => $photosPaths, 'isDesired' => $isDesired, 'developer' => $developer]);
     }
 
     // Загружаю фото на сервер

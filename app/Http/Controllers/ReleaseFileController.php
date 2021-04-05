@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\Release;
 use App\Models\Product;
 use App\Events\ReleasePublished;
+// use App\Notifications\ReleasePublished;
+use Illuminate\Support\Facades\Notification;
 
 class ReleaseFileController extends Controller
 {
@@ -37,12 +39,10 @@ class ReleaseFileController extends Controller
         $release->save();
         $release->refresh();
 
-        ReleasePublished::dispatch(Product::find($productId));
+        // Notification::send($users, new ReleasePublished($release));
+        ReleasePublished::dispatch($release);
 
-        // return redirect()->route('journal', ['id' => $productId]);
-
-        // $product = Product::find($productId);
-        // var_dump($product->users);
+        return redirect()->route('journal', ['id' => $productId]);
 
     }
 }
