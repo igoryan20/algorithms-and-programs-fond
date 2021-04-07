@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,6 +36,9 @@ Route::middleware('auth')->group(function() {
     Route::get('/new-products', 'NewProductsController@getNewProducts');
     Route::get('/publish/{id}', 'ProductController@publish');
     Route::get('/desired-product-users/{product_id}', 'DesiredProductUserController@getUsers');
+    Route::get('/getCurrentUserId', function() {
+        return Auth::user();
+    });
 
     Route::post('/categories', 'CategoriesController@postCategory');
     Route::post('/create-contacts', 'ProfileController@createContacts');

@@ -27,4 +27,5 @@
         </div>
       </div>
     </div>
+    <script src="{{asset('js/getReleaseNotification.js')}}"></script>
 @endsection

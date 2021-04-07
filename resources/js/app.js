@@ -6,7 +6,7 @@
 
 require('./bootstrap');
 
-require('./broadcasting');
+require('./getReleaseNotification');
 
 require('jquery/dist/jquery');
 

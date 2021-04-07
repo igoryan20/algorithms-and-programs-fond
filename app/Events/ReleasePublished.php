@@ -23,15 +23,17 @@ class ReleasePublished implements ShouldBroadcast
      * @var \App\Models\Release
      */
     public $release;
+    public $product;
     /**
      * Create a new event instance.
      * 
      * @param \App\Models\Release
      * @return void
      */
-    public function __construct(Release $release)
+    public function __construct(Release $release, Product $product)
     {
         $this->release = $release;
+        $this->product = $product;
     }
 
     /**
@@ -41,7 +43,7 @@ class ReleasePublished implements ShouldBroadcast
      */
     public function broadcastOn()
     {   
-        return new PrivateChannel('release');
+        return new PrivateChannel('release.'.$this->product->id);
         // return new PrivateChannel('release');
     }
 }
