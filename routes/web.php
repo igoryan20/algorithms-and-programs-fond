@@ -36,6 +36,7 @@ Route::middleware('auth')->group(function() {
     Route::get('/new-products', 'NewProductsController@getNewProducts');
     Route::get('/publish/{id}', 'ProductController@publish');
     Route::get('/desired-product-users/{product_id}', 'DesiredProductUserController@getUsers');
+    Route::get('/download-releases/{id}', "ReleaseFileController@getReleases");
     Route::get('/getCurrentUserId', function() {
         return Auth::user();
     });

@@ -19,10 +19,10 @@ class ReleaseFileController extends Controller
         if($request->hasFile('release')) {
             $path = $request->file('release')->store('releases');
 
-            (new Release)->create($request, $path);
+            $release = (new Release)->create($request, $path);
         }       
 
-        return view('pages/release-done');
+        return view('pages/success', ['id' => $release->product->id, "title" => 'Релиз добавлен', "info" => 'Ваш релиз доставлен на сервер']);
     }
 
     public function download($id) {
@@ -52,5 +52,12 @@ class ReleaseFileController extends Controller
 
         return redirect()->route('journal', ['id' => $productId]);
 
+    }
+
+    public function getReleases($productId) {
+        $product = Product::find($productId);
+        $releases = $product->releases->where('is_published', '1');
+        
+        return view('/pages/releases-list', ["releases" => $releases]);
     }
 }

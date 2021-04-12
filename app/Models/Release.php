@@ -25,8 +25,9 @@ class Release extends Model
         if($properties->Linux) {
             $this->os_id = 3;
         }
-
         $this->save();
+        $this->refresh();
+        return $this;
     }
 
     public function getReleasesCount() {

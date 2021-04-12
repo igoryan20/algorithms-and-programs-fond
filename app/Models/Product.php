@@ -12,7 +12,7 @@ class Product extends Model
     }
 
     public function releases() {
-        return $this->hasMany(Release::class, 'fk_programs', 'product_id');
+        return $this->hasMany(Release::class);
     }
 
     public function photosName() {

@@ -23,6 +23,14 @@ class ProductController extends Controller
         // Получаю продукт с переданным id
         $product = Product::find($id);
 
+        $isReleasePublished = false;
+        foreach ($product->releases as $release) {
+            if($release->is_published == 1) {
+                $isReleasePublished = true;
+                break;
+            }
+        }
+
         // Получаю категорииб, фото и данные о разработчике с других таблиц
         $categories = $product->categories;
         $photosPaths = $product->photosName;
@@ -40,7 +48,7 @@ class ProductController extends Controller
         });
 
         return view('/pages/product', ['product' => $product, 'categories' => $categories,
-                     'photo_paths' => $photosPaths, 'isDesired' => $isDesired, 'developer' => $developer]);
+                     'photo_paths' => $photosPaths, 'isDesired' => $isDesired, 'developer' => $developer, 'isReleasePublished' => $isReleasePublished]);
     }
 
     // Загружаю фото на сервер

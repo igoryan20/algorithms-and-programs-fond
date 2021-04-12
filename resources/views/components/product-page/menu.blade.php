@@ -51,6 +51,9 @@
                     <input type="hidden" name="product_id" value={{ $product->id }}>
                     <button type="submit" class="btn btn-outline-success h-100" name="btn" value="del">Удалить из желаемого</button>
                 </form>
+                @if ($isReleasePublished) 
+                    <a href="/download-releases/{{ $product->id }}" class="btn btn-outline-secondary ml-2">Скачать доступные релизы</a>
+                @endif
             @else
             <form action="/product/{{ $product->id }}" method="POST">
                 {{ csrf_field() }}
