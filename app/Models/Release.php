@@ -15,6 +15,7 @@ class Release extends Model
         $this->description = $properties->description;
         $this->product_id = $properties->id;
         $this->path = $path;
+        $this->hash = md5($properties->release->get());
         if($properties->Windows) {
             $this->os_id = 1;
         }
@@ -33,7 +34,7 @@ class Release extends Model
     }
 
     public function product() {
-        return $this->belognsTo(Product::class);
+        return $this->belongsTo(Product::class);
     }
 
     public function operationSystem() {
