@@ -6,12 +6,12 @@
 
 require('./bootstrap');
 
-require('./getReleaseNotification');
+require('jquery-toast-plugin');
 
-require('jquery/dist/jquery');
+require('./getReleaseNotification');
 
 require('./pop-up');
 
 require('@fortawesome/fontawesome-free/js/all');
 
-
+require('./getReleaseNotification');

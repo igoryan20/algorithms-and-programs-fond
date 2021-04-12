@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
+    <script src="{{ asset('/js/app.js') }}"></script>
     <title>ФАП - @yield('title')</title>
 </head>
 <body style="background-color: #f3efd3">
-  <script src="{{ asset('/js/app.js') }}"></script>
   @yield('layout-content')
 </body>
 </html>
