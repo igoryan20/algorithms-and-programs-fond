@@ -15,7 +15,7 @@ use App\Models\User;
 
 Route::middleware('auth')->group(function() {
     Route::get('/', 'HomePageController@getAllProducts')->name('home');
-    Route::get('filtered-products', 'HomePageController@getFilteredProducts');
+    Route::get('/filtered-products', 'HomePageController@getFilteredProducts');
     Route::get('/create-product', 'CreateProductController@getCreateProductPage');
     Route::get('/create-news', 'CreateNewsController@getCreateNewsPage');
     Route::get('/profile', 'ProfileController@getProfilePage');
