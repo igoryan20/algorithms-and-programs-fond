@@ -1,11 +1,11 @@
 @extends('layouts.main-layout')
 
 @section('title')
-    Журнал
+    Релизы
 @endsection
 
 @section('page-content')
-    <h1 class="pt-4 mr-auto ml-auto w-75">Журнал релизов</h1>
+    <h1 class="pt-4 mr-auto ml-auto w-75">Опубликованый релизы</h1>
     <hr class="ml-auto w-75">
     <div class="mr-auto ml-auto w-75">
         @if ($releases->isEmpty())

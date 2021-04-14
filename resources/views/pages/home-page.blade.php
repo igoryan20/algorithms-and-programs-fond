@@ -20,7 +20,7 @@
                 <input id="search" name="search" type="text"
                 class="form-control mb-4" placeholder="Название программы" :value="search"/>
                 <x-home-page.card-with-checkboxes title="Категории" :checkboxes="$categories" entity="category" :checked="$checkedCategories" />
-                <x-home-page.card-with-select title="Стоимость" />
+                <!-- <x-home-page.card-with-select title="Стоимость" /> -->
                 <x-home-page.card-with-checkboxes title="Операционная система" :checkboxes="$operationSystems" entity="os" :checked="$checkedOperationSystems" />
                 <button type='submit' class="btn btn-primary w-100 mb-4" >Применить фильтр</button>
             </form>

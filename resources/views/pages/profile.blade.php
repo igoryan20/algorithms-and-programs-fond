@@ -8,15 +8,15 @@
     <h1 class="pt-4 mr-auto ml-auto w-75">Мой профиль</h1>
     <hr class="ml-auto w-75">
     <div class="mr-auto ml-auto w-75">
-        <div class="d-flex flex-row">
+        <div class="d-flex justify-content-row flex-wrap">
 
             <!-- Форма для изменения автара пользователя -->
-            <form id="form-avatar" action="/update-user-avatar" method="POST" enctype="multipart/form-data" class="d-flex flex-column mr-4">
+            <form id="form-avatar" action="/update-user-avatar" method="POST" enctype="multipart/form-data" class="d-flex flex-column mr-4" style="max-width: 100%">
                 @csrf
                 @if($user->avatar_path)
-                    <img src="{{ $user->avatar_path }}" alt="" style="height: 200px">
+                    <img src="{{ $user->avatar_path }}" alt="" style="width: 100%">
                 @else
-                    <img src="/img/admin.jpg" alt="" style="height: 200px">
+                    <img src="/img/admin.jpg" alt="" style="width: 100%">
                 @endif
                 <input type="file" id="input-avatar" name="avatar" >
                 <button type="submit" id="update-avatar" class="btn btn-outline-secondary mt-2">Изменить фото</button>

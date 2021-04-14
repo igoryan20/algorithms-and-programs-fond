@@ -8,10 +8,8 @@ require('./bootstrap');
 
 require('jquery-toast-plugin');
 
-require('./getReleaseNotification');
+require('./get-notification');
 
 require('./pop-up');
 
 require('@fortawesome/fontawesome-free/js/all');
-
-require('./getReleaseNotification');

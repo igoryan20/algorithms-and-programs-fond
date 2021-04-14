@@ -65,7 +65,10 @@ class ReleasePublished extends Notification
     public function toBroadcast($notifiable)
     {
         return new BroadcastMessage([
-            'title' => 'Релиз '.$this->release->name
+            'title' => 'Опубликован новый релиз программы '.$this->release->product->name,
+            'linkMessage' => 'Ссылка на : релиз',
+            'linkName' => 'Перейти к '.$this->release->name,
+            'link' => '/download-releases/'.$this->release->product->id
         ]);
     }
 }

@@ -9,18 +9,16 @@
             <!-- Then put toasts within -->
             <div id="releaseNotification" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="10000">
                 <div class="toast-header">
-                    <!-- <img src="..." class="rounded mr-2" alt="..."> -->
-                    <strong class="mr-auto">Выпущен новый релиз</strong>
-                    <small class="text-muted">сейчас</small>
+                    <!-- <img src="/img/brand.png" class="rounded mr-2" style="width: 1em"> -->
+                    <strong class="mr-auto toast-title"></strong>
                     <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="toast-body">
-                    <p class="toast-name"></p>
-                    <small class="toast-message"></small>
+                    <p class="toast-message"></p>
+                    <a href="" class="toast-link"></a>
                 </div>
             </div>
         </div>
-        <!-- <script src="{{asset('js/getReleaseNotification.js')}}"></script> -->
 @endsection

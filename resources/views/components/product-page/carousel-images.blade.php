@@ -13,11 +13,11 @@
             @foreach ($photoPaths as $photoPath)
                 @if ($photoPaths->search($photoPath) == 0)
                     <div class="carousel-item active">
-                        <img class="d-block" src="{{ $photoPath->name }}" style="width: 60em; height: 30em" alt="">
+                        <img class="d-block" src="{{ $photoPath->name }}" style="width: 100%;" alt="">
                     </div>
                 @else
                     <div class="carousel-item">
-                        <img class="d-block" src="{{ $photoPath->name }}" style="width: 60em; height: 30em" alt="">
+                        <img class="d-block" src="{{ $photoPath->name }}" style="width: 100%" alt="">
                     </div>
                 @endif
             @endforeach

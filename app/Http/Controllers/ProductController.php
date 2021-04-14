@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Collection;
+use App\Notifications\ProductPublished;
+use Illuminate\Support\Facades\Notification;
 use App\Models\{
     Product,
     ProductCategory,
@@ -88,6 +90,9 @@ class ProductController extends Controller
         $product = Product::find($id);
         $product->is_published = true;
         $product->save();
+        $product->refresh();
+
+        Notification::send(User::all(), new ProductPublished($product));
 
         return view('/pages/success', ['title' => 'Успешно опубликовано', 'info' => 'Продукт успешно опубликован', 'id' => $id]);
     }

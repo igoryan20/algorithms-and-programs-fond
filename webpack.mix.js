@@ -16,7 +16,6 @@ mix.js('resources/js/app.js', 'public/js').sourceMaps()
     .js('resources/js/upload-photo.js', 'public/js')
     .js('resources/js/selectpicker.js', 'public/js')
     .js('resources/js/validate-form.js', 'public/js')
-    .js('resources/js/getReleaseNotification.js', 'public/js')
     .autoload({
         jquery: ['$', 'window.jQuery', 'jQuery']
     })

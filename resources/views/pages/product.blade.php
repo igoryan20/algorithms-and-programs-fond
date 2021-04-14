@@ -7,7 +7,7 @@
 @section('page-content')
     <x-product-page.menu :product="$product" :isDesired="$isDesired" :isReleasePublished="$isReleasePublished" />
     <hr>
-    <div class="d-flex justify-content-between">
+    <div class="d-flex justify-content-between flex-wrap">
         <x-product-page.carousel-images :photo-paths="$photo_paths" :product="$product" />
         <x-product-page.about :product="$product" :categories="$categories" :developer="$developer" />
     </div>

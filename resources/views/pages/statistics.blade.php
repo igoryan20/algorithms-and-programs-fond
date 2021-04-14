@@ -11,8 +11,5 @@
     <div class="mx-auto w-75 d-flex flex-wrap">
         <x-statistics.card-with-table :productsCount="$productsCount" :usersCount="$usersCount" :releasesCount="$releasesCount" :developersCount="$developersCount" />
         <x-statistics.card-with-pie />
-        <x-statistics.card-with-vertical-bar chart="new_products_chart" />
-        <x-statistics.card-with-vertical-bar chart="new_relizes_chart" />
-        <x-statistics.card-with-horizontal-bar />
     </div>
 @endsection
