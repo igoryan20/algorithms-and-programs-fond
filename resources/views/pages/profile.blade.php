@@ -36,7 +36,20 @@
                                     data-patronymic="{{ $user->patronymic }}"                                    
                                     >
                  Изменить</button>
-                <h4 class="mb-4">Группа: {{ $user->group->name }}</h4>
+                 <div class="mb-4">
+                    <h4 class="mb-4">Группа: {{ $user->group->name }}</h4>
+                    @if($user->group->id == 1)
+                        @if(!$user->requestForDeveloperStatus)
+                            <form action="/create-request/{{ $user->id }}" method="POST">
+                                @csrf
+                                <button class="btn btn-outline-secondary">Сделать запрос на получение статуса разработчика</button>
+                            </form>
+                        @else
+                            <p class="py-4 px-4 rounded" style="background-color: #ffe14d;">
+                            Статус запроса на получение прав разработчика: {{ $user->requestForDeveloperStatus->status }}</p>
+                        @endif
+                    @endif
+                 </div>
                 <!-- Вывод контактов и кнопки для вызова модального окна их изменения -->
                 <h4>Контакты</h4>
                 @if($user->contacts)

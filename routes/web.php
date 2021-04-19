@@ -18,7 +18,7 @@ Route::middleware('auth')->group(function() {
     Route::get('/filtered-products', 'HomePageController@getFilteredProducts');
     Route::get('/create-product', 'CreateProductController@getCreateProductPage');
     Route::get('/create-news', 'CreateNewsController@getCreateNewsPage');
-    Route::get('/profile', 'ProfileController@getProfilePage');
+    Route::get('/profile', 'ProfileController@getProfilePage')->name('profile');
     Route::get('/news', 'NewsController@getNewsPage');
     Route::get('/product/{id}', 'ProductController@getProduct');
     Route::get('/categories', 'CategoriesController@getCategories');
@@ -55,6 +55,7 @@ Route::middleware('auth')->group(function() {
     Route::post('/update-product-description/{id}', 'ProductController@updateProductDescription');
     Route::post('/delete-product/{id}', 'ProductController@deleteProduct');
     Route::post('/publish-release/{product_id}/{release_id}', 'ReleaseFileController@publish');
+    Route::post('/create-request/{id}', 'DevelopersRequestsController@createRequest');
 });
 
 Route::get('/login', 'LoginController@getLoginPage')->name('login');

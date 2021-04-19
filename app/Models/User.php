@@ -26,4 +26,8 @@ class User extends \Illuminate\Foundation\Auth\User
     public function contacts() {
         return $this->hasOne(UserContacts::class);
     }
+
+    public function requestForDeveloperStatus() {
+        return $this->hasOne(RequestForDeveloperStatus::class);
+    }
 }
