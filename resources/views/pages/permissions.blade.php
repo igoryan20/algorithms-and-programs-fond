@@ -34,6 +34,6 @@
                 @endforeach
                 </tbody>
         </table>
-        <button type="button" class="btn btn-primary mb-4">Выполнить</button>
+        <button type="button" class="btn btn-outline-primary mb-4">Добавить разрешение</button>
     </div>
 @endsection

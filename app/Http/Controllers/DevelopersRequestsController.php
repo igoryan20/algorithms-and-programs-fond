@@ -17,17 +17,22 @@ class DevelopersRequestsController extends Controller
             $request->status = 'Просмотрен';
             $request->save();
         });
-
-        // $users = User::whereIn('id', )
+        
 
         return view('pages/developers-requests', ['requests' => $requests]);
     }
 
     public function createRequest($id) {
+        $user = User::find($id);
         $request = new RequestForDeveloperStatus;
         $request->user_id = $id;
         $request->status = 'Создан';
         $request->save();
+        $request->refresh();
+
+        $user->dev_status_request = $request->id;
+        $user->save();
+
         return (new ProfileController)->getProfilePage();
     }
 }

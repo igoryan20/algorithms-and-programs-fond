@@ -46,18 +46,14 @@
                                 </div>
                             </td>
                             <td>
-                            <form action="/publish-release/{{ $product->id }}/{{ $release->id }}" method="POST">
-                                @csrf
-                                
-                                    <button type="submit" class='btn btn-outline-secondary'>Опубликовать релиз</a>
-                                
-                                        <!-- <p class="py-4 px-4 rounded mb-0 w-50" style="background-color: #ffe14d">Релиз опубликован</p>   
-                                 -->
-                            </form>
-                                
-                                <!-- <div class="mx-auto w-50">
-                                    <a href="/download-release/{{ $release->id }}"><i class="fas fa-download fa-2x"></i></a>
-                                </div> -->
+                                @if(!$release->is_published)
+                                    <form action="/publish-release/{{ $product->id }}/{{ $release->id }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class='btn btn-outline-secondary'>Опубликовать релиз</a>                                
+                                    </form>
+                                @else
+                                    <p class="py-4 px-4 rounded mb-0 w-50" style="background-color: #ffe14d">Релиз опубликован</p>  
+                                @endif
                             </td>
                         </tr>
                     @endforeach

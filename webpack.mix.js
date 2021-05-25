@@ -20,3 +20,9 @@ mix.js('resources/js/app.js', 'public/js').sourceMaps()
         jquery: ['$', 'window.jQuery', 'jQuery']
     })
     .sass('resources/sass/app.scss', 'public/css')
+
+module.exports = {
+    watchOptions: {
+        ignored: /node_modules/
+    }
+};

@@ -8,8 +8,6 @@
 
     <div class="mx-auto w-75">
         <h1 class="pt-4">Список групп</h1>
-        <button class="btn btn-primary">Создать</button>
-
         <hr />
 
         <table class="table">
@@ -37,6 +35,6 @@
                 @endforeach
                 </tbody>
         </table>
-        <button type="button" class="btn btn-primary mb-4">Выполнить</button>
+        <button type="button" class="btn btn-outline-primary mb-4">Создать группу</button>
     </div>
 @endsection

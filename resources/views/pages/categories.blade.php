@@ -41,7 +41,7 @@
                                     >edit</button>
                             <button type="button" class="btn material-icons mr-2" data-toggle="modal"
                                     data-target="#delete-category"
-                                    data-name="{{ $category->category }}"
+                                    data-name="{{ $category->name }}"
                                     data-id="{{ $category->id }}">clear</button>
                         </th>
                     </tr>

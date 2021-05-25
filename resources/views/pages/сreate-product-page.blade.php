@@ -15,6 +15,7 @@
                 <div class="text">
                     <h4>Название</h4>
                     <input id="name" type="text" class="w-50" name="name" />
+                    <br>
                     <small id="name_err"></small>
                 </div>
             </div>
@@ -22,6 +23,7 @@
                 <div class="text">
                     <h4>Краткое описание</h4>
                     <input id="description" type="text" class="w-50 text" name="description" />
+                    <br>
                     <small id="description_err"></small>
                 </div>
             </div>
@@ -36,11 +38,14 @@
             <div class="mb-4 d-flex flex-column text">
                 <div class="text">
                     <h4 id="label">Категории</h4>
-                    <select id="categories" class="selectpicker w-50 text" multiple name="categories[]">
+                    <select id="categories" class="w-50" multiple name="categories[]">
                         @foreach ($categories as $category)
                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach
                     </select>
+                    <br>
+                    <small>Для выбора нескольких вариантов нажмите и держите Ctrl</small>
+                    <br>
                     <small id="categories_err"></small>
                 </div>
             </div>
@@ -48,13 +53,13 @@
                 <div class="d-flex flex-column">
                     <h4>Операционная система</h4>
                     <fieldset class="btn-group btn-group-toggle" data-toggle="buttons" id="os" name="os">
-                        <label class="btn btn-outline-primary">
+                        <label class="btn btn-outline-primary" id="windows">
                             <input type="checkbox" value="1" name="os[]"> Windows
                         </label>
-                        <label class="btn btn-outline-primary">
+                        <label class="btn btn-outline-primary" id="macos">
                             <input type="checkbox" value="2" name="os[]"> MacOS
                         </label>
-                        <label class="btn btn-outline-primary">
+                        <label class="btn btn-outline-primary" id="linux">
                             <input type="checkbox" value="3" name="os[]"> Linux
                         </label>
                     </fieldset>
@@ -84,16 +89,6 @@
         }
     </style>
 
-    <script src="{{asset('js/selectpicker.js')}}"></script>
+    <!-- <script src="{{asset('js/selectpicker.js')}}"></script> -->
     <script src="{{asset('js/validate-form.js')}}"></script>
-
-    <script>
-        $('document').ready(function () {
-            $('h4').on('click', function() {
-                console.log($('#categories').val())
-            })
-        })
-        
-    </script>
-
 @endsection

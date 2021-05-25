@@ -79,8 +79,20 @@ $(document).ready(function () {
         modal.find('#edit-name').val(name)
         modal.find('#edit-description').val(description)
         modal.find('#edit-full_description').val(full_description)
+
+        $(document).keypress(function(e) {
+            if (e.keyCode == 13 && !e.shiftKey) {
+              $('#save-description').click();
+            }
+        })
     })
-
-
+    
+    $('#delete-product').on('show.bs.modal', function (event) {
+        $(document).keypress(function(e) {
+            if (e.keyCode == 13) {
+              $('#cancel-btn').click();
+            }
+        })
+    })
 });
 

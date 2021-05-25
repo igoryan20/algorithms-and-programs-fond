@@ -20,14 +20,19 @@ $(document).ready(function () {
             $('#full_description_err').html('')
             fill_fields += 1
         }
-        console.log($('#categories').val())
         if($('#categories').val() == '') {
             $('#categories_err').html('Выберите категории').css({'color' : 'red'})
         } else {
             $('#categories_err').html('')
             fill_fields += 1
         }
-        if (fill_fields == 4) {
+        if($('#windows').hasClass('active') || $('#macos').hasClass('active') || $('#linux').hasClass('active')) {
+            $('#os_err').html('')
+            fill_fields += 1
+        } else {
+            $('#os_err').html('Выберите операционную систему').css({'color' : 'red'})
+        }
+        if (fill_fields == 5) {
             $('.text').hide();
             $('.text').removeClass('mb-4');
             $('.media').show();

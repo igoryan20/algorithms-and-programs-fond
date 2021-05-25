@@ -15,7 +15,7 @@
                         <label for="name" class="col-form-label">Название</label>
                         <input type="text" class="form-control" id="edit-name" name="name"
                                 required oninvalid="this.setCustomValidity('Введите значение')"
-                                oninput="setCustomValidity('')" autocomplete="off">
+                                oninput="setCustomValidity('')" autocomplete="off" />
                     </div>
                     <div class="form-group">
                         <label for="description" class="col-form-label">Краткое описание</label>
@@ -30,10 +30,11 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
-                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                    <button id="save-description" type="submit" class="btn btn-primary">Сохранить</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
 
+<script src="{{asset('js/catch-enter.js')}}"></script>

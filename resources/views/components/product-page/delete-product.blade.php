@@ -14,7 +14,7 @@
         <form action="/delete-product/{{ $product->id }}" method="POST">
             @csrf
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+                <button id='cancel-btn' type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
                 <button type="submit" class="btn btn-danger">Удалить</button>
             </div>
         </form>

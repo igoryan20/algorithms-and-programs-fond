@@ -1,7 +1,7 @@
 @extends('layouts.main-layout')
 
 @section('title')
-    Запросы разрботчиков
+    Запросы разработчиков
 @endsection
 
 @section('page-content')
@@ -11,7 +11,7 @@
         <div class="mx-auto w-75 d-flex justify-content-between mb-4">
             <div class="d-flex">
                     <img src="/img/admin.jpg" alt="" class="mr-4" style="width: 100px">
-                    <p>{{ $request->name }} {{ $request[0]->patronymic }} {{ $request[0]->surname }}</p>
+                    <p>{{ $request->user->name }} {{ $request->user->patronymic }} {{ $request->user->surname }}</p>
                 <a href=""></a>
             </div>
             <div>

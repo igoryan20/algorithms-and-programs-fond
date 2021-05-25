@@ -10,4 +10,7 @@ class RequestForDeveloperStatus extends Model
 {
     protected $table = 'requests_for_developer_status';
     
+    public function user() {
+        return $this->hasOne(User::class, 'dev_status_request');
+    }
 }

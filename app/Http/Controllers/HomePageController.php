@@ -106,7 +106,7 @@ class HomePageController extends Controller
             }
         }
         
-        return collect($products)->sortByDesc();
+        return collect($products)->sortByDesc('id');
     }
 
     public function changeUser(Request $request) {
