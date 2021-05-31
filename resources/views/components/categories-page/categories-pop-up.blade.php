@@ -8,14 +8,16 @@
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="/categories" method="POST">
+            <form action="/categories" method="POST" class="needs-validation" novalidate>
                 {{ csrf_field() }}
                 <div class="modal-body">
                         <div class="form-group">
                             <label for="title" class="col-form-label">Заголовок</label>
                             <input type="text" class="form-control" id="edit-title" name="title"
-                                    required oninvalid="this.setCustomValidity('Введите значение')"
-                                    oninput="setCustomValidity('')" autocomplete="off">
+                                    required autocomplete="off">
+                            <div class="invalid-feedback">
+                                Введите название категории
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="description" class="col-form-label">Описание</label>
@@ -26,21 +28,28 @@
                             <div class="form-group">
                                 <label for="url" class="col-form-label">URL</label>
                                 <input type="text" class="form-control" id="edit-url" name="url"
-                                        required oninvalid="this.setCustomValidity('Введите значение')"
-                                        oninput="setCustomValidity('')" autocomplete="off">
+                                        required autocomplete="off">
+                                <div class="invalid-feedback">
+                                    Введите URL
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="weight" class="col-form-label">Вес</label>
-                                <input type="number" class="form-control" id="edit-weight" name="weight" required
-                                        oninvalid="this.setCustomValidity('Введите значение')"
-                                        oninput="setCustomValidity('')" autocomplete="off" />
+                                <input type="number" class="form-control" id="edit-weight" name="weight" required />
+                                <div class="invalid-feedback">
+                                    Введите вес продукта
+                                </div>
                             </div>
                             <input type="hidden" id="edit-id" name = "id" />
                         </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
-                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                    @if($id == 'create-category')
+                        <button id='create-category-btn' type="submit" class="btn btn-primary">Сохранить</button>
+                    @else
+                        <button id='edit-category-btn' type="submit" class="btn btn-primary">Сохранить</button>
+                    @endif
                 </div>
             </form>
         </div>

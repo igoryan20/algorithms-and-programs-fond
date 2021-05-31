@@ -25,7 +25,7 @@ class LoginController extends Controller
                 $request->session()->regenerate();
                 Auth::login($currentUser, $remember = true);
             }       
-            return redirect()->route('home');
+            return redirect('/');
         } else {
             return back()->withErrors([
                     'username' => 'The provided credentials do not match our records.'

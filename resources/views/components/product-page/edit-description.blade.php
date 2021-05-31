@@ -8,24 +8,32 @@
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="/update-product-description/{{$product->id}}" method="POST">
+            <form action="/update-product-description/{{$product->id}}" method="POST" class="needs-validation" novalidate>
                 {{ csrf_field() }}
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="name" class="col-form-label">Название</label>
                         <input type="text" class="form-control" id="edit-name" name="name"
-                                required oninvalid="this.setCustomValidity('Введите значение')"
-                                oninput="setCustomValidity('')" autocomplete="off" />
+                                required autocomplete="off" />
+                        <div class="invalid-feedback">
+                            Введите название продукта
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="description" class="col-form-label">Краткое описание</label>
                         <textarea class="form-control" id="edit-description"
-                                    name="description" autocomplete="off"></textarea>
+                                    name="description" required value=""></textarea>
+                        <div class="invalid-feedback">
+                            Введите краткое описание продукта
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="full_description" class="col-form-label">Полное описание</label>
                         <textarea class="form-control" id="edit-full_description"
-                                    name="full_description" autocomplete="off"></textarea>
+                                    name="full_description" required autocomplete="off"></textarea>
+                        <div class="invalid-feedback">
+                            Введите полное описание продукта
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -35,6 +43,4 @@
             </form>
         </div>
     </div>
-</div>
-
-<script src="{{asset('js/catch-enter.js')}}"></script>
+</div>   

@@ -8,6 +8,8 @@
     <h1 class="pt-4 mr-auto ml-auto w-75">Категории</h1>
     <hr class="ml-auto w-75">
     <div class="mr-auto ml-auto w-75">
+    <button type="button" class="btn btn-primary mb-4" data-toggle="modal"
+                data-target="#create-category">Добавить</button>
         <table class="table">
             <thead>
                 <tr>
@@ -48,8 +50,7 @@
                 @endforeach
                 </tbody>
         </table>
-        <button type="button" class="btn btn-primary mb-4" data-toggle="modal"
-                data-target="#create-category">Добавить</button>
+        
         <x-categories-page.categories-pop-up id="create-category" />
         <x-categories-page.categories-pop-up id="edit-category" />
         <x-categories-page.delete-category />

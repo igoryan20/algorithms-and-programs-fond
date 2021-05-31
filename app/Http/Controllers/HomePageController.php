@@ -25,11 +25,12 @@ class HomePageController extends Controller
 
         $operationSystems = OperationSystem::all();
         $categories = Category::all();
-        $products = Product::latest()->paginate(10);
+        $products = Product::latest()->paginate(8);
+        $productsCount = count(Product::all());
 
         return view('/pages/home-page', ['products' => $products, 'categories' => $categories,
                                          'operationSystems' => $operationSystems, 'checkedCategories' => new Collection,
-                                         'checkedOperationSystems' => new Collection] );
+                                         'checkedOperationSystems' => new Collection, 'productsCount' => $productsCount] );
     }
 
     public function getFilteredProducts(Request $request) {
@@ -114,5 +115,7 @@ class HomePageController extends Controller
     
         return $this->getAllProducts($request);
     }
+
+
 }
 ?>

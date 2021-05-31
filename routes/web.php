@@ -14,7 +14,12 @@ use App\Models\User;
 */
 
 Route::middleware('auth')->group(function() {
-    Route::get('/', 'HomePageController@getAllProducts')->name('home');
+    Route::get('/', function() {
+        return redirect('/all-products');
+    });
+    Route::get('/all-products', 'ProductsController@getAllProductsPage')
+            ->middleware('hasRights');
+    Route::get('/published-products', 'ProductsController@getPublishedProductsPage');
     Route::get('/filtered-products', 'HomePageController@getFilteredProducts');
     Route::get('/create-product', 'CreateProductController@getCreateProductPage');
     Route::get('/create-news', 'CreateNewsController@getCreateNewsPage');
@@ -33,7 +38,7 @@ Route::middleware('auth')->group(function() {
     Route::get('/download-release/{id}', "ReleaseFileController@download");
     Route::get('/permissions', 'PermissionsPageController@getPermissions');
     Route::get('/desired-products', 'DesiredProductsController@getDesiredProducts');
-    Route::get('/new-products', 'NewProductsController@getNewProducts');
+    Route::get('/new-products', 'ProductsController@getNewProductsPage');
     Route::get('/publish/{id}', 'ProductController@publish');
     Route::get('/desired-product-users/{product_id}', 'DesiredProductUserController@getUsers');
     Route::get('/download-releases/{id}', "ReleaseFileController@getReleases");

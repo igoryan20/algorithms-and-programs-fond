@@ -16,6 +16,13 @@ $(document).ready(function () {
         modal.find('#edit-description').val(description)
         modal.find('#edit-url').val(url)
         modal.find('#edit-weight').val(weight)
+
+        $(document).keypress(function(e) {
+            console.log(e.keyCode)
+            if (e.keyCode == 13 && !e.shiftKey) {
+                $('#edit-category-btn').click()
+            }
+        })
     })
     
     $('#delete-category').on('show.bs.modal', function (event) {
@@ -94,5 +101,14 @@ $(document).ready(function () {
             }
         })
     })
+
+    $('#create-release').on('show.bs.modal', function (event) {
+        $(document).keypress(function(e) {
+            if (e.keyCode == 13) {
+              $('#cancel-btn').click();
+            }
+        })
+    })
+
 });
 

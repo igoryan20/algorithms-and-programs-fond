@@ -8,24 +8,28 @@
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="/upload-release" method="POST" enctype="multipart/form-data">
+            <form action="/upload-release" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
                 @csrf
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="url" class="col-form-label">Название релиза</label>
-                        <input type="text" class="form-control" id="edit-url" name="name"
-                                required oninvalid="this.setCustomValidity('Введите значение')"
-                                oninput="setCustomValidity('')" autocomplete="off">
+                        <input type="text" class="form-control" id="edit-release-name" name="name"
+                                required autocomplete="off">
+                        <div class="invalid-feedback">
+                            Введите название релиза
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="description" class="col-form-label">Описание изменений</label>
-                        <textarea class="form-control" id="edit-description"
-                                    name="description" autocomplete="off"></textarea>
+                        <textarea class="form-control" id="release-changes" name="description" required ></textarea>
+                        <div class="invalid-feedback">
+                            Введите описание изменений
+                        </div>
                     </div>
                     <div class="form-group">
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                             <label class="btn btn-outline-primary">
-                              <input type="radio" name="Windows" id="option1"> Windows
+                              <input type="radio" name="Windows" id="option1" checked> Windows
                             </label>
                             <label class="btn btn-outline-primary">
                               <input type="radio" name="MacOS" id="option2"> MacOS
@@ -37,8 +41,10 @@
                     </div>
                     <input type="hidden" value="{{ $product->id }}" name="id">
                     <div class="form-group">
-                        <label for="upload">Выберите загружаемый файл</label>
-                        <input type="file" class="form-control-file" id="upload" accept=".exe, .iso, .rar, .zip" name='release'>
+                        <input type="file" class="form-control-file" id="upload" accept=".exe, .iso, .rar, .zip" name='release' required>
+                        <div class="invalid-feedback">
+                            Выберите загружаемый файл
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -49,4 +55,6 @@
         </div>
     </div>
 </div>
+
+<script src="{{asset('js/validate-release-form.js')}}"></script>
 
