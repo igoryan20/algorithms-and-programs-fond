@@ -28,7 +28,7 @@
                             <p class="mb-0">{{ $category->name }}</p>
                             <small>{{ $category->description }}</small>
                         </td>
-                        <td>{{ $category->url }}</td>
+                        <td><a href="{{ $category->url }}">{{ $category->url }}</a></td>
                         <td>{{ $category->weight }}</td>
                         <th scope="col">
                             <button type="button" id="btn-edit-category" class="btn material-icons mr-2"

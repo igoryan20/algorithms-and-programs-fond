@@ -8,40 +8,47 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form action="/update-fullname" method="POST">
+        <form action="/update-fullname" method="POST" class="needs-validation" novalidate>
           @csrf
           <div class="modal-body">
                   <div class="form-group">
                       <label for="username" class="col-form-label">Никнейм</label>
                       <input type="text" class="form-control" id="edit-username" name="username"
-                              required oninvalid="this.setCustomValidity('Введите значение')"
-                              oninput="setCustomValidity('')" autocomplete="off">
+                              required>
+                      <div class="invalid-feedback">
+                        Введите никнейм
+                      </div>
                   </div>
                   <div class="form-group">
                       <label for="surname" class="col-form-label">Фамилия</label>
                       <input class="form-control" id="edit-surname" name="surname"
-                                  required oninvalid="this.setCustomValidity('Введите значение')"
-                              oninput="setCustomValidity('')" autocomplete="off"></textarea>
+                                  required></textarea>
+                      <div class="invalid-feedback">
+                        Введите фамилию
+                      </div>
                   </div>
                   <div class="d-flex flex-row justify-content-between">
                       <div class="form-group">
                           <label for="name" class="col-form-label">Имя</label>
                           <input type="text" class="form-control" id="edit-name" name="name"
-                                  required oninvalid="this.setCustomValidity('Введите значение')"
-                                  oninput="setCustomValidity('')" autocomplete="off">
+                                  required>
+                          <div class="invalid-feedback">
+                            Введите имя
+                          </div>
                       </div>
                       <div class="form-group">
                           <label for="patronymic" class="col-form-label">Отчество</label>
-                          <input type="text" class="form-control" id="edit-patronymic" name="patronymic" required
-                                  oninvalid="this.setCustomValidity('Введите значение')"
-                                  oninput="setCustomValidity('')" autocomplete="off" />
+                          <input type="text" class="form-control" id="edit-patronymic" name="patronymic" required />
+                          <div class="invalid-feedback">
+                            Введите отчество
+                          </div>
                       </div>
                       <input type="hidden" id="edit-id" name = "id" />
                   </div>
           </div>
           <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
-              <button type="submit" class="btn btn-primary">Сохранить</button>
+              <button id="save-name-btn" type="submit" class="btn btn-primary">Сохранить</button>
           </div>
           </form>
       </div>

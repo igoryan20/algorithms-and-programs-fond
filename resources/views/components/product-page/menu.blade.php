@@ -6,7 +6,20 @@
             <img src="/img/default.png" alt="картинка 1" class="mr-2" width="100px" height="100px">
         @endif
         <div class="d-flex flex-column ml-4">
-            <h1>{{ $product->name }}</h1>
+            
+            <h1>{{ $product->name }} 
+                @foreach ($product->operationSystems as $productOperationSystem)
+                    @if ($productOperationSystem->id == 1)
+                        <i class="fab fa-windows"></i>
+                    @endif
+                    @if ($productOperationSystem->id == 2)
+                        <i class="fab fa-apple"></i>
+                    @endif
+                    @if ($productOperationSystem->id == 3)
+                        <i class="fab fa-linux"></i>
+                    @endif
+                @endforeach
+            </h1>
             <p>{{ $product->description }}</p>
             <p>{{ $product->full_description }}</p>
         </div>
@@ -39,9 +52,6 @@
                     </div>
                     <x-product-page.create-release :product="$product" />
                 </div>
-                @if(!$product->is_published)
-                    <a href="/publish/{{ $product->id }}" class="btn btn-outline-info mr-2">Опубликовать</a>
-                @endif
             @endif
         @endif
         @if(Auth::user()->id != $product->developed_by)

@@ -3,7 +3,7 @@
 @section('layout-content')
     <x-header :categories="$firstCategories" :users="$allUsers" :username="Auth::user()->username" />
     @yield('page-content')
-        <div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 200px;">
+        <div hidden aria-live="polite" aria-atomic="true" style="position: relative; min-height: 200px;">
             <!-- Position it -->
             <div style="position: fixed; bottom: 50px; right: 50px;">
             <!-- Then put toasts within -->

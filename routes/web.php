@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\User;
+use App\Models\{
+    User,
+    Category
+};
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,7 +23,7 @@ Route::middleware('auth')->group(function() {
     Route::get('/all-products', 'ProductsController@getAllProductsPage')
             ->middleware('hasRights');
     Route::get('/published-products', 'ProductsController@getPublishedProductsPage');
-    Route::get('/filtered-products', 'HomePageController@getFilteredProducts');
+    // Route::get('/filtered-products', 'FilterProductsController@getFilteredProducts');
     Route::get('/create-product', 'CreateProductController@getCreateProductPage');
     Route::get('/create-news', 'CreateNewsController@getCreateNewsPage');
     Route::get('/profile', 'ProfileController@getProfilePage')->name('profile');
@@ -39,7 +42,6 @@ Route::middleware('auth')->group(function() {
     Route::get('/permissions', 'PermissionsPageController@getPermissions');
     Route::get('/desired-products', 'DesiredProductsController@getDesiredProducts');
     Route::get('/new-products', 'ProductsController@getNewProductsPage');
-    Route::get('/publish/{id}', 'ProductController@publish');
     Route::get('/desired-product-users/{product_id}', 'DesiredProductUserController@getUsers');
     Route::get('/download-releases/{id}', "ReleaseFileController@getReleases");
     Route::get('/getCurrentUserId', function() {
@@ -61,6 +63,11 @@ Route::middleware('auth')->group(function() {
     Route::post('/delete-product/{id}', 'ProductController@deleteProduct');
     Route::post('/publish-release/{product_id}/{release_id}', 'ReleaseFileController@publish');
     Route::post('/create-request/{id}', 'DevelopersRequestsController@createRequest');
+
+    foreach(Category::all() as $category) {
+        Route::get('/'.$category->url, 'ProductsController@getCategoryProducts');
+    }
+
 });
 
 Route::get('/login', 'LoginController@getLoginPage')->name('login');

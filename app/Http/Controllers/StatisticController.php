@@ -13,9 +13,9 @@ class StatisticController extends Controller
 {
     public function getStatistic()
     {
-        $productsCount = (new Product)->getProductsCount();
-        $usersCount = (new User)->getUsersCount();
-        $developersCount = (new User)->getDevelopersCount();
+        $productsCount = count(Product::all());
+        $usersCount = count(User::where('group_id', 1)->get());
+        $developersCount = count(User::where('group_id', 2)->get());
         $releasesCount = (new Release)->getReleasesCount();
 
         return view('/pages/statistics',

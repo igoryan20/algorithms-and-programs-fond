@@ -12,8 +12,6 @@ class ProfileController extends Controller
 
         $currentUser = Auth::user();
 
-
-
         return view('pages/profile', ["user" => $currentUser]);
     }
 
@@ -28,17 +26,23 @@ class ProfileController extends Controller
         $userContacts->other = $request->other;
         $userContacts->save();
 
-        return $this->getProfilePage($request);
+        return redirect('/profile');
     }
 
     public function updateContacts(Request $request) {
 
         $user = Auth::user();
-        $userContacts = UserContacts::where('user_id', $user->id)
-        ->update(['phone' => $request->phone, 'email' => $request->email,
-                'address' => $request->address, 'other' => $request->other]);
 
-        return $this->getProfilePage($request);
+        if(is_null($request->phone) && is_null($request->email) && is_null($request->address) && is_null($request->other)) {
+            $userContacts = UserContacts::where('user_id', $user->id);
+            $userContacts->delete();
+        } else {
+            UserContacts::where('user_id', $user->id)
+            ->update(['phone' => $request->phone, 'email' => $request->email,
+                    'address' => $request->address, 'other' => $request->other]);
+        }    
+
+        return redirect('/profile');
     }
 
     public function updateUserFullName(Request $request) {
@@ -50,7 +54,7 @@ class ProfileController extends Controller
         $user->patronymic = $request->patronymic;
         $user->save();
 
-        return $this->getProfilePage($request);
+        return redirect('/profile');
     }
 
     public function updateUserAvatar(Request $request) {
@@ -63,6 +67,6 @@ class ProfileController extends Controller
             $user->save();
         }
 
-        return $this->getProfilePage($request);
+        return redirect('/profile');
     }
 }

@@ -60,7 +60,7 @@
                         @if($user->contacts->email)
                             <p class="mb-0 mt-2">Почта: {{ $user->contacts->email }}</p>
                         @endif
-                        @if($user->contacts)
+                        @if($user->contacts->address)
                             <p class="mb-0 mt-2">Адрес: {{ $user->contacts->address }}</p>
                         @endif
                         @if($user->contacts->other)
@@ -81,7 +81,7 @@
                     <div class="mb-2">
                         <i>Не указаны</i>
                     </div>
-                    <button type="button" class="btn btn-primary mb-4" data-toggle="modal"
+                    <button type="button" class="btn btn-outline-primary mb-4" data-toggle="modal"
                                     data-target="#create-contacts"
                                     data-id="{{ $user->id }}"
                     >Добавить</button>

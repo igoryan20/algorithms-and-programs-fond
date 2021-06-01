@@ -8,26 +8,20 @@ use App\Helpers\CollectionHelper;
 
 class Product extends Model
 {
-
+    // Возвращаю список опубликованных продуктов
     public static function published() {
         $products = (new static)->all();
         $products = $products->filter(function ($product, $key) {
-            return !$product->releases->isEmpty();
+            return $product->is_published;
         });
         return $products;
     }
 
+    // Возвращаю список новых продуктов
     public static function new() {
         $products = (new static)->all();
         $products = $products->filter(function ($product) {
-            if ($product->releases->isEmpty()) {
-                return true;
-            } else {
-                return $product->releases->every(function ($release) {
-                    return !$release->is_published;
-                });
-            }
-            return $product->releases->isEmpty();
+            return !$product->is_published;
         });
         return $products;
     }

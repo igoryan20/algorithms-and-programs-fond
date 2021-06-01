@@ -28,15 +28,23 @@
                     </div>
                     <div class="form-group">
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-outline-primary">
-                              <input type="radio" name="Windows" id="option1" checked> Windows
-                            </label>
-                            <label class="btn btn-outline-primary">
-                              <input type="radio" name="MacOS" id="option2"> MacOS
-                            </label>
-                            <label class="btn btn-outline-primary">
-                              <input type="radio" name="Linux" id="option3"> Linux
-                            </label>
+                        @foreach ($product->operationSystems as $productOperationSystem)
+                                @if ($productOperationSystem->id == 1)
+                                    <label class="btn btn-outline-primary">
+                                        <input type="radio" name="Windows" id="option1" checked> Windows
+                                    </label>
+                                @endif
+                                @if ($productOperationSystem->id == 2)
+                                    <label class="btn btn-outline-primary">
+                                        <input type="radio" name="MacOS" id="option2"> MacOS
+                                    </label>
+                                @endif
+                                @if ($productOperationSystem->id == 3)
+                                    <label class="btn btn-outline-primary">
+                                        <input type="radio" name="Linux" id="option3"> Linux
+                                    </label>
+                                @endif
+                            @endforeach
                         </div>
                     </div>
                     <input type="hidden" value="{{ $product->id }}" name="id">
@@ -55,6 +63,4 @@
         </div>
     </div>
 </div>
-
-<script src="{{asset('js/validate-release-form.js')}}"></script>
 

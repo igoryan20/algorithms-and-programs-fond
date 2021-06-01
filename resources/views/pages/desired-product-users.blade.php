@@ -5,10 +5,9 @@
 @endsection
 
 @section('page-content')
-    <h1 class="pt-4 mr-auto ml-auto w-75">Список желающих получить продукт</h1>
+    <h1 class="pt-4 mr-auto ml-auto w-75">Список желающих получить продукт ({{ count($users) }})</h1>
     <hr class="ml-auto w-75">
     <div class="mr-auto ml-auto w-75">
-        <p>Количество желающих получить продукт: {{ count($users) }}</p>
         <table class="table">
             <thead>
                 <tr>

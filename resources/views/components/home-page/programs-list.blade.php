@@ -20,7 +20,11 @@
                         <img src="/img/default.png" alt="картинка 1" class="mr-2" width="76px" height="76px">
                     @endif
                     <div>
-                        <h5 class="mb-0">{{ $product->name }} <span class="badge bg-secondary" style="color:white">Новый</span></h5>
+                        <h5 class="mb-0">{{ $product->name }} 
+                        @if(!$product->is_published)
+                            <span class="badge bg-secondary" style="color:white">Новый</span>
+                        @endif
+                        </h5>
                         <p class="mb-1">{{ $product->description }}</p>
                         <div>
                             @foreach ($product->operationSystems as $productOperationSystem)
@@ -41,7 +45,7 @@
         </ul>
     </div>
     <div class="float-right">
-        {{ $products->links() }}
+        {{ $products->appends(request()->input())->links() }}
     </div>
     
 </div>

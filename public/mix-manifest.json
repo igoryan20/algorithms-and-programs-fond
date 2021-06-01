@@ -4,6 +4,5 @@
     "/js/chart.js": "/js/chart.js",
     "/js/selectpicker.js": "/js/selectpicker.js",
     "/js/upload-photo.js": "/js/upload-photo.js",
-    "/js/validate-form.js": "/js/validate-form.js",
-    "/js/validate-release-form.js": "/js/validate-release-form.js"
+    "/js/validate-form.js": "/js/validate-form.js"
 }

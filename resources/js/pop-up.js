@@ -1,4 +1,13 @@
 $(document).ready(function () {
+    $('#create-category').on('show.bs.modal', function (event) {
+        $(document).keypress(function(e) {
+            console.log(e.keyCode)
+            if (e.keyCode == 13 && !e.shiftKey) {
+                $('#create-category-btn').click()
+            }
+        })
+    })
+    
     $('#edit-category').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget) // Button that triggered the modal
     
@@ -35,6 +44,14 @@ $(document).ready(function () {
         
         modal.find('#delete-text').text('Вы действительно хотите удалить категорию "' + name + '"' + '?')
         modal.find('#delete-id').val(id)
+
+        $(document).keypress(function(e) {
+            console.log(e.keyCode)
+            if (e.keyCode == 13) {
+                $('#cancel-delete-category').click()
+            }
+        })
+
     })
     
     $('#change-name').on('show.bs.modal', function (event) {
@@ -53,6 +70,22 @@ $(document).ready(function () {
         modal.find('#edit-name').val(name)
         modal.find('#edit-surname').val(surname)
         modal.find('#edit-patronymic').val(patronymic)
+
+        $(document).keypress(function(e) {
+            console.log(e.keyCode)
+            if (e.keyCode == 13 && !e.shiftKey) {
+                $('#save-name-btn').click()
+            }
+        })
+    })
+
+    $('#create-contacts').on('show.bs.modal', function (event) {
+        $(document).keypress(function(e) {
+            console.log(e.keyCode)
+            if (e.keyCode == 13 && !e.shiftKey) {
+                $('#create-contacts-btn').click()
+            }
+        })
     })
 
     $('#update-contacts').on('show.bs.modal', function (event) {
@@ -69,6 +102,13 @@ $(document).ready(function () {
         modal.find('#update-email').val(email)
         modal.find('#update-address').val(address)
         modal.find('#update-other').val(other)
+
+        $(document).keypress(function(e) {
+            console.log(e.keyCode)
+            if (e.keyCode == 13 && !e.shiftKey) {
+                $('#update-contacts-btn').click()
+            }
+        })
     })
 
     $('#edit-description').on('show.bs.modal', function (event) {

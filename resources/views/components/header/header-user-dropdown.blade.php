@@ -12,8 +12,8 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="categoriesDropdown">
                 <a class="dropdown-item" href="/profile">Профиль</a>
-                <a class="dropdown-item" href="/products-library">Библиотека</a>
-                @if(Auth::user()->id != 1)
+                @if(Auth::user()->group_id != 1)
+                    <a class="dropdown-item" href="/products-library">Библиотека</a>
                     <a class="dropdown-item" href="/my-developments">Мои разработки</a>
                 @endif
                 <a class="dropdown-item" href="/desired-products">Желаемое</a>

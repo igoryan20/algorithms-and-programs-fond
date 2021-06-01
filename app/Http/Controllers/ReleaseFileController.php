@@ -46,7 +46,9 @@ class ReleaseFileController extends Controller
         $release->refresh();
 
         $product = Product::find($productId);
+        $product->is_published = true;
         $users = $product->users;
+        $product->save();
 
         Notification::send($users, new ReleasePublished($release));
 

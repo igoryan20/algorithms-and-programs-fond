@@ -109,13 +109,5 @@ class HomePageController extends Controller
         
         return collect($products)->sortByDesc('id');
     }
-
-    public function changeUser(Request $request) {
-        session(['user_id' => $request->user_id]);
-    
-        return $this->getAllProducts($request);
-    }
-
-
 }
 ?>

@@ -16,7 +16,7 @@
             <input type="hidden" id="delete-id" name="id" />
             <input type="hidden" id="delete-type" name="type" value="delete">
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+                <button id="cancel-delete-category" type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
                 <button type="submit" class="btn btn-danger">Удалить</button>
             </div>
         </form>

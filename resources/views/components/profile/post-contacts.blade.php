@@ -8,7 +8,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form action="/{{ $action }}-contacts" method="POST">
+        <form action="/{{ $action }}-contacts" method="POST" class="needs-validation" novalidate>
                 @csrf
                 <div class="modal-body">
                     <div class="form-group">
@@ -26,7 +26,7 @@
                         <input type="text" class="form-control" id="update-address" name="address"
                                 autocomplete="off">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group"> 
                         <label for="name" class="col-form-label">Другое</label>
                         <input type="text" class="form-control" id="update-other" name="other"
                                 autocomplete="off">
@@ -34,7 +34,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
-                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                    <button id="{{ $action }}-contacts-btn" type="submit" class="btn btn-primary">Сохранить</button>
                 </div>
             </form>
       </div>

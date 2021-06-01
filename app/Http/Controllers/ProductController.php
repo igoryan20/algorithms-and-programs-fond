@@ -65,7 +65,7 @@ class ProductController extends Controller
             $productPhotoPath->save();
         }
 
-        return $this->getProduct($request, $request->id);
+        return redirect('/product/'.$request->id);
     }
 
     // Обновляю таблицу желаемого
@@ -81,20 +81,7 @@ class ProductController extends Controller
             DesiredProductUser::where('user_id', Auth::user()->id)->where('product_id', $id)->delete();
         }
 
-        return $this->getProduct($request, $id);
-    }
-
-    // Публикую продукт
-    public function publish(Request $request, $id) {
-
-        $product = Product::find($id);
-        $product->is_published = true;
-        $product->save();
-        $product->refresh();
-
-        Notification::send(User::all(), new ProductPublished($product));
-
-        return view('/pages/success', ['title' => 'Успешно опубликовано', 'info' => 'Продукт успешно опубликован', 'id' => $id]);
+        return redirect('/product/'.$id);
     }
 
     // Обновляю описание продукта
@@ -106,7 +93,7 @@ class ProductController extends Controller
         $product->full_description = $request->full_description;
         $product->save();
 
-        return $this->getProduct($request, $id);
+        return redirect('/product/'.$id);
     }
 
     public function deleteProduct(Request $request, $id) {
