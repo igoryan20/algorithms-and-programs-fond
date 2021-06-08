@@ -13,7 +13,7 @@
     <div class="px-0 mb-4">
         <ul class="list-group">
             @foreach ($products as $product)
-                <a href="/product/{{ $product->id }}" class="list-group-item d-flex list-item list-item-bc">
+                <a href="/fap/product/{{ $product->id }}" class="list-group-item d-flex list-item list-item-bc">
                     @if ($product->img_path != null)
                         <img src="{{ $product->img_path }}" alt="картинка 1" class="mr-2" width="76px" height="76px">
                     @else

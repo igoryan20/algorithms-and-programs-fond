@@ -17,7 +17,7 @@
                     <tbody>
                         @foreach ($users as $user)
                             <tr>
-                                <form action="/login-attempt" method="POST">
+                                <form action="/fap/login-attempt" method="POST">
                                     {{ csrf_field() }}
                                     <td><button type="submit" class="btn w-100">{{ $user->username }}</button></td>
                                     <input type="hidden" name="user_id" value="{{ $user->id }}">
@@ -37,7 +37,7 @@
                     <tbody>
                         @foreach ($developers as $developer)
                             <tr>
-                                <form action="/login-attempt" method="POST">
+                                <form action="/fap/login-attempt" method="POST">
                                     {{ csrf_field() }}
                                     <td><button class="btn w-100">{{ $developer->username }}</button></td>
                                     <input type="hidden" name="user_id" value="{{ $developer->id }}">
@@ -57,7 +57,7 @@
                     <tbody>
                         @foreach ($admins as $admin)
                             <tr>
-                                <form action="/login-attempt" method="POST">
+                                <form action="/fap/login-attempt" method="POST">
                                     {{ csrf_field() }}
                                     <td><button href="" class="btn w-100">{{ $admin->username }}</button></td>
                                     <input type="hidden" name="user_id" value="{{ $admin->id }}">

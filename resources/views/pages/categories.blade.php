@@ -5,11 +5,12 @@
 @endsection
 
 @section('page-content')
-    <h1 class="pt-4 mr-auto ml-auto w-75">Категории</h1>
+    <h1 class="pt-4 mr-auto ml-auto w-75">Категории
+    <button type="button" class="btn btn-outline-primary" data-toggle="modal"
+                data-target="#create-category">Добавить</button>
+    </h1>
     <hr class="ml-auto w-75">
     <div class="mr-auto ml-auto w-75">
-    <button type="button" class="btn btn-primary mb-4" data-toggle="modal"
-                data-target="#create-category">Добавить</button>
         <table class="table">
             <thead>
                 <tr>
@@ -28,7 +29,7 @@
                             <p class="mb-0">{{ $category->name }}</p>
                             <small>{{ $category->description }}</small>
                         </td>
-                        <td><a href="{{ $category->url }}">{{ $category->url }}</a></td>
+                        <td><a href="/fap/categories/{{ $category->url }}">{{ $category->url }}</a></td>
                         <td>{{ $category->weight }}</td>
                         <th scope="col">
                             <button type="button" id="btn-edit-category" class="btn material-icons mr-2"

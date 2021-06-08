@@ -11,14 +11,14 @@
                 {{ $username }}
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="categoriesDropdown">
-                <a class="dropdown-item" href="/profile">Профиль</a>
+                <a class="dropdown-item" href="/fap/profile">Профиль</a>
                 @if(Auth::user()->group_id != 1)
-                    <a class="dropdown-item" href="/products-library">Библиотека</a>
-                    <a class="dropdown-item" href="/my-developments">Мои разработки</a>
+                    <a class="dropdown-item" href="/fap/products-library">Библиотека</a>
+                    <a class="dropdown-item" href="/fap/my-developments">Мои разработки</a>
                 @endif
-                <a class="dropdown-item" href="/desired-products">Желаемое</a>
+                <a class="dropdown-item" href="/fap/desired-products">Желаемое</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="/logout">Выход</a>
+                <a class="dropdown-item" href="/fap/logout">Выход</a>
             </div>
         </div>
     </div>

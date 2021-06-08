@@ -6,7 +6,7 @@
 
 @section('page-content')
     <h1 class="pt-4 w-75 mx-auto">{{ $title }} ({{ $productsCount }}) 
-        <a href="/categories" class="btn btn-outline-secondary">Перейти ко всем категориям</a>
+        <a href="/fap/categories" class="btn btn-outline-secondary">Перейти ко всем категориям</a>
     </h1>
     <hr class="pt-4 w-75 mx-auto">
     <div class="d-flex flex-row justify-content-between">

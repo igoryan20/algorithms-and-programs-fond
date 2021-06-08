@@ -65,7 +65,7 @@ class ProductsController extends Controller
 
     public function getCategoryProducts(Request $request) {
 
-        $category = Category::where('url', $request->path())->first();
+        $category = Category::where('url', substr($request->path(), 15))->first();
         $products = $category->products;
         $productsCount = count($products);
         return view('/pages/products', ['products' => $products, 'productsCount' => $productsCount,

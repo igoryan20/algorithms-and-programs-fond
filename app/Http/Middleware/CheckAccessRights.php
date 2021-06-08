@@ -18,7 +18,7 @@ class CheckAccessRights
     public function handle(Request $request, Closure $next)
     {
         if(Auth::user()->group_id == 1) {
-            return redirect('/published-products');
+            return redirect('/fap/published-products');
         }
         return $next($request);
     }
